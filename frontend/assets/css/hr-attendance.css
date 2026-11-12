@@ -1,0 +1,1671 @@
+/* ==========================================================================
+   HR ATTENDANCE & WORKFORCE PRESENCE — ULTRA-PREMIUM VIOLET & PINK THEME
+   Matches HR Dashboard & HR Employee Directory Aesthetics
+   Vibrant Gradients • Glassmorphism • Micro-interactions • Rich SVG Icons
+   ========================================================================== */
+
+:root {
+    --hr-dash-gap: 16px;
+    --hr-card-radius: 16px;
+    --hr-border-color: #f0e1eb;
+    --hr-card-shadow: 0 4px 20px rgba(43, 23, 72, 0.05);
+
+    /* Curated HR Violet & Pink Palette */
+    --clr-violet-deep: #28103c;
+    --clr-violet-plum: #42134f;
+    --clr-violet-royal: #581c87;
+    --clr-violet-purple: #7e22ce;
+    --clr-violet-lilac: #f3e8ff;
+
+    --clr-pink-deep: #831843;
+    --clr-pink-magenta: #be185d;
+    --clr-pink-vibrant: #ed4c83;
+    --clr-pink-rose: #db2777;
+    --clr-pink-blush: #fdf2f8;
+}
+
+.hr-attendance-page {
+    width: 100% !important;
+    max-width: 1560px !important;
+    margin: 0 auto !important;
+    padding: 24px 32px 36px 32px !important;
+    box-sizing: border-box !important;
+    color: var(--hr-ink, #2b1748) !important;
+}
+
+/* =========================================================
+   1. CENTERED HEADER ROW WITH ACTIONS & DATE CONTROLS
+========================================================= */
+.hr-attendance-centered-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.hr-attendance-header-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.attendance-date-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--hr-border-color) !important;
+    padding: 7px 14px 7px 16px !important;
+    border-radius: 9999px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--hr-ink, #2b1748) !important;
+    box-shadow: 0 2px 10px rgba(43, 23, 72, 0.05) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+.attendance-date-badge svg {
+    color: var(--clr-pink-vibrant) !important;
+    flex-shrink: 0 !important;
+}
+
+.attendance-date-badge input[type="date"] {
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    width: 140px !important;
+    min-width: 140px !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+}
+
+.attendance-date-badge input[type="date"]::-webkit-datetime-edit {
+    display: inline-flex !important;
+    white-space: nowrap !important;
+}
+
+.attendance-date-badge input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    display: inline-flex !important;
+    white-space: nowrap !important;
+}
+
+.today-shortcut-btn {
+    border: none !important;
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
+}
+
+.today-shortcut-btn:hover {
+    background: #be185d !important;
+    color: #ffffff !important;
+}
+
+.hr-attendance-export-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 9px 16px !important;
+    border-radius: 9999px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--hr-border-color) !important;
+    color: var(--clr-violet-plum) !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(43, 23, 72, 0.04) !important;
+    transition: all 0.2s ease !important;
+}
+
+.hr-attendance-export-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+    transform: translateY(-1px) !important;
+}
+
+.hr-scanner-shortcut-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 9px 18px !important;
+    border-radius: 9999px !important;
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 14px rgba(190, 24, 93, 0.28) !important;
+    transition: all 0.2s ease !important;
+}
+
+.hr-scanner-shortcut-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(190, 24, 93, 0.38) !important;
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   2. KPI PILL ROW (5-PILL VIOLET & PINK PALETTE)
+========================================================= */
+.attendance-kpi-row {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 14px !important;
+    margin-bottom: 22px !important;
+}
+
+.hr-kpi-pill {
+    position: relative !important;
+    border-radius: var(--hr-card-radius) !important;
+    padding: 18px 20px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(43, 23, 72, 0.08) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-sizing: border-box !important;
+    min-height: 94px !important;
+}
+
+.hr-kpi-pill:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 24px rgba(43, 23, 72, 0.16) !important;
+}
+
+/* Gradient themes */
+.stat-hr-plum {
+    background: linear-gradient(135deg, #28103c 0%, #4a155a 100%) !important;
+}
+
+.stat-hr-pink {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+}
+
+.stat-hr-violet {
+    background: linear-gradient(135deg, #581c87 0%, #7e22ce 100%) !important;
+}
+
+.stat-hr-fuchsia {
+    background: linear-gradient(135deg, #701a75 0%, #a21caf 100%) !important;
+}
+
+.stat-hr-rose {
+    background: linear-gradient(135deg, #9d174d 0%, #db2777 100%) !important;
+}
+
+.stat-wave {
+    position: absolute !important;
+    right: -10px !important;
+    bottom: -15px !important;
+    width: 80px !important;
+    height: 80px !important;
+    opacity: 0.14 !important;
+    background: radial-gradient(circle, #ffffff 30%, transparent 70%) !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+}
+
+.stat-icon-wrapper {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(4px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.kpi-pill-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+}
+
+.kpi-pill-label {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.kpi-pill-val {
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    line-height: 1.1 !important;
+}
+
+.stat-badge {
+    font-size: 10.5px !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    padding: 2px 8px !important;
+    border-radius: 9999px !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    margin-top: 2px !important;
+    white-space: nowrap !important;
+}
+
+/* =========================================================
+   3. TWO-ROW BALANCED GRID LAYOUT
+   Row 1: Trend Chart (left) <-> Workforce Donut (right)
+   Row 2: Employee Details Table (left) <-> Department Table (right)
+   Both tables are on the EXACT same horizontal line!
+========================================================= */
+.hr-attendance-layout-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+.hr-attendance-grid-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 380px !important;
+    gap: 20px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+}
+
+/* Row 1: Attendance Trends & Workforce Distribution Donut */
+.hr-attendance-top-row .attendance-trend-card,
+.hr-attendance-top-row .status-breakdown-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    margin: 0 !important;
+    min-height: 350px !important;
+    height: 100% !important;
+}
+
+/* Row 2: BOTH TABLES ON THE EXACT SAME LINE (Employee Directory Table + Department Presence Table) */
+.hr-attendance-tables-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 380px !important;
+    gap: 20px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+}
+
+.hr-attendance-tables-row .employee-directory-card,
+.hr-attendance-tables-row .dept-attendance-card {
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    height: 100% !important;
+}
+
+/* Backward-compatibility fallback */
+.hr-attendance-container {
+    width: 100% !important;
+}
+
+/* =========================================================
+   4. DASH CARD CORE STYLES (Matching HR Dashboard)
+========================================================= */
+.dash-card {
+    background: #ffffff !important;
+    border: 1px solid var(--hr-border-color) !important;
+    border-radius: var(--hr-card-radius) !important;
+    box-shadow: var(--hr-card-shadow) !important;
+    padding: 20px 22px !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+}
+
+.card-header-clean {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 18px !important;
+    gap: 12px !important;
+}
+
+.card-title-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.card-badge-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 15px !important;
+    flex-shrink: 0 !important;
+}
+
+.badge-plum {
+    background: #fdf2f8 !important;
+    color: #42134f !important;
+}
+
+.badge-pink {
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+}
+
+.badge-violet {
+    background: #f3e8ff !important;
+    color: #7e22ce !important;
+}
+
+.badge-fuchsia {
+    background: #fae8ff !important;
+    color: #a21caf !important;
+}
+
+.card-title {
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    color: var(--hr-ink, #2b1748) !important;
+    margin: 0 !important;
+    letter-spacing: -0.2px !important;
+}
+
+.hr-select-sm {
+    height: 34px !important;
+    padding: 0 12px !important;
+    border: 1px solid var(--hr-border-color) !important;
+    border-radius: 8px !important;
+    background: #fffafd !important;
+    color: #42134f !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    outline: none !important;
+    cursor: pointer !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.hr-select-sm:focus {
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1) !important;
+}
+
+/* =========================================================
+   5. ATTENDANCE TREND CHART & HIGHLIGHTS STRIP
+========================================================= */
+.attendance-trend-card {
+    padding-bottom: 16px !important;
+}
+
+.trend-chart-outer {
+    background: #fffafd !important;
+    border: 1px solid #f6eaf2 !important;
+    border-radius: 14px !important;
+    padding: 16px 18px 12px 18px !important;
+    margin-bottom: 0 !important;
+}
+
+.trend-chart {
+    height: 180px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-around !important;
+    gap: 12px !important;
+    border-bottom: 1px dashed #ebd7e7 !important;
+    padding-bottom: 8px !important;
+}
+
+.trend-chart > span {
+    align-self: center !important;
+    color: #756b85 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.trend-day {
+    height: 100% !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-width: 32px !important;
+    position: relative !important;
+    transition: transform 0.2s ease !important;
+}
+
+.trend-day:hover {
+    transform: translateY(-2px) !important;
+}
+
+.trend-day:hover .trend-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.trend-tooltip {
+    position: absolute !important;
+    bottom: calc(100% + 6px) !important;
+    background: #28103c !important;
+    color: #ffffff !important;
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+    font-size: 10.5px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 4px 14px rgba(40, 16, 60, 0.25) !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(4px) !important;
+    transition: all 0.15s ease !important;
+    z-index: 20 !important;
+}
+
+.trend-tooltip span {
+    display: block !important;
+    font-size: 9.5px !important;
+    color: #fbcfe8 !important;
+    margin-bottom: 2px !important;
+}
+
+.trend-bars {
+    height: 140px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    gap: 4px !important;
+}
+
+.trend-bars i {
+    width: 28% !important;
+    min-height: 4px !important;
+    border-radius: 5px 5px 0 0 !important;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.trend-bars .bar-present {
+    background: linear-gradient(180deg, #be185d 0%, #db2777 100%) !important;
+}
+
+.trend-bars .bar-absent {
+    background: linear-gradient(180deg, #42134f 0%, #28103c 100%) !important;
+}
+
+.trend-bars .bar-late {
+    background: linear-gradient(180deg, #a21caf 0%, #d946ef 100%) !important;
+}
+
+.trend-day-label {
+    font-size: 10.5px !important;
+    color: #756b85 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+}
+
+.chart-key {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    margin-top: 12px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    color: #756b85 !important;
+}
+
+.key-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.key-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+
+.dot-plum { background: #be185d !important; }
+.dot-pink { background: #28103c !important; }
+.dot-violet { background: #a21caf !important; }
+
+/* Highlights horizontal tiles */
+.attendance-highlights-strip {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
+    gap: 10px !important;
+}
+
+.highlight-tile {
+    padding: 12px 14px !important;
+    background: #fdf6fa !important;
+    border: 1px solid #f2e2ee !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    transition: transform 0.15s ease, background 0.15s ease !important;
+}
+
+.highlight-tile:hover {
+    background: #fdf2f8 !important;
+    transform: translateY(-1px) !important;
+}
+
+.highlight-label {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    color: #756b85 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.highlight-val {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+    line-height: 1.2 !important;
+}
+
+/* =========================================================
+   6. EMPLOYEE ATTENDANCE DIRECTORY CARD & TABLE
+========================================================= */
+.employee-directory-card {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.attendance-tabs-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 20px 0 20px !important;
+    border-bottom: 1px solid #f2e2ee !important;
+    background: #ffffff !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.attendance-filter-tabs {
+    display: flex !important;
+    gap: 4px !important;
+}
+
+.tab-btn {
+    padding: 10px 16px !important;
+    border: none !important;
+    background: transparent !important;
+    color: #756b85 !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    transition: color 0.15s ease !important;
+}
+
+.tab-btn:hover {
+    color: #be185d !important;
+}
+
+.tab-btn.active {
+    color: #be185d !important;
+}
+
+.tab-btn.active::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -1px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2.5px !important;
+    background: linear-gradient(90deg, #be185d 0%, #ed4c83 100%) !important;
+    border-radius: 3px 3px 0 0 !important;
+}
+
+.attendance-count-badge {
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    color: #831843 !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+}
+
+/* Toolbar */
+.employee-toolbar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 14px 20px !important;
+    background: #fffafd !important;
+    border-bottom: 1px solid #f2e2ee !important;
+    flex-wrap: wrap !important;
+}
+
+.employee-search {
+    height: 38px !important;
+    max-width: 320px !important;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+    padding: 0 14px !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: #9d174d !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.employee-search:focus-within {
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.12) !important;
+}
+
+.employee-search input {
+    border: none !important;
+    outline: none !important;
+    color: #2b1748 !important;
+    font-size: 12.5px !important;
+    background: transparent !important;
+    width: 100% !important;
+    font-weight: 500 !important;
+}
+
+.employee-search input::placeholder {
+    color: #a08c9f !important;
+}
+
+.employee-toolbar select {
+    height: 38px !important;
+    padding: 0 14px !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: #2b1748 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    outline: none !important;
+    cursor: pointer !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.employee-toolbar select:focus {
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.12) !important;
+}
+
+/* Data Table (matching hr-employees.php with smooth vertical scroll) */
+.attendance-table-wrap {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    max-height: 400px !important;
+    min-height: 260px !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #be185d #fdf2f8 !important;
+    border-radius: 8px !important;
+}
+
+.attendance-table-wrap::-webkit-scrollbar {
+    height: 6px !important;
+    width: 6px !important;
+}
+
+.attendance-table-wrap::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 9999px !important;
+}
+
+.attendance-table-wrap::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #be185d 0%, #7e22ce 100%) !important;
+    border-radius: 9999px !important;
+}
+
+.attendance-table-wrap::-webkit-scrollbar-thumb:hover {
+    background: #9d174d !important;
+}
+
+.attendance-table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    min-width: 680px !important;
+    font-size: 12.5px !important;
+}
+
+.attendance-table th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 15 !important;
+    padding: 12px 14px !important;
+    text-align: left !important;
+    background: #fcf4fa !important;
+    color: #42134f !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    border-bottom: 2px solid #f0deec !important;
+    box-shadow: 0 1px 2px rgba(43, 23, 72, 0.04) !important;
+    white-space: nowrap !important;
+}
+
+.attendance-table td {
+    padding: 11px 14px !important;
+    border-top: 1px solid #f6eaf2 !important;
+    color: #2b1748 !important;
+    font-size: 12.5px !important;
+    vertical-align: middle !important;
+    transition: background 0.15s ease !important;
+    white-space: nowrap !important;
+}
+
+.attendance-table tr:hover td {
+    background: #fff8fd !important;
+}
+
+.employee-cell {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.employee-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #42134f 0%, #be185d 100%) !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 6px rgba(66, 19, 79, 0.18) !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+}
+
+.employee-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.employee-info-col strong {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+    display: block !important;
+}
+
+.employee-info-col small {
+    display: inline-block !important;
+    font-size: 10.5px !important;
+    color: #581c87 !important;
+    background: #f8edf7 !important;
+    padding: 1px 6px !important;
+    border-radius: 4px !important;
+    border: 1px solid #e9d5ff !important;
+    font-family: 'SF Mono', Monaco, monospace !important;
+    margin-top: 2px !important;
+}
+
+.dept-pill {
+    display: inline-block !important;
+    padding: 3px 9px !important;
+    border-radius: 6px !important;
+    background: #fdf2f8 !important;
+    color: #831843 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.time-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #2b1748 !important;
+}
+
+.time-pill svg {
+    color: #db2777 !important;
+}
+
+.hours-pill {
+    font-weight: 700 !important;
+    font-size: 11.5px !important;
+    color: #42134f !important;
+    background: #f3e8ff !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+/* Status Badges */
+.att-status {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 4px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+    text-transform: uppercase !important;
+}
+
+.att-status.present {
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.att-status.late {
+    background: #fae8ff !important;
+    color: #86198f !important;
+    border: 1px solid #f0abfc !important;
+}
+
+.att-status.absent {
+    background: #fff1f2 !important;
+    color: #9f1239 !important;
+    border: 1px solid #fecdd3 !important;
+}
+
+.att-status.on_leave {
+    background: #f3e8ff !important;
+    color: #6b21a8 !important;
+    border: 1px solid #d8b4fe !important;
+}
+
+.status-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: currentColor !important;
+    display: inline-block !important;
+}
+
+.attendance-view-btn {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 8px !important;
+    background: #fffafd !important;
+    border: 1px solid #ebd7e7 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #42134f !important;
+    text-decoration: none !important;
+    transition: all 0.15s ease !important;
+}
+
+.attendance-view-btn:hover {
+    background: #be185d !important;
+    border-color: #be185d !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Footer / Pagination */
+.employee-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 20px !important;
+    background: #fffafd !important;
+    border-top: 1px solid #f2e2ee !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.attendance-page-info {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #756b85 !important;
+}
+
+.employee-pagination {
+    display: flex !important;
+    gap: 6px !important;
+}
+
+.employee-pagination button {
+    min-width: 32px !important;
+    height: 32px !important;
+    padding: 0 8px !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    color: #2b1748 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.employee-pagination button:hover:not(:disabled) {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+}
+
+.employee-pagination button.active {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    border-color: #be185d !important;
+    color: #ffffff !important;
+}
+
+.employee-pagination button:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+}
+
+.per-page-label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #756b85 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.per-page-select {
+    height: 30px !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #2b1748 !important;
+    outline: none !important;
+}
+
+/* =========================================================
+   7. RIGHT RAIL WIDGETS
+========================================================= */
+
+/* Widget 1: Live Clock Chip Header */
+.live-clock-badge-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #fffafd !important;
+    border: 1px solid #f2e2ee !important;
+    padding: 4px 10px !important;
+    border-radius: 9999px !important;
+}
+
+.live-time-inline {
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    color: #42134f !important;
+    font-family: 'SF Mono', Monaco, monospace !important;
+    letter-spacing: -0.2px !important;
+}
+
+.donut-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 14px !important;
+    margin-top: 14px !important;
+    border-top: 1px solid #f6eaf2 !important;
+    font-size: 11.5px !important;
+    color: #756b85 !important;
+    font-weight: 600 !important;
+}
+
+.live-date-inline {
+    color: #42134f !important;
+    font-weight: 700 !important;
+}
+
+.live-pulse-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #be185d !important;
+    background: #fdf2f8 !important;
+    padding: 3px 9px !important;
+    border-radius: 9999px !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.pulse-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: #be185d !important;
+    box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.7) !important;
+    animation: pulseDot 2s infinite !important;
+}
+
+@keyframes pulseDot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(190, 24, 93, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
+}
+    -webkit-text-fill-color: transparent !important;
+    line-height: 1 !important;
+    margin: 4px 0 !important;
+}
+
+.live-date-str {
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    color: #756b85 !important;
+}
+
+.clock-status-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    padding: 5px 12px !important;
+    border-radius: 9999px !important;
+}
+
+.clock-meta-details {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+    background: #fffafd !important;
+    border: 1px solid #f6eaf2 !important;
+    border-radius: 12px !important;
+    margin-top: 4px !important;
+}
+
+.clock-meta-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 11.5px !important;
+}
+
+.clock-meta-row span {
+    color: #756b85 !important;
+}
+
+.clock-meta-row strong {
+    color: #2b1748 !important;
+    font-weight: 700 !important;
+}
+
+.sync-online {
+    color: #be185d !important;
+}
+
+.hr-mark-action-btn {
+    width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #42134f 0%, #701a75 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(66, 19, 79, 0.25) !important;
+    transition: all 0.2s ease !important;
+    margin-top: 4px !important;
+}
+
+.hr-mark-action-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(66, 19, 79, 0.35) !important;
+    background: linear-gradient(135deg, #581c87 0%, #86198f 100%) !important;
+}
+
+/* Widget 2: Donut Breakdown (matching hr-dashboard.css) */
+.prod-trend-pill {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #be185d !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+}
+
+.attendance-donut-body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+.prod-donut-wrapper {
+    position: relative !important;
+    width: 130px !important;
+    height: 130px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.prod-ring-svg {
+    transform: rotate(-90deg) !important;
+}
+
+.ring-bg {
+    stroke: #f3e8ff !important;
+}
+
+.ring-pink {
+    stroke: #be185d !important;
+    transition: stroke-dashoffset 0.6s ease !important;
+}
+
+.ring-violet {
+    stroke: #7e22ce !important;
+    transition: stroke-dashoffset 0.6s ease !important;
+}
+
+.ring-fuchsia {
+    stroke: #db2777 !important;
+    transition: stroke-dashoffset 0.6s ease !important;
+}
+
+.ring-plum {
+    stroke: #28103c !important;
+    transition: stroke-dashoffset 0.6s ease !important;
+}
+
+.prod-donut-center {
+    position: absolute !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.prod-pct {
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+    line-height: 1 !important;
+}
+
+.prod-sub-txt {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #756b85 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.4px !important;
+    margin-top: 3px !important;
+}
+
+.prod-legend-list {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.prod-legend-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+    background: #fffafd !important;
+    border: 1px solid #f6eaf2 !important;
+}
+
+.legend-dot-label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #2b1748 !important;
+    font-weight: 600 !important;
+}
+
+.legend-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+}
+
+.legend-val {
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+}
+
+/* Widget 3: Attendance by Department (Companion Table in Row 2) */
+.dept-attendance-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+}
+
+.dept-count-badge {
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    color: #7e22ce !important;
+    background: #f3e8ff !important;
+    border: 1px solid #e9d5ff !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+}
+
+.department-progress-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    flex: 1 1 auto !important;
+    padding: 4px 0 16px 0 !important;
+    overflow-y: auto !important;
+    max-height: 400px !important;
+    min-height: 260px !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #be185d #fdf2f8 !important;
+}
+
+.department-progress-list::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+.department-progress-list::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 9999px !important;
+}
+
+.department-progress-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #be185d 0%, #7e22ce 100%) !important;
+    border-radius: 9999px !important;
+}
+
+/* Department Presence Table Styling (Matching the Employee Table) */
+.dept-table-wrap {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    max-height: 400px !important;
+    min-height: 260px !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #be185d #fdf2f8 !important;
+    border-radius: 8px !important;
+}
+
+.dept-table-wrap::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+.dept-table-wrap::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 9999px !important;
+}
+
+.dept-table-wrap::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #be185d 0%, #7e22ce 100%) !important;
+    border-radius: 9999px !important;
+}
+
+.dept-presence-table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    font-size: 12px !important;
+}
+
+.dept-presence-table th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    padding: 10px 12px !important;
+    text-align: left !important;
+    background: #fcf4fa !important;
+    color: #42134f !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid #f0deec !important;
+    white-space: nowrap !important;
+}
+
+.dept-presence-table td {
+    padding: 11px 12px !important;
+    border-top: 1px solid #f6eaf2 !important;
+    color: #2b1748 !important;
+    font-size: 12px !important;
+    vertical-align: middle !important;
+}
+
+.dept-presence-table tr:hover td {
+    background: #fff8fd !important;
+}
+
+.dept-td-name {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.dept-td-name strong {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+}
+
+.dept-icon-mini {
+    font-size: 13px !important;
+}
+
+.dept-val-pill {
+    display: inline-block !important;
+    padding: 2px 8px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    border: 1px solid #fbcfe8 !important;
+    font-family: 'SF Mono', Monaco, monospace !important;
+}
+
+.dept-rate-cell {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.dept-rate-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.dept-pct-badge {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+}
+
+.dept-pct-badge.rate-high {
+    color: #be185d !important;
+}
+
+.dept-pct-badge.rate-med {
+    color: #7e22ce !important;
+}
+
+.dept-pct-badge.rate-low {
+    color: #e11d48 !important;
+}
+
+.dept-mini-track {
+    width: 100% !important;
+    height: 5px !important;
+    background: #f3e8ff !important;
+    border-radius: 9999px !important;
+    overflow: hidden !important;
+}
+
+.dept-mini-fill {
+    height: 100% !important;
+    border-radius: 9999px !important;
+    background: linear-gradient(90deg, #be185d 0%, #ed4c83 100%) !important;
+    transition: width 0.4s ease !important;
+}
+
+.dept-progress-item {
+    background: #fffafd !important;
+    border: 1px solid #f6eaf2 !important;
+    border-radius: 12px !important;
+    padding: 14px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease !important;
+}
+
+.dept-progress-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 14px rgba(43, 23, 72, 0.06) !important;
+    background: #ffffff !important;
+    border-color: #ebd7e7 !important;
+}
+
+.dept-progress-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 12.5px !important;
+}
+
+.dept-name {
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.dept-ratio {
+    font-weight: 800 !important;
+    color: #be185d !important;
+    font-size: 11.5px !important;
+    background: #fdf2f8 !important;
+    padding: 2px 8px !important;
+    border-radius: 9999px !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.dept-bar-track {
+    height: 8px !important;
+    background: #f3e8ff !important;
+    border-radius: 9999px !important;
+    overflow: hidden !important;
+}
+
+.dept-bar-fill {
+    height: 100% !important;
+    background: linear-gradient(90deg, #be185d 0%, #ed4c83 100%) !important;
+    border-radius: 9999px !important;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.dept-card-footer {
+    margin-top: auto !important;
+    padding-top: 14px !important;
+    border-top: 1px solid #f2e2ee !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.dept-footer-insight {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 11.5px !important;
+    color: #756b85 !important;
+}
+
+.dept-footer-insight svg {
+    color: #7e22ce !important;
+    flex-shrink: 0 !important;
+}
+
+.dept-footer-insight strong {
+    color: #be185d !important;
+    font-weight: 700 !important;
+}
+
+/* Widget 4: Live Activity Feed */
+.recent-activity-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.activity-feed-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 8px 10px !important;
+    border-radius: 10px !important;
+    background: #fffafd !important;
+    border: 1px solid #f6eaf2 !important;
+    transition: background 0.15s ease !important;
+}
+
+.activity-feed-item:hover {
+    background: #fdf2f8 !important;
+}
+
+.activity-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    background: #f3e8ff !important;
+    color: #581c87 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+}
+
+.activity-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.activity-content {
+    flex: 1 !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1px !important;
+}
+
+.activity-title {
+    font-size: 11.5px !important;
+    color: #2b1748 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.activity-title strong {
+    font-weight: 700 !important;
+}
+
+.activity-time {
+    font-size: 10px !important;
+    color: #756b85 !important;
+}
+
+/* =========================================================
+   8. RESPONSIVE BREAKPOINTS
+========================================================= */
+@media (max-width: 1380px) {
+    .attendance-kpi-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hr-attendance-grid-row,
+    .hr-attendance-tables-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .attendance-kpi-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .hr-attendance-right-rail {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .hr-attendance-page {
+        padding: 16px !important;
+    }
+
+    .attendance-kpi-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .attendance-tabs-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .employee-toolbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .employee-search {
+        max-width: 100% !important;
+    }
+}

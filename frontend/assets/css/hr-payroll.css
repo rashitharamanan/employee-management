@@ -1,0 +1,625 @@
+/* ==========================================================================
+   HR PAYROLL WORKSPACE — ULTRA-PREMIUM VIOLET & PINK THEME
+   Adheres strictly to HR Employees & HR Dashboard design system
+   ========================================================================== */
+
+/* Month Picker in Tab Actions */
+.payroll-month-picker {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 0 12px !important;
+    height: 38px !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: #be185d !important;
+    box-shadow: 0 1px 4px rgba(43, 23, 72, 0.04) !important;
+}
+
+.payroll-month-picker input {
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    color: #2b1748 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+}
+
+/* Primary Action in Tab Actions */
+.employee-tab-actions > button.hr-primary-action,
+.employee-tab-actions > .hr-primary-action {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.28) !important;
+}
+
+.employee-tab-actions > button.hr-primary-action:hover,
+.employee-tab-actions > .hr-primary-action:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(190, 24, 93, 0.38) !important;
+    color: #ffffff !important;
+}
+
+/* Tab Badges inside .employee-tabs */
+.employee-tabs .tab-badge {
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    padding: 2px 7px !important;
+    border-radius: 9999px !important;
+    margin-left: 5px !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.employee-tabs button.active .tab-badge {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+/* ==========================================================================
+   FIX TABLE HEIGHT & FLUSH SCROLLBAR (ZERO GAP ABOVE FOOTER)
+   ========================================================================== */
+.hr-payroll-page .employee-layout {
+    align-items: stretch !important;
+}
+
+.hr-payroll-page .employee-directory-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    position: relative !important;
+}
+
+.hr-payroll-page .employee-table-wrap {
+    flex: 1 1 auto !important;
+    max-height: 540px !important;
+    min-height: 380px !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    background: #ffffff !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #d8b4fe #fdf2f8 !important;
+}
+
+.hr-payroll-page .employee-table-wrap::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.hr-payroll-page .employee-table-wrap::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 6px !important;
+}
+
+.hr-payroll-page .employee-table-wrap::-webkit-scrollbar-thumb {
+    background: #d8b4fe !important;
+    border-radius: 6px !important;
+}
+
+.hr-payroll-page .employee-table-wrap::-webkit-scrollbar-thumb:hover {
+    background: #be185d !important;
+}
+
+.hr-payroll-page .employee-table-wrap table {
+    width: 100% !important;
+    min-width: 860px !important;
+}
+
+.hr-payroll-page .hr-employee-card th {
+    padding: 12px 14px !important;
+}
+
+.hr-payroll-page .hr-employee-card td {
+    padding: 11px 14px !important;
+}
+
+.hr-payroll-page .employee-footer {
+    margin-top: 0 !important;
+    border-top: 1px solid #f2e2ee !important;
+    flex-shrink: 0 !important;
+}
+
+/* Money formatting in table */
+.payroll-money {
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+    font-size: 13px !important;
+}
+
+/* Horizontal Chart Rows (Funnel / Department Breakdown) */
+.chart-row {
+    display: grid !important;
+    grid-template-columns: 105px 1fr 50px !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 12px !important;
+    color: #5a4060 !important;
+    font-weight: 600 !important;
+}
+
+.chart-row i {
+    height: 8px !important;
+    border-radius: 6px !important;
+    background: #f4e9f2 !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.chart-row i b {
+    display: block !important;
+    height: 100% !important;
+    border-radius: 6px !important;
+    background: linear-gradient(90deg, #be185d 0%, #ed4c83 100%) !important;
+    transition: width 0.3s ease !important;
+}
+
+.chart-row strong {
+    text-align: right !important;
+    color: var(--hr-ink, #2b1748) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+/* Card 2: Department Distribution scroll */
+.hr-payroll-page #payrollDepartmentChart {
+    max-height: 190px !important;
+    overflow-y: auto !important;
+    padding-right: 6px !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #d8b4fe #fdf2f8 !important;
+}
+
+.hr-payroll-page #payrollDepartmentChart::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.hr-payroll-page #payrollDepartmentChart::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 6px !important;
+}
+
+.hr-payroll-page #payrollDepartmentChart::-webkit-scrollbar-thumb {
+    background: #d8b4fe !important;
+    border-radius: 6px !important;
+}
+
+.hr-payroll-page #payrollDepartmentChart::-webkit-scrollbar-thumb:hover {
+    background: #be185d !important;
+}
+
+/* Breakdown rows in Card 1 */
+.payroll-breakdown-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 7px 0 !important;
+    border-bottom: 1px dashed #f2e2ee !important;
+    font-size: 12px !important;
+    color: #6b5072 !important;
+}
+
+.payroll-breakdown-item strong {
+    color: #2b1748 !important;
+    font-size: 12.5px !important;
+}
+
+.payroll-breakdown-item.total {
+    border-top: 2px solid #2b1748 !important;
+    border-bottom: none !important;
+    margin-top: 6px !important;
+    padding-top: 10px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+}
+
+.payroll-breakdown-item.total strong {
+    font-size: 15px !important;
+    color: #be185d !important;
+}
+
+/* Recent Payment Items in Card 3 */
+.hr-payroll-page #payrollRecentPayments {
+    max-height: 220px !important;
+    overflow-y: auto !important;
+    padding-right: 6px !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #d8b4fe #fdf2f8 !important;
+}
+
+.hr-payroll-page #payrollRecentPayments::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.hr-payroll-page #payrollRecentPayments::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 6px !important;
+}
+
+.hr-payroll-page #payrollRecentPayments::-webkit-scrollbar-thumb {
+    background: #d8b4fe !important;
+    border-radius: 6px !important;
+}
+
+.hr-payroll-page #payrollRecentPayments::-webkit-scrollbar-thumb:hover {
+    background: #be185d !important;
+}
+
+.payment-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    background: #fffafd !important;
+    border: 1px solid #f2e2ee !important;
+    transition: all 0.18s ease !important;
+}
+
+.payment-item:hover {
+    background: #ffffff !important;
+    border-color: #fbcfe8 !important;
+    box-shadow: 0 4px 12px rgba(66, 19, 79, 0.08) !important;
+    transform: translateY(-1px) !important;
+}
+
+.payment-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 6px rgba(43, 23, 72, 0.15) !important;
+}
+
+.payment-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.payment-info strong {
+    display: block !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: var(--hr-ink, #2b1748) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.payment-info small {
+    display: block !important;
+    font-size: 11px !important;
+    color: #756b85 !important;
+    margin-top: 2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.payment-amount {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    color: #be185d !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    background: #fdf2f8 !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+/* Action Buttons */
+.rec-action-btn {
+    padding: 5px 12px !important;
+    border-radius: 8px !important;
+    border: 1px solid #ebd7e7 !important;
+    background: #fffafd !important;
+    color: #581c87 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.rec-action-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+}
+
+/* ==========================================================================
+   LUXURY PAYSLIP MODAL STYLING
+   ========================================================================== */
+.lm-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(40, 16, 60, 0.48) !important;
+    backdrop-filter: blur(4px) !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
+    padding: 20px !important;
+}
+
+.payslip-modal-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    max-width: 600px !important;
+    width: 100% !important;
+    border: 1px solid #ebd7e7 !important;
+    box-shadow: 0 24px 60px rgba(43, 23, 72, 0.28) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 90vh !important;
+}
+
+.payslip-modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 18px 24px !important;
+    background: linear-gradient(135deg, #28103c 0%, #42134f 100%) !important;
+    color: #ffffff !important;
+}
+
+.payslip-badge {
+    display: inline-block !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.8px !important;
+    color: #fbcfe8 !important;
+    margin-bottom: 2px !important;
+}
+
+.payslip-modal-header h2 {
+    margin: 0 !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+}
+
+.payslip-close-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.payslip-close-btn:hover {
+    background: #be185d !important;
+}
+
+.payslip-modal-body {
+    padding: 20px 24px !important;
+    overflow-y: auto !important;
+}
+
+.payslip-meta-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding-bottom: 14px !important;
+    margin-bottom: 16px !important;
+    border-bottom: 1px dashed #ebd7e7 !important;
+}
+
+.payslip-meta-row strong {
+    font-size: 14px !important;
+    color: #2b1748 !important;
+    display: block !important;
+}
+
+.payslip-meta-row small {
+    font-size: 11px !important;
+    color: #756b85 !important;
+}
+
+.payslip-tables-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 18px !important;
+}
+
+.payslip-box {
+    background: #fffafd !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 12px !important;
+    padding: 14px !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #d8b4fe #fdf2f8 !important;
+}
+
+.payslip-box::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.payslip-box::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 6px !important;
+}
+
+.payslip-box::-webkit-scrollbar-thumb {
+    background: #d8b4fe !important;
+    border-radius: 6px !important;
+}
+
+.payslip-box::-webkit-scrollbar-thumb:hover {
+    background: #be185d !important;
+}
+
+.payslip-box h3 {
+    margin: 0 0 10px 0 !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #42134f !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.payslip-box table {
+    width: 100% !important;
+    font-size: 11.5px !important;
+}
+
+.payslip-box table td {
+    padding: 5px 0 !important;
+    border-bottom: 1px solid #f6eaf2 !important;
+    color: #5a4060 !important;
+}
+
+.payslip-box table td:last-child {
+    text-align: right !important;
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+}
+
+.payslip-net-card {
+    background: linear-gradient(135deg, #fdf2f8 0%, #f8edf7 100%) !important;
+    border: 1.5px solid #fbcfe8 !important;
+    border-radius: 14px !important;
+    padding: 14px 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.payslip-net-card strong {
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    color: #be185d !important;
+}
+
+.payslip-modal-footer {
+    padding: 14px 24px !important;
+    border-top: 1px solid #ebd7e7 !important;
+    background: #fffafd !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+}
+
+/* Toast container */
+.toast-container {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    z-index: 10000 !important;
+}
+
+.toast {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 11px 18px !important;
+    background: #2b1748 !important;
+    color: #ffffff !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 28px rgba(43, 23, 72, 0.3) !important;
+    border: 1px solid rgba(235, 215, 231, 0.15) !important;
+    border-left: 4px solid #be185d !important;
+    transition: all 0.24s ease !important;
+}
+
+.toast.error {
+    border-left-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   INTERACTIVE STATUS SELECT BADGE (MATCHING RECRUITMENT & ONBOARDING)
+   ========================================================================== */
+
+.rec-status-wrap {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.rec-status-select {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 4px 24px 4px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    outline: none !important;
+    border: 1px solid transparent !important;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background-repeat: no-repeat !important;
+    background-position: right 7px center !important;
+    background-size: 9px 9px !important;
+    font-family: inherit !important;
+}
+
+.rec-status-select:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 3px 10px rgba(66, 19, 79, 0.12) !important;
+}
+
+/* PAID Status (Active Pink/Magenta Theme) */
+.rec-status-select.active,
+.rec-status-select[data-status="PAID"] {
+    background-color: #fdf2f8 !important;
+    color: #be185d !important;
+    border-color: #fbcfe8 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23be185d' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* PENDING Status (Royal Violet Theme) */
+.rec-status-select.on_leave,
+.rec-status-select[data-status="PENDING"] {
+    background-color: #f8edf7 !important;
+    color: #581c87 !important;
+    border-color: #ebd7e7 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23581c87' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* VOID Status (Neutral Theme) */
+.rec-status-select.inactive,
+.rec-status-select[data-status="VOID"] {
+    background-color: #f3f4f6 !important;
+    color: #6b7280 !important;
+    border-color: #e5e7eb !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+@media print {
+    body * { visibility: hidden !important; }
+    .payslip-modal-card, .payslip-modal-card * { visibility: visible !important; }
+    .payslip-modal-card { position: fixed !important; left: 0 !important; top: 0 !important; width: 100% !important; max-width: 100% !important; box-shadow: none !important; }
+    .payslip-modal-footer, .payslip-close-btn { display: none !important; }
+}

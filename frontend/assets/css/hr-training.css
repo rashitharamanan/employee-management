@@ -1,0 +1,883 @@
+/* ==========================================================================
+   HR TRAINING MANAGEMENT — ULTRA-PREMIUM VIOLET & PINK CRM THEME
+   Unified HR Portal Design System (Matches Dashboard, Employees, Payroll, Performance)
+   ========================================================================== */
+
+/* Page Container */
+.tr-page {
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 24px 28px 48px !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   1. COMPACT TOP ACTIONS BAR (Replacing Redundant Header)
+   ========================================================================== */
+.tr-top-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+}
+
+.tr-top-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #be185d !important;
+    letter-spacing: 0.2px !important;
+}
+
+.tr-pulse-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.2) !important;
+    animation: trPulse 2s infinite !important;
+}
+
+@keyframes trPulse {
+    0% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(190, 24, 93, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
+}
+
+.tr-heading-actions {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+
+.tr-primary-btn,
+.tr-secondary-btn,
+.tr-ghost-btn,
+.tr-danger-btn {
+    height: 38px !important;
+    padding: 0 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    border-radius: 10px !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-sizing: border-box !important;
+}
+
+.tr-primary-btn {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.28) !important;
+}
+
+.tr-primary-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(190, 24, 93, 0.38) !important;
+    color: #ffffff !important;
+}
+
+.tr-secondary-btn {
+    background: #ffffff !important;
+    color: #42134f !important;
+    border: 1px solid #ebd7e7 !important;
+    box-shadow: 0 1px 4px rgba(43, 23, 72, 0.04) !important;
+}
+
+.tr-secondary-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+    transform: translateY(-1px) !important;
+}
+
+.tr-ghost-btn {
+    background: #ffffff !important;
+    color: #be185d !important;
+    border: 1px solid #ebd7e7 !important;
+}
+
+.tr-ghost-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+}
+
+.tr-danger-btn {
+    background: linear-gradient(135deg, #be123c 0%, #e11d48 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* Error Banner */
+.tr-error {
+    margin: 0 0 20px !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    color: #be185d !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   2. SIX SIGNATURE HR KPI CARDS (Rich Violet & Pink Gradients)
+   ========================================================================== */
+.employee-kpis.tr-kpis {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 14px !important;
+    margin-bottom: 24px !important;
+}
+
+.tr-kpis .employee-kpi {
+    position: relative !important;
+    border-radius: 18px !important;
+    padding: 14px 14px !important;
+    color: #ffffff !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 11px !important;
+    box-shadow: 0 8px 22px rgba(43, 23, 72, 0.14) !important;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    text-decoration: none !important;
+    min-height: 88px !important;
+    box-sizing: border-box !important;
+    cursor: default !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+.tr-kpis .employee-kpi:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 14px 30px rgba(43, 23, 72, 0.24) !important;
+}
+
+/* 6 Curated Violet & Pink Gradient Themes */
+.tr-kpis .kpi-theme-plum {
+    background: linear-gradient(135deg, #28103c 0%, #4a155a 100%) !important;
+}
+
+.tr-kpis .kpi-theme-violet {
+    background: linear-gradient(135deg, #581c87 0%, #7e22ce 100%) !important;
+}
+
+.tr-kpis .kpi-theme-pink {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+}
+
+.tr-kpis .kpi-theme-rose {
+    background: linear-gradient(135deg, #9d174d 0%, #db2777 100%) !important;
+}
+
+.tr-kpis .kpi-theme-fuchsia {
+    background: linear-gradient(135deg, #701a75 0%, #a21caf 100%) !important;
+}
+
+.tr-kpis .kpi-theme-magenta {
+    background: linear-gradient(135deg, #4c0519 0%, #831843 100%) !important;
+}
+
+.tr-kpis .kpi-icon-box {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.tr-kpis .kpi-details {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+}
+
+.tr-kpis .kpi-label {
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.tr-kpis .kpi-value {
+    font-size: 24px !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.4px !important;
+}
+
+.tr-kpis .kpi-pill-badge {
+    font-size: 9.5px !important;
+    font-weight: 700 !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    padding: 2px 8px !important;
+    border-radius: 9999px !important;
+    width: fit-content !important;
+    margin-top: 3px !important;
+    letter-spacing: 0.2px !important;
+    white-space: nowrap !important;
+}
+
+.tr-kpis .kpi-wave {
+    position: absolute !important;
+    right: -14px !important;
+    bottom: -18px !important;
+    width: 90px !important;
+    height: 90px !important;
+    opacity: 0.16 !important;
+    background: radial-gradient(circle, #ffffff 30%, transparent 70%) !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================================================
+   3. CATEGORIES STRIP
+   ========================================================================== */
+.tr-categories {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 20px !important;
+    background: #ffffff !important;
+    padding: 12px 18px !important;
+    border-radius: 14px !important;
+    border: 1px solid #ebd7e7 !important;
+    box-shadow: 0 2px 10px rgba(43, 23, 72, 0.03) !important;
+}
+
+.tr-cat-title {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    color: #be185d !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.tr-cat-chip {
+    background: #fdf2f8 !important;
+    color: #42134f !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 999px !important;
+    padding: 5px 14px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.18s ease !important;
+}
+
+.tr-cat-chip:hover {
+    background: #fce7f3 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+}
+
+.tr-cat-chip.active {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(190, 24, 93, 0.25) !important;
+}
+
+/* ==========================================================================
+   4. TABS & PANELS
+   ========================================================================== */
+.tr-tabs {
+    display: flex !important;
+    gap: 8px !important;
+    margin-bottom: 18px !important;
+    border-bottom: 2px solid #f3e8ff !important;
+    padding-bottom: 2px !important;
+}
+
+.tr-tab {
+    background: transparent !important;
+    border: none !important;
+    padding: 10px 22px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #756b85 !important;
+    cursor: pointer !important;
+    border-radius: 12px 12px 0 0 !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+.tr-tab:hover {
+    color: #42134f !important;
+    background: #fdf2f8 !important;
+}
+
+.tr-tab.active {
+    color: #be185d !important;
+    background: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+.tr-tab.active::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, #be185d 0%, #7e22ce 100%) !important;
+    border-radius: 3px 3px 0 0 !important;
+}
+
+.tr-tab-panel {
+    background: #ffffff !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 18px !important;
+    padding: 22px !important;
+    box-shadow: 0 4px 20px rgba(43, 23, 72, 0.05) !important;
+}
+
+/* ==========================================================================
+   5. TOOLBAR & FILTER INPUTS
+   ========================================================================== */
+.tr-toolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    align-items: center !important;
+    margin-bottom: 18px !important;
+}
+
+.tr-input {
+    font-size: 12.5px !important;
+    color: #2b1748 !important;
+    background: #fffafd !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    padding: 8px 14px !important;
+    min-height: 40px !important;
+    transition: all 0.2s ease !important;
+}
+
+.tr-input:focus {
+    outline: none !important;
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.14) !important;
+    background: #ffffff !important;
+}
+
+.tr-search {
+    width: 260px !important;
+}
+
+/* ==========================================================================
+   6. SCROLLABLE TABLES WITH STICKY HEADERS & HR SCROLLBARS
+   ========================================================================== */
+.tr-table-card {
+    max-height: 400px !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    border-radius: 14px !important;
+    border: 1px solid #ebd7e7 !important;
+    background: #ffffff !important;
+}
+
+/* Custom HR Scrollbar */
+.tr-table-card::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.tr-table-card::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 8px !important;
+}
+
+.tr-table-card::-webkit-scrollbar-thumb {
+    background: #f472b6 !important;
+    border-radius: 8px !important;
+}
+
+.tr-table-card::-webkit-scrollbar-thumb:hover {
+    background: #be185d !important;
+}
+
+.tr-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 12.5px !important;
+    text-align: left !important;
+}
+
+.tr-table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background: #fff5fa !important;
+    color: #42134f !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    padding: 14px 16px !important;
+    border-bottom: 2px solid #ebd7e7 !important;
+    white-space: nowrap !important;
+}
+
+.tr-table tbody td {
+    padding: 13px 16px !important;
+    border-bottom: 1px solid #f9eef6 !important;
+    vertical-align: middle !important;
+    color: #2b1748 !important;
+}
+
+.tr-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.tr-table tbody tr:hover {
+    background: #fdf8fb !important;
+}
+
+.tr-table .tr-loading {
+    text-align: center !important;
+    color: #be185d !important;
+    font-weight: 700 !important;
+    padding: 36px !important;
+}
+
+.tr-table .tr-empty {
+    text-align: center !important;
+    color: #756b85 !important;
+    font-style: italic !important;
+    padding: 36px !important;
+}
+
+.tr-col-actions {
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+
+/* Employee Cell in Table */
+.tr-emp-cell {
+    display: flex !important;
+    align-items: center !important;
+    gap: 11px !important;
+}
+
+.tr-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%) !important;
+    color: #be185d !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.tr-emp-cell .tr-emp-main {
+    display: block !important;
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+}
+
+.tr-emp-cell .tr-emp-sub {
+    display: block !important;
+    font-size: 11px !important;
+    color: #756b85 !important;
+}
+
+/* Status Badges */
+.tr-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+}
+
+.tr-badge-success {
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border: 1px solid #a7f3d0 !important;
+}
+
+.tr-badge-warning {
+    background: #fffbeb !important;
+    color: #d97706 !important;
+    border: 1px solid #fde68a !important;
+}
+
+.tr-badge-info {
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.tr-badge-muted {
+    background: #f5f3f7 !important;
+    color: #756b85 !important;
+    border: 1px solid #e2d9e6 !important;
+}
+
+.tr-badge-danger {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+}
+
+.tr-badge-primary {
+    background: #f3e8ff !important;
+    color: #7e22ce !important;
+    border: 1px solid #d8b4fe !important;
+}
+
+.tr-badge-purple {
+    background: #fae8ff !important;
+    color: #86198f !important;
+    border: 1px solid #f0abfc !important;
+}
+
+.tr-link-btn {
+    background: none !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    color: #be185d !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.tr-link-btn:hover {
+    background: #fdf2f8 !important;
+    text-decoration: underline !important;
+}
+
+.tr-link-btn.danger {
+    color: #e11d48 !important;
+}
+
+.tr-link-btn.danger:hover {
+    background: #fff1f2 !important;
+}
+
+/* ==========================================================================
+   7. PAGINATION
+   ========================================================================== */
+.tr-pagination {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 18px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #ebd7e7 !important;
+}
+
+.tr-pagination-info {
+    font-size: 12px !important;
+    color: #756b85 !important;
+    font-weight: 600 !important;
+}
+
+.tr-pagination-controls {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+/* ==========================================================================
+   8. MODALS (HR CRM Deep Plum Styling)
+   ========================================================================== */
+.tr-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(27, 10, 40, 0.65) !important;
+    backdrop-filter: blur(6px) !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1000 !important;
+    padding: 20px !important;
+}
+
+.tr-modal.open {
+    display: flex !important;
+}
+
+.tr-modal-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(43, 23, 72, 0.3) !important;
+    width: 100% !important;
+    max-width: 580px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border: 1px solid #ebd7e7 !important;
+}
+
+.tr-modal-lg {
+    max-width: 800px !important;
+}
+
+.tr-modal-sm {
+    max-width: 460px !important;
+}
+
+.tr-modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 22px 26px !important;
+    background: linear-gradient(135deg, #28103c 0%, #4a155a 100%) !important;
+    color: #ffffff !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.tr-modal-header h2 {
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.tr-modal-header p {
+    font-size: 12.5px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 4px 0 0 !important;
+}
+
+.tr-close-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    font-size: 20px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    border-radius: 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+}
+
+.tr-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+}
+
+.tr-modal-body {
+    padding: 24px 26px !important;
+}
+
+.tr-modal-actions {
+    display: flex !important;
+    gap: 12px !important;
+    justify-content: flex-end !important;
+    padding: 16px 26px !important;
+    border-top: 1px solid #ebd7e7 !important;
+    background: #fffafd !important;
+    border-radius: 0 0 20px 20px !important;
+}
+
+/* Modal Form Fields */
+.tr-field {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #42134f !important;
+    margin-bottom: 12px !important;
+}
+
+.tr-field .tr-input,
+.tr-field textarea {
+    width: 100% !important;
+    margin-top: 6px !important;
+    box-sizing: border-box !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+}
+
+.tr-field textarea:focus {
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.14) !important;
+    outline: none !important;
+}
+
+.tr-req {
+    color: #be185d !important;
+}
+
+/* Detail blocks inside view modal */
+.tr-detail-item {
+    background: #fffafd !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+}
+
+.tr-detail-item small {
+    color: #be185d !important;
+    font-weight: 800 !important;
+}
+
+.tr-detail-item strong {
+    color: #2b1748 !important;
+}
+
+.tr-desc-block p,
+.tr-session-row {
+    background: #fffafd !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 12px !important;
+}
+
+/* Toast */
+.tr-toast {
+    position: fixed !important;
+    bottom: 26px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #28103c !important;
+    color: #ffffff !important;
+    border: 1px solid #be185d !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 12px 24px !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 10px 30px rgba(43, 23, 72, 0.3) !important;
+    z-index: 1200 !important;
+}
+
+/* ==========================================================================
+   INTERACTIVE STATUS SELECT BADGE (MATCHING HR RECRUITMENT & PAYROLL)
+   ========================================================================== */
+
+.rec-status-wrap {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.rec-status-select {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 4px 24px 4px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    outline: none !important;
+    border: 1px solid transparent !important;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background-repeat: no-repeat !important;
+    background-position: right 7px center !important;
+    background-size: 9px 9px !important;
+    font-family: inherit !important;
+}
+
+.rec-status-select:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 3px 10px rgba(66, 19, 79, 0.12) !important;
+}
+
+/* ACTIVE Status (Active Pink/Magenta Theme) */
+.rec-status-select.active,
+.rec-status-select[data-status="ACTIVE"] {
+    background-color: #fdf2f8 !important;
+    color: #be185d !important;
+    border-color: #fbcfe8 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23be185d' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* DRAFT / ENROLLED / IN_PROGRESS Status (Royal Violet Theme) */
+.rec-status-select.on_leave,
+.rec-status-select[data-status="DRAFT"],
+.rec-status-select[data-status="ENROLLED"],
+.rec-status-select[data-status="IN_PROGRESS"] {
+    background-color: #f8edf7 !important;
+    color: #581c87 !important;
+    border-color: #ebd7e7 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23581c87' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* COMPLETED Status (Rich Magenta Theme) */
+.rec-status-select[data-status="COMPLETED"] {
+    background-color: #fdf2f8 !important;
+    color: #9d174d !important;
+    border-color: #fbcfe8 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%239d174d' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* CANCELLED / DROPPED Status (Neutral Theme) */
+.rec-status-select.inactive,
+.rec-status-select[data-status="CANCELLED"],
+.rec-status-select[data-status="DROPPED"] {
+    background-color: #f3f4f6 !important;
+    color: #6b7280 !important;
+    border-color: #e5e7eb !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .employee-kpis.tr-kpis {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .employee-kpis.tr-kpis {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .tr-top-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .employee-kpis.tr-kpis {
+        grid-template-columns: 1fr !important;
+    }
+}

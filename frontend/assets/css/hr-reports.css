@@ -1,0 +1,925 @@
+/* ==========================================================================
+   HR REPORTS & ANALYTICS — ULTRA-PREMIUM VIOLET & PINK CRM THEME
+   Unified HR Portal Design System (Matches Dashboard, Employees, Payroll, Performance, Training)
+   ========================================================================== */
+
+/* Page Container */
+.rp-page {
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 24px 28px 48px !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   1. COMPACT TOP ACTIONS BAR (Replacing Redundant Header)
+   ========================================================================== */
+.rp-top-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+}
+
+.rp-top-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #be185d !important;
+    letter-spacing: 0.2px !important;
+}
+
+.rp-pulse-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.2) !important;
+    animation: rpPulse 2s infinite !important;
+}
+
+@keyframes rpPulse {
+    0% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(190, 24, 93, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
+}
+
+.rp-heading-actions {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+
+.rp-primary-btn,
+.rp-secondary-btn,
+.rp-ghost-btn {
+    height: 38px !important;
+    padding: 0 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    border-radius: 10px !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-sizing: border-box !important;
+}
+
+.rp-primary-btn {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.28) !important;
+}
+
+.rp-primary-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(190, 24, 93, 0.38) !important;
+    color: #ffffff !important;
+}
+
+.rp-secondary-btn {
+    background: #ffffff !important;
+    color: #42134f !important;
+    border: 1px solid #ebd7e7 !important;
+    box-shadow: 0 1px 4px rgba(43, 23, 72, 0.04) !important;
+}
+
+.rp-secondary-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+    transform: translateY(-1px) !important;
+}
+
+.rp-ghost-btn {
+    background: #ffffff !important;
+    color: #be185d !important;
+    border: 1px solid #ebd7e7 !important;
+}
+
+.rp-ghost-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+}
+
+/* Error Banner */
+.rp-error {
+    margin: 0 0 20px !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    color: #be185d !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   2. FILTERS STRIP
+   ========================================================================== */
+.rp-filters {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+    align-items: flex-end !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 16px !important;
+    padding: 16px 20px !important;
+    box-shadow: 0 2px 12px rgba(43, 23, 72, 0.04) !important;
+}
+
+.rp-filters .rp-field {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.rp-filters .rp-field label {
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    color: #be185d !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.rp-input,
+.rp-filters .rp-input {
+    font-size: 12.5px !important;
+    color: #2b1748 !important;
+    background: #fffafd !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    padding: 8px 14px !important;
+    min-height: 38px !important;
+    transition: all 0.2s ease !important;
+}
+
+.rp-input:focus,
+.rp-filters .rp-input:focus {
+    outline: none !important;
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.14) !important;
+    background: #ffffff !important;
+}
+
+/* ==========================================================================
+   3. SIGNATURE HR KPI CARDS (Rich Violet & Pink Gradients)
+   ========================================================================== */
+.employee-kpis.rp-kpis {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 14px !important;
+    margin-bottom: 24px !important;
+}
+
+.rp-kpis .employee-kpi {
+    position: relative !important;
+    border-radius: 18px !important;
+    padding: 14px 16px !important;
+    color: #ffffff !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    box-shadow: 0 8px 22px rgba(43, 23, 72, 0.14) !important;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    text-decoration: none !important;
+    min-height: 88px !important;
+    box-sizing: border-box !important;
+    cursor: default !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+.rp-kpis .employee-kpi:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 14px 30px rgba(43, 23, 72, 0.24) !important;
+}
+
+/* 6+ Curated Violet & Pink Gradient Themes */
+.rp-kpis .kpi-theme-plum {
+    background: linear-gradient(135deg, #28103c 0%, #4a155a 100%) !important;
+}
+
+.rp-kpis .kpi-theme-violet {
+    background: linear-gradient(135deg, #581c87 0%, #7e22ce 100%) !important;
+}
+
+.rp-kpis .kpi-theme-pink {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+}
+
+.rp-kpis .kpi-theme-rose {
+    background: linear-gradient(135deg, #9d174d 0%, #db2777 100%) !important;
+}
+
+.rp-kpis .kpi-theme-fuchsia {
+    background: linear-gradient(135deg, #701a75 0%, #a21caf 100%) !important;
+}
+
+.rp-kpis .kpi-theme-magenta {
+    background: linear-gradient(135deg, #4c0519 0%, #831843 100%) !important;
+}
+
+.rp-kpis .kpi-icon-box {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.rp-kpis .kpi-details {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+}
+
+.rp-kpis .kpi-label {
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.rp-kpis .kpi-value {
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.4px !important;
+}
+
+.rp-kpis .kpi-pill-badge {
+    font-size: 9.5px !important;
+    font-weight: 700 !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    padding: 2px 8px !important;
+    border-radius: 9999px !important;
+    width: fit-content !important;
+    margin-top: 3px !important;
+    letter-spacing: 0.2px !important;
+    white-space: nowrap !important;
+}
+
+.rp-kpis .kpi-wave {
+    position: absolute !important;
+    right: -14px !important;
+    bottom: -18px !important;
+    width: 90px !important;
+    height: 90px !important;
+    opacity: 0.16 !important;
+    background: radial-gradient(circle, #ffffff 30%, transparent 70%) !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================================================
+   4. CHARTS & PANELS
+   ========================================================================== */
+.rp-charts {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+    margin-bottom: 24px !important;
+}
+
+.rp-panel {
+    background: #ffffff !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 18px !important;
+    padding: 20px 22px !important;
+    box-shadow: 0 4px 20px rgba(43, 23, 72, 0.05) !important;
+    box-sizing: border-box !important;
+}
+
+.rp-panel-title {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+    margin: 0 !important;
+    letter-spacing: -0.2px !important;
+}
+
+.rp-panel-sub {
+    font-size: 12px !important;
+    color: #756b85 !important;
+    margin: 3px 0 16px !important;
+}
+
+.rp-panel-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 4px !important;
+}
+
+/* Canvas line chart wrapper */
+.rp-canvas-wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: 220px !important;
+}
+
+.rp-canvas-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+.rp-chart-empty {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 180px !important;
+    color: #756b85 !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+}
+
+/* Donut chart */
+.rp-donut-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 24px !important;
+    flex-wrap: wrap !important;
+}
+
+.rp-donut {
+    --value: 0;
+    width: 124px !important;
+    height: 124px !important;
+    border-radius: 50% !important;
+    background: conic-gradient(#be185d 0% calc(var(--value) * 1%), #ebd7e7 calc(var(--value) * 1%) 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.rp-donut-center {
+    width: 86px !important;
+    height: 86px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: inset 0 2px 6px rgba(43, 23, 72, 0.06) !important;
+}
+
+.rp-donut-center strong {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    color: #2b1748 !important;
+    line-height: 1 !important;
+}
+
+.rp-donut-center small {
+    font-size: 10.5px !important;
+    color: #756b85 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    margin-top: 2px !important;
+}
+
+.rp-legend {
+    flex: 1 !important;
+    min-width: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.rp-legend-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+}
+
+.rp-legend-item .rp-legend-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 3px !important;
+    flex-shrink: 0 !important;
+}
+
+.rp-legend-item .rp-label {
+    flex: 1 !important;
+    color: #42134f !important;
+    font-weight: 600 !important;
+}
+
+.rp-legend-item .rp-num {
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+}
+
+/* Horizontal CSS Bars */
+.rp-bars {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.rp-bar-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.rp-bar-row .rp-bar-label {
+    width: 110px !important;
+    font-size: 12px !important;
+    color: #42134f !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.rp-bar-row .rp-bar-track {
+    flex: 1 !important;
+    height: 16px !important;
+    background: #fdf2f8 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+.rp-bar-row .rp-bar-fill {
+    height: 100% !important;
+    background: linear-gradient(90deg, #be185d 0%, #ed4c83 100%) !important;
+    border-radius: 6px !important;
+    transition: width 0.5s ease !important;
+    min-width: 2px !important;
+}
+
+.rp-bar-row .rp-bar-val {
+    width: 44px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+    flex-shrink: 0 !important;
+}
+
+/* Funnel */
+.rp-funnel {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.rp-funnel-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.rp-funnel-row .rp-funnel-label {
+    width: 90px !important;
+    font-size: 12px !important;
+    color: #42134f !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+    flex-shrink: 0 !important;
+}
+
+.rp-funnel-row .rp-funnel-track {
+    flex: 1 !important;
+    height: 24px !important;
+    background: #fdf2f8 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+.rp-funnel-row .rp-funnel-fill {
+    height: 100% !important;
+    background: linear-gradient(90deg, #7e22ce 0%, #be185d 100%) !important;
+    border-radius: 6px !important;
+    transition: width 0.5s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    padding-right: 8px !important;
+    min-width: 30px !important;
+}
+
+.rp-funnel-row .rp-funnel-fill span {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+}
+
+.rp-funnel-row .rp-funnel-num {
+    width: 50px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+    flex-shrink: 0 !important;
+}
+
+/* ==========================================================================
+   5. QUICK ACTIONS STRIP
+   ========================================================================== */
+.rp-quick-actions {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+    margin-bottom: 24px !important;
+}
+
+.rp-quick-btn {
+    background: #ffffff !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 16px !important;
+    padding: 16px 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    text-align: left !important;
+    box-shadow: 0 2px 10px rgba(43, 23, 72, 0.03) !important;
+}
+
+.rp-quick-btn:hover {
+    transform: translateY(-2px) !important;
+    border-color: #be185d !important;
+    box-shadow: 0 6px 20px rgba(190, 24, 93, 0.12) !important;
+}
+
+.rp-quick-btn .rp-qb-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    flex-shrink: 0 !important;
+    background: #fdf2f8 !important;
+    border: 1px solid #fbcfe8 !important;
+    color: #be185d !important;
+}
+
+.rp-quick-btn .rp-qb-text strong {
+    display: block !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    color: #2b1748 !important;
+}
+
+.rp-quick-btn .rp-qb-text small {
+    display: block !important;
+    font-size: 11.5px !important;
+    color: #756b85 !important;
+    margin-top: 2px !important;
+}
+
+/* ==========================================================================
+   6. SCROLLABLE RECENT REPORTS TABLE WITH STICKY HEADERS & HR SCROLLBAR
+   ========================================================================== */
+.rp-reports {
+    margin-bottom: 24px !important;
+}
+
+.rp-table-card {
+    max-height: 400px !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    border-radius: 14px !important;
+    border: 1px solid #ebd7e7 !important;
+    background: #ffffff !important;
+}
+
+/* Custom HR Scrollbar */
+.rp-table-card::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.rp-table-card::-webkit-scrollbar-track {
+    background: #fdf2f8 !important;
+    border-radius: 8px !important;
+}
+
+.rp-table-card::-webkit-scrollbar-thumb {
+    background: #f472b6 !important;
+    border-radius: 8px !important;
+}
+
+.rp-table-card::-webkit-scrollbar-thumb:hover {
+    background: #be185d !important;
+}
+
+.rp-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 12.5px !important;
+    text-align: left !important;
+}
+
+.rp-table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background: #fff5fa !important;
+    color: #42134f !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    padding: 14px 16px !important;
+    border-bottom: 2px solid #ebd7e7 !important;
+    white-space: nowrap !important;
+}
+
+.rp-table tbody td {
+    padding: 13px 16px !important;
+    border-bottom: 1px solid #f9eef6 !important;
+    vertical-align: middle !important;
+    color: #2b1748 !important;
+}
+
+.rp-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.rp-table tbody tr:hover {
+    background: #fdf8fb !important;
+}
+
+.rp-table .rp-loading {
+    text-align: center !important;
+    color: #be185d !important;
+    font-weight: 700 !important;
+    padding: 36px !important;
+}
+
+.rp-table .rp-empty {
+    text-align: center !important;
+    color: #756b85 !important;
+    font-style: italic !important;
+    padding: 36px !important;
+}
+
+/* Badges */
+.rp-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 3px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+}
+
+.rp-badge-success {
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border: 1px solid #a7f3d0 !important;
+}
+
+.rp-badge-warning {
+    background: #fffbeb !important;
+    color: #d97706 !important;
+    border: 1px solid #fde68a !important;
+}
+
+.rp-badge-info {
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.rp-badge-muted {
+    background: #f5f3f7 !important;
+    color: #756b85 !important;
+    border: 1px solid #e2d9e6 !important;
+}
+
+.rp-badge-danger {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+}
+
+.rp-badge-primary {
+    background: #f3e8ff !important;
+    color: #7e22ce !important;
+    border: 1px solid #d8b4fe !important;
+}
+
+.rp-link-btn {
+    background: none !important;
+    border: none !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    color: #be185d !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+
+.rp-link-btn:hover {
+    background: #fdf2f8 !important;
+    text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   7. MODALS (HR CRM Deep Plum Header)
+   ========================================================================== */
+.rp-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(27, 10, 40, 0.65) !important;
+    backdrop-filter: blur(6px) !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1000 !important;
+    padding: 20px !important;
+}
+
+.rp-modal.open {
+    display: flex !important;
+}
+
+.rp-modal-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(43, 23, 72, 0.3) !important;
+    width: 100% !important;
+    max-width: 560px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border: 1px solid #ebd7e7 !important;
+}
+
+.rp-modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 22px 26px !important;
+    background: linear-gradient(135deg, #28103c 0%, #4a155a 100%) !important;
+    color: #ffffff !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.rp-modal-header h2 {
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.rp-modal-header p {
+    font-size: 12.5px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 4px 0 0 !important;
+}
+
+.rp-close-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    font-size: 20px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    border-radius: 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+}
+
+.rp-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+}
+
+.rp-modal-body {
+    padding: 24px 26px !important;
+}
+
+.rp-modal-actions {
+    display: flex !important;
+    gap: 12px !important;
+    justify-content: flex-end !important;
+    padding: 16px 26px !important;
+    border-top: 1px solid #ebd7e7 !important;
+    background: #fffafd !important;
+    border-radius: 0 0 20px 20px !important;
+}
+
+/* Modal Form Fields */
+.rp-field {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #42134f !important;
+    margin-bottom: 12px !important;
+}
+
+.rp-field .rp-input,
+.rp-field select,
+.rp-field textarea {
+    width: 100% !important;
+    margin-top: 6px !important;
+    box-sizing: border-box !important;
+    border: 1px solid #ebd7e7 !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+}
+
+.rp-req {
+    color: #be185d !important;
+}
+
+.rp-hint {
+    font-size: 11px !important;
+    color: #756b85 !important;
+    font-weight: 500 !important;
+    margin-top: 6px !important;
+}
+
+/* Toast */
+.rp-toast {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    background: #28103c !important;
+    color: #ffffff !important;
+    border: 1px solid #be185d !important;
+    padding: 12px 22px !important;
+    border-radius: 9999px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 30px rgba(43, 23, 72, 0.3) !important;
+    z-index: 2000 !important;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .employee-kpis.rp-kpis {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .employee-kpis.rp-kpis {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .rp-charts {
+        grid-template-columns: 1fr !important;
+    }
+    .rp-quick-actions {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .employee-kpis.rp-kpis {
+        grid-template-columns: 1fr !important;
+    }
+    .rp-top-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}

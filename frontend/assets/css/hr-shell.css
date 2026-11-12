@@ -1,0 +1,878 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   HR PORTAL SHELL & DESIGN SYSTEM
+   Jobie-Style Modern Curved Sidebar & Unified Master Topbar
+   (Preserving HR Plum / Lilac / Pink Color Scheme)
+========================================================= */
+
+:root {
+    --font-main: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* HR Core Color Palette */
+    --hr-ink: #2b1748;
+    --hr-muted: #756b85;
+    --hr-plum: #42134f;
+    --hr-plum-dark: #28103c;
+    --hr-pink: #ed4c83;
+    --hr-lilac: #f8edf7;
+    --hr-line: #f0e1eb;
+    --hr-bg: #fffafd;
+
+    /* Sidebar Variables */
+    --hr-sidebar-width: 250px;
+    --sidebar-width: 250px;
+    --hr-sidebar-bg: linear-gradient(180deg, #28103c 0%, #321148 60%, #461651 100%);
+    --hr-sidebar-text: rgba(255, 255, 255, 0.85);
+    --hr-sidebar-hover-bg: rgba(255, 255, 255, 0.12);
+}
+
+/* Base Reset & Typography */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: var(--hr-bg) !important;
+    color: var(--hr-ink) !important;
+    font-family: var(--font-main) !important;
+    box-sizing: border-box !important;
+}
+
+body *, body input, body button, body select, body textarea {
+    font-family: var(--font-main) !important;
+    box-sizing: border-box !important;
+}
+
+.app {
+    display: flex !important;
+    min-height: 100vh !important;
+    background: var(--hr-bg) !important;
+}
+
+/* =========================================================
+   1. JOBIE-STYLE HR SIDEBAR (250px Curved Design)
+========================================================= */
+.sidebar.hr-sidebar,
+.hr-sidebar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: var(--hr-sidebar-width) !important;
+    background: var(--hr-sidebar-bg) !important;
+    color: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 1000 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    box-shadow: 4px 0 24px rgba(40, 16, 60, 0.22) !important;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    scrollbar-width: none !important;
+}
+
+.sidebar.hr-sidebar::-webkit-scrollbar,
+.hr-sidebar::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* BRAND HEADER */
+.sidebar.hr-sidebar .sidebar-brand,
+.hr-sidebar .sidebar-brand {
+    min-height: 84px !important;
+    padding: 24px 20px 18px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-shrink: 0 !important;
+    border-bottom: none !important;
+}
+
+.sidebar.hr-sidebar .brand-icon,
+.hr-sidebar .brand-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    color: var(--hr-plum) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+    transition: transform 0.22s ease !important;
+}
+
+.sidebar.hr-sidebar .sidebar-brand:hover .brand-icon,
+.hr-sidebar .sidebar-brand:hover .brand-icon {
+    transform: scale(1.05) rotate(-4deg) !important;
+}
+
+.sidebar.hr-sidebar .brand-text,
+.hr-sidebar .brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.2 !important;
+}
+
+.sidebar.hr-sidebar .brand-title,
+.hr-sidebar .brand-title {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.4px !important;
+    color: #ffffff !important;
+}
+
+.sidebar.hr-sidebar .brand-sub,
+.hr-sidebar .brand-sub {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    letter-spacing: 0.3px !important;
+    margin-top: 2px !important;
+}
+
+/* NAVIGATION MENU */
+.sidebar.hr-sidebar .sidebar-menu,
+.hr-sidebar .sidebar-menu {
+    padding: 16px 0 16px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    flex: 1 !important;
+    list-style: none !important;
+    margin: 0 !important;
+}
+
+.sidebar.hr-sidebar .menu-item,
+.hr-sidebar .menu-item {
+    width: 100% !important;
+    min-height: 46px !important;
+    border: none !important;
+    background: transparent !important;
+    color: var(--hr-sidebar-text) !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 13px !important;
+    padding: 11px 18px !important;
+    border-radius: 30px 0 0 30px !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease !important;
+    line-height: 1.3 !important;
+}
+
+.sidebar.hr-sidebar .menu-item:hover:not(.active),
+.hr-sidebar .menu-item:hover:not(.active) {
+    background: var(--hr-sidebar-hover-bg) !important;
+    color: #ffffff !important;
+    transform: translateX(3px) !important;
+}
+
+.sidebar.hr-sidebar .menu-icon,
+.hr-sidebar .menu-icon {
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease !important;
+}
+
+.sidebar.hr-sidebar .menu-icon svg,
+.hr-sidebar .menu-icon svg {
+    stroke: currentColor !important;
+    transition: stroke 0.2s ease !important;
+}
+
+.sidebar.hr-sidebar .menu-item:hover:not(.active) .menu-icon,
+.hr-sidebar .menu-item:hover:not(.active) .menu-icon {
+    transform: scale(1.1) !important;
+}
+
+/* =========================================================
+   ACTIVE MENU ITEM WITH INVERTED CURVED CUTOUT
+========================================================= */
+.sidebar.hr-sidebar .menu-item.active,
+.hr-sidebar .menu-item.active {
+    background: var(--hr-bg) !important;
+    color: var(--hr-plum) !important;
+    font-weight: 700 !important;
+    border-radius: 30px 0 0 30px !important;
+    margin-right: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+.sidebar.hr-sidebar .menu-item.active .menu-icon svg,
+.hr-sidebar .menu-item.active .menu-icon svg {
+    stroke: var(--hr-plum) !important;
+    stroke-width: 2.2 !important;
+}
+
+/* Top curved cutout */
+.sidebar.hr-sidebar .menu-item.active::before,
+.hr-sidebar .menu-item.active::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -24px !important;
+    right: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: transparent !important;
+    border-bottom-right-radius: 24px !important;
+    box-shadow: 8px 8px 0 8px var(--hr-bg) !important;
+    pointer-events: none !important;
+    z-index: 6 !important;
+}
+
+/* Bottom curved cutout */
+.sidebar.hr-sidebar .menu-item.active::after,
+.hr-sidebar .menu-item.active::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -24px !important;
+    right: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: transparent !important;
+    border-top-right-radius: 24px !important;
+    box-shadow: 8px -8px 0 8px var(--hr-bg) !important;
+    pointer-events: none !important;
+    z-index: 6 !important;
+}
+
+/* SIDEBAR BOTTOM & LOGOUT */
+.sidebar.hr-sidebar .sidebar-bottom,
+.hr-sidebar .sidebar-bottom {
+    margin-top: auto !important;
+    padding: 16px 16px 20px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    flex-shrink: 0 !important;
+    border-top: none !important;
+}
+
+.sidebar.hr-sidebar .logout-button,
+.hr-sidebar .logout-button {
+    width: 100% !important;
+    min-height: 42px !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 9px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.sidebar.hr-sidebar .logout-button:hover,
+.hr-sidebar .logout-button:hover {
+    background: rgba(239, 68, 68, 0.22) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+    color: #fca5a5 !important;
+    transform: translateY(-1px) !important;
+}
+
+.sidebar.hr-sidebar .sidebar-footer-info,
+.hr-sidebar .sidebar-footer-info {
+    padding: 2px 6px !important;
+    font-size: 11px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    line-height: 1.4 !important;
+}
+
+.sidebar.hr-sidebar .sidebar-footer-info .footer-title,
+.hr-sidebar .sidebar-footer-info .footer-title {
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.sidebar.hr-sidebar .sidebar-footer-info .footer-copy,
+.hr-sidebar .sidebar-footer-info .footer-copy {
+    opacity: 0.8 !important;
+    font-size: 10px !important;
+}
+
+/* =========================================================
+   2. JOBIE-STYLE MASTER TOPBAR — HR PORTAL
+========================================================= */
+.topbar.hr-topbar,
+.hr-topbar {
+    position: sticky !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    z-index: 999 !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 32px !important;
+    background: var(--hr-bg) !important;
+    border-bottom: 1px solid var(--hr-line) !important;
+    box-shadow: 0 2px 10px rgba(43, 23, 72, 0.04) !important;
+    box-sizing: border-box !important;
+}
+
+/* LEFT: HAMBURGER & PAGE TITLE */
+.topbar.hr-topbar .topbar-left,
+.hr-topbar .topbar-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-shrink: 0 !important;
+    max-width: calc(50% - 210px) !important;
+    overflow: hidden !important;
+    z-index: 2 !important;
+}
+
+.topbar.hr-topbar .topbar-toggle-btn,
+.hr-topbar .topbar-toggle-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--hr-ink) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.topbar.hr-topbar .topbar-toggle-btn:hover,
+.hr-topbar .topbar-toggle-btn:hover {
+    opacity: 0.75 !important;
+    transform: scale(1.05) !important;
+}
+
+.topbar.hr-topbar .topbar-page-title,
+.hr-topbar .topbar-page-title {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: var(--hr-ink) !important;
+    letter-spacing: -0.4px !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* CENTER: PILL SEARCH BAR - PINNED IN EXACT CENTER */
+.topbar.hr-topbar .topbar-center,
+.hr-topbar .topbar-center {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+}
+
+.topbar.hr-topbar .jobie-search-pill,
+.topbar.hr-topbar .top-search,
+.hr-topbar .jobie-search-pill,
+.hr-topbar .top-search {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    height: 42px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid var(--hr-line) !important;
+    border-radius: 9999px !important;
+    padding: 0 16px 0 22px !important;
+    box-shadow: 0 2px 10px rgba(43, 23, 72, 0.03) !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+    gap: 8px !important;
+    pointer-events: auto !important;
+}
+
+.topbar.hr-topbar .jobie-search-pill:focus-within,
+.topbar.hr-topbar .top-search:focus-within,
+.hr-topbar .jobie-search-pill:focus-within,
+.hr-topbar .top-search:focus-within {
+    background: #ffffff !important;
+    border-color: var(--hr-plum) !important;
+    box-shadow: 0 4px 18px rgba(66, 19, 79, 0.12) !important;
+}
+
+.topbar.hr-topbar .jobie-search-pill input.jobie-search-input,
+.topbar.hr-topbar .top-search input.search-field,
+.hr-topbar .jobie-search-pill input.jobie-search-input,
+.hr-topbar .top-search input.search-field {
+    flex: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--hr-ink) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.topbar.hr-topbar .jobie-search-pill input.jobie-search-input::placeholder,
+.topbar.hr-topbar .top-search input.search-field::placeholder,
+.hr-topbar .jobie-search-pill input.jobie-search-input::placeholder,
+.hr-topbar .top-search input.search-field::placeholder {
+    color: #94a3b8 !important;
+    font-size: 12.5px !important;
+}
+
+.topbar.hr-topbar .jobie-search-btn,
+.topbar.hr-topbar .search-icon-btn,
+.hr-topbar .jobie-search-btn,
+.hr-topbar .search-icon-btn {
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    width: 26px !important;
+    height: 26px !important;
+    flex-shrink: 0 !important;
+    transition: color 0.15s ease, transform 0.15s ease !important;
+}
+
+.topbar.hr-topbar .jobie-search-btn:hover,
+.topbar.hr-topbar .search-icon-btn:hover,
+.hr-topbar .jobie-search-btn:hover,
+.hr-topbar .search-icon-btn:hover {
+    color: var(--hr-plum) !important;
+    transform: scale(1.1) !important;
+}
+
+.topbar.hr-topbar .jobie-search-pill svg,
+.topbar.hr-topbar .search-icon-btn svg,
+.hr-topbar .jobie-search-pill svg,
+.hr-topbar .search-icon-btn svg {
+    position: static !important;
+    display: block !important;
+    color: inherit !important;
+}
+
+/* RIGHT: CHAT, NOTIFICATIONS & PROFILE */
+.topbar.hr-topbar .topbar-right,
+.hr-topbar .topbar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+}
+
+.topbar.hr-topbar .topbar-action-btn,
+.hr-topbar .topbar-action-btn {
+    position: relative !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    border: none !important;
+    color: #334155 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(43, 23, 72, 0.06) !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+.topbar.hr-topbar .topbar-action-btn:hover,
+.hr-topbar .topbar-action-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 14px rgba(43, 23, 72, 0.12) !important;
+    color: var(--hr-plum) !important;
+}
+
+.topbar.hr-topbar .action-badge,
+.hr-topbar .action-badge {
+    position: absolute !important;
+    top: -3px !important;
+    right: -3px !important;
+    background: var(--hr-pink) !important;
+    color: #ffffff !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    min-width: 17px !important;
+    height: 17px !important;
+    border-radius: 9px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 4px !important;
+    border: 2px solid #ffffff !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+}
+
+/* USER PROFILE */
+.topbar.hr-topbar .topbar-profile,
+.hr-topbar .topbar-profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    margin-left: 6px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 2px !important;
+}
+
+.topbar.hr-topbar .profile-avatar,
+.hr-topbar .profile-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--hr-plum) 0%, #8c367c 100%) !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(66, 19, 79, 0.2) !important;
+    border: 2px solid #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+}
+
+.topbar.hr-topbar .profile-details,
+.hr-topbar .profile-details {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+}
+
+.topbar.hr-topbar .profile-name,
+.hr-topbar .profile-name {
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    color: var(--hr-ink) !important;
+    white-space: nowrap !important;
+}
+
+.topbar.hr-topbar .profile-role,
+.hr-topbar .profile-role {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: var(--hr-muted) !important;
+    margin-top: 1px !important;
+    white-space: nowrap !important;
+}
+
+/* =========================================================
+   3. MAIN CONTENT LAYOUT ALIGNMENT
+========================================================= */
+.main-content {
+    margin-left: var(--hr-sidebar-width, 250px) !important;
+    width: calc(100% - var(--hr-sidebar-width, 250px)) !important;
+    min-width: 0 !important;
+    min-height: 100vh !important;
+    background: var(--hr-bg) !important;
+    box-sizing: border-box !important;
+}
+
+.content {
+    padding: 24px 32px !important;
+}
+
+/* =========================================================
+   4. RESPONSIVE BREAKPOINTS & MOBILE DRAWER
+========================================================= */
+@media (max-width: 1200px) {
+    .topbar.hr-topbar .topbar-center,
+    .hr-topbar .topbar-center {
+        max-width: 360px !important;
+    }
+    .topbar.hr-topbar .jobie-search-pill,
+    .hr-topbar .jobie-search-pill {
+        max-width: 330px !important;
+    }
+    .topbar.hr-topbar .topbar-left,
+    .hr-topbar .topbar-left {
+        max-width: calc(50% - 180px) !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .sidebar.hr-sidebar,
+    .hr-sidebar {
+        transform: translateX(-100%) !important;
+    }
+
+    .sidebar.hr-sidebar.mobile-open,
+    .hr-sidebar.mobile-open {
+        transform: translateX(0) !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .topbar.hr-topbar,
+    .hr-topbar {
+        padding: 0 18px !important;
+    }
+
+    .topbar.hr-topbar .topbar-center,
+    .hr-topbar .topbar-center {
+        max-width: 280px !important;
+    }
+
+    .topbar.hr-topbar .jobie-search-pill,
+    .hr-topbar .jobie-search-pill {
+        max-width: 250px !important;
+    }
+
+    .topbar.hr-topbar .topbar-left,
+    .hr-topbar .topbar-left {
+        max-width: calc(50% - 135px) !important;
+    }
+
+    .content {
+        padding: 18px 16px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar.hr-topbar .topbar-center,
+    .hr-topbar .topbar-center {
+        display: none !important;
+    }
+
+    .topbar.hr-topbar .topbar-left,
+    .hr-topbar .topbar-left {
+        max-width: none !important;
+    }
+
+    .topbar.hr-topbar .profile-details,
+    .hr-topbar .profile-details {
+        display: none !important;
+    }
+
+    .topbar.hr-topbar .topbar-page-title,
+    .hr-topbar .topbar-page-title {
+        font-size: 18px !important;
+    }
+}
+
+/* =========================================================
+   3. HR THEME OVERRIDES — USER PROFILE MODAL & DROPDOWNS
+========================================================= */
+#userProfileModal.up-theme-hr .up-modal-card,
+body:has(.hr-topbar) #userProfileModal .up-modal-card,
+body:has(.hr-sidebar) #userProfileModal .up-modal-card {
+    box-shadow: 0 25px 65px -15px rgba(40, 16, 60, 0.4), 0 0 0 1px rgba(66, 19, 79, 0.14) !important;
+}
+
+#userProfileModal.up-theme-hr .up-modal-header,
+body:has(.hr-topbar) #userProfileModal .up-modal-header,
+body:has(.hr-sidebar) #userProfileModal .up-modal-header {
+    background: linear-gradient(135deg, #28103c 0%, #42134f 55%, #701a75 100%) !important;
+}
+
+#userProfileModal.up-theme-hr .up-modal-avatar,
+body:has(.hr-topbar) #userProfileModal .up-modal-avatar,
+body:has(.hr-sidebar) #userProfileModal .up-modal-avatar {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    box-shadow: 0 8px 24px rgba(190, 24, 93, 0.38) !important;
+}
+
+#userProfileModal.up-theme-hr .up-status-dot,
+body:has(.hr-topbar) #userProfileModal .up-status-dot,
+body:has(.hr-sidebar) #userProfileModal .up-status-dot {
+    background: #10b981 !important;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.8) !important;
+}
+
+#userProfileModal.up-theme-hr .up-role-badge,
+body:has(.hr-topbar) #userProfileModal .up-role-badge,
+body:has(.hr-sidebar) #userProfileModal .up-role-badge {
+    background: rgba(255, 255, 255, 0.22) !important;
+    color: #fce7f3 !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#userProfileModal.up-theme-hr .up-status-badge,
+body:has(.hr-topbar) #userProfileModal .up-status-badge,
+body:has(.hr-sidebar) #userProfileModal .up-status-badge {
+    background: rgba(16, 185, 129, 0.24) !important;
+    color: #6ee7b7 !important;
+    border-color: rgba(16, 185, 129, 0.45) !important;
+}
+
+#userProfileModal.up-theme-hr .up-modal-email,
+body:has(.hr-topbar) #userProfileModal .up-modal-email,
+body:has(.hr-sidebar) #userProfileModal .up-modal-email {
+    color: #fbcfe8 !important;
+}
+
+#userProfileModal.up-theme-hr .up-modal-body,
+body:has(.hr-topbar) #userProfileModal .up-modal-body,
+body:has(.hr-sidebar) #userProfileModal .up-modal-body {
+    background: #fffafd !important;
+}
+
+#userProfileModal.up-theme-hr .up-section-title,
+body:has(.hr-topbar) #userProfileModal .up-section-title,
+body:has(.hr-sidebar) #userProfileModal .up-section-title {
+    color: #701a75 !important;
+}
+
+#userProfileModal.up-theme-hr .up-detail-label,
+body:has(.hr-topbar) #userProfileModal .up-detail-label,
+body:has(.hr-sidebar) #userProfileModal .up-detail-label {
+    color: #a21caf !important;
+}
+
+#userProfileModal.up-theme-hr .up-detail-item,
+body:has(.hr-topbar) #userProfileModal .up-detail-item,
+body:has(.hr-sidebar) #userProfileModal .up-detail-item {
+    background: #ffffff !important;
+    border-color: #f0e1eb !important;
+}
+
+#userProfileModal.up-theme-hr .up-detail-val,
+body:has(.hr-topbar) #userProfileModal .up-detail-val,
+body:has(.hr-sidebar) #userProfileModal .up-detail-val {
+    color: #2b1748 !important;
+}
+
+#userProfileModal.up-theme-hr .up-val-muted,
+body:has(.hr-topbar) #userProfileModal .up-val-muted,
+body:has(.hr-sidebar) #userProfileModal .up-val-muted {
+    color: #756b85 !important;
+}
+
+#userProfileModal.up-theme-hr .up-modal-footer,
+body:has(.hr-topbar) #userProfileModal .up-modal-footer,
+body:has(.hr-sidebar) #userProfileModal .up-modal-footer {
+    background: #ffffff !important;
+    border-top-color: #f0e1eb !important;
+}
+
+#userProfileModal.up-theme-hr .up-btn-secondary,
+body:has(.hr-topbar) #userProfileModal .up-btn-secondary,
+body:has(.hr-sidebar) #userProfileModal .up-btn-secondary {
+    background: #fdf4f9 !important;
+    color: #42134f !important;
+    border-color: #f0e1eb !important;
+}
+
+#userProfileModal.up-theme-hr .up-btn-secondary:hover,
+body:has(.hr-topbar) #userProfileModal .up-btn-secondary:hover,
+body:has(.hr-sidebar) #userProfileModal .up-btn-secondary:hover {
+    background: #fce7f3 !important;
+    color: #2b1748 !important;
+}
+
+#userProfileModal.up-theme-hr .up-btn-logout,
+body:has(.hr-topbar) #userProfileModal .up-btn-logout,
+body:has(.hr-sidebar) #userProfileModal .up-btn-logout {
+    background: linear-gradient(135deg, #be185d 0%, #e11d48 100%) !important;
+    box-shadow: 0 4px 14px rgba(190, 24, 93, 0.35) !important;
+}
+
+#userProfileModal.up-theme-hr .up-btn-logout:hover,
+body:has(.hr-topbar) #userProfileModal .up-btn-logout:hover,
+body:has(.hr-sidebar) #userProfileModal .up-btn-logout:hover {
+    background: #9d174d !important;
+    box-shadow: 0 6px 18px rgba(190, 24, 93, 0.45) !important;
+}
+
+/* HR THEME FOR NOTIFICATIONS & MESSAGES DROPDOWNS */
+.topbar.hr-topbar .topbar-dropdown-panel,
+.hr-topbar .topbar-dropdown-panel {
+    border-color: #f0e1eb !important;
+    box-shadow: 0 20px 45px -10px rgba(40, 16, 60, 0.22), 0 0 0 1px rgba(66, 19, 79, 0.05) !important;
+}
+
+.topbar.hr-topbar .topbar-dropdown-header,
+.hr-topbar .topbar-dropdown-header {
+    background: #fdf4f9 !important;
+    border-bottom: 1px solid #f0e1eb !important;
+}
+
+.topbar.hr-topbar .topbar-dropdown-title,
+.hr-topbar .topbar-dropdown-title {
+    color: #2b1748 !important;
+}
+
+.topbar.hr-topbar .topbar-count-pill,
+.hr-topbar .topbar-count-pill {
+    background: #ed4c83 !important;
+}
+
+.topbar.hr-topbar .topbar-count-pill.pill-blue,
+.hr-topbar .topbar-count-pill.pill-blue {
+    background: #be185d !important;
+}
+
+.topbar.hr-topbar .topbar-mark-all-btn,
+.hr-topbar .topbar-mark-all-btn {
+    color: #be185d !important;
+}
+
+.topbar.hr-topbar .topbar-mark-all-btn:hover,
+.hr-topbar .topbar-mark-all-btn:hover {
+    color: #9d174d !important;
+}
+
+.topbar.hr-topbar .topbar-notif-item.unread,
+.hr-topbar .topbar-notif-item.unread {
+    background: #fdf2f8 !important;
+    border-left: 3px solid #be185d !important;
+}
+
+.topbar.hr-topbar .topbar-notif-icon,
+.hr-topbar .topbar-notif-icon {
+    background: #fce7f3 !important;
+    color: #be185d !important;
+}
+
+.topbar.hr-topbar .action-badge,
+.hr-topbar .action-badge {
+    background: #ed4c83 !important;
+}

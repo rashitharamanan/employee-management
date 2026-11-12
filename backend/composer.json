@@ -1,0 +1,22 @@
+{
+    "name": "employee-qr-system/backend",
+    "description": "Employee QR Management System Backend",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rashitha Ramanan"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "*",
+        "endroid/qr-code": "*",
+        "firebase/php-jwt": "^7.1"
+    }
+}

@@ -1,0 +1,24 @@
+# Dependencies
+backend/vendor/
+
+# Environment files (contains sensitive credentials)
+backend/.env
+.env
+
+# Database backups & logs
+*.log
+*.sql
+*.sqlite
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Storage cache and temp files
+backend/storage/cache/*
+backend/storage/logs/*
+!backend/storage/cache/.gitkeep
+!backend/storage/logs/.gitkeep

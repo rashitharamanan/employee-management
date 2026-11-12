@@ -1,0 +1,1513 @@
+/* =========================================================
+   PERFORMANCE MANAGEMENT
+   Clean / Spacious / Professional HR UI
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.pf-page {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 28px 32px 45px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 26px;
+}
+
+.pf-eyebrow {
+    display: block;
+    margin-bottom: 7px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .09em;
+
+    color: var(--primary);
+}
+
+.pf-header h1 {
+    margin: 0;
+
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-header p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.pf-header-actions {
+    display: flex;
+    gap: 9px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.pf-btn {
+    height: 40px;
+
+    padding: 0 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    border-radius: 9px;
+
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .18s ease;
+}
+
+.pf-btn span {
+    font-size: 16px;
+}
+
+.pf-btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: 1px solid var(--primary);
+}
+
+.pf-btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.pf-btn-light {
+    background: var(--bg-card);
+    color: var(--text-body);
+    border: 1px solid var(--border);
+}
+
+.pf-btn-light:hover {
+    background: var(--primary-subtle);
+    border-color: var(--primary);
+}
+
+.pf-btn-danger {
+    background: var(--red);
+    color: #fff;
+    border: 1px solid var(--red);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.pf-error {
+    margin: 0 0 18px;
+    padding: 11px 14px;
+
+    border-radius: 8px;
+
+    background: var(--red-light);
+    border: 1px solid var(--red);
+
+    color: var(--red);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.pf-summary {
+    display: grid;
+
+    grid-template-columns: 1.35fr repeat(5, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Main score */
+
+.pf-score-card {
+    min-height: 142px;
+
+    padding: 18px 20px;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.pf-score-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pf-section-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .08em;
+
+    color: var(--primary);
+}
+
+.pf-score-top h2 {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 750;
+
+    color: var(--text-dark);
+}
+
+.pf-score-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--primary-subtle);
+    color: var(--primary);
+
+    font-size: 17px;
+}
+
+.pf-score-content {
+    margin-top: 10px;
+}
+
+.pf-score-number {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.pf-score-number strong {
+    font-size: 30px;
+    line-height: 1;
+
+    font-weight: 850;
+
+    color: var(--text-dark);
+}
+
+.pf-score-number span {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.pf-score-stars {
+    margin-top: 5px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #f59e0b;
+}
+
+.pf-score-content p {
+    margin: 5px 0 0;
+
+    font-size: 10px;
+    line-height: 1.4;
+
+    color: var(--text-light);
+}
+
+
+/* Small statistics */
+
+.pf-stat-card {
+    min-height: 142px;
+
+    padding: 17px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.pf-stat-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+}
+
+.pf-stat-blue {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.pf-stat-green {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.pf-stat-orange {
+    background: var(--orange-light);
+    color: var(--orange);
+}
+
+.pf-stat-purple {
+    background: var(--purple-light);
+    color: var(--primary);
+}
+
+.pf-stat-indigo {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+.pf-stat-card span {
+    display: block;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: var(--text-muted);
+}
+
+.pf-stat-card strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 23px;
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-stat-card small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    color: var(--text-light);
+}
+
+
+/* =========================================================
+   ANALYTICS
+========================================================= */
+
+.pf-analytics {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.pf-card {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.pf-rating-card,
+.pf-goal-card {
+    min-height: 205px;
+
+    padding: 18px 20px;
+}
+
+.pf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 15px;
+}
+
+.pf-card-header h2 {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-card-header p {
+    margin: 4px 0 0;
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   RATING CHART
+========================================================= */
+
+.pf-rating-dist {
+    height: 125px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 14px;
+}
+
+.pf-rating-bar {
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.pf-rating-bar .bar-num {
+    font-size: 10px;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-rating-bar .bar {
+    width: 100%;
+    max-width: 52px;
+
+    min-height: 4px;
+
+    background: var(--primary);
+
+    border-radius: 6px 6px 2px 2px;
+
+    transition: height .4s ease;
+}
+
+.pf-rating-bar .bar-label {
+    font-size: 10px;
+    font-weight: 600;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   GOAL STATUS
+========================================================= */
+
+.pf-goal-status {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+.pf-goal-row {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.pf-goal-row .g-label {
+    width: 90px;
+    flex-shrink: 0;
+
+    font-size: 11px;
+    font-weight: 650;
+
+    color: var(--text-muted);
+}
+
+.pf-goal-row .g-track {
+    flex: 1;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    background: var(--bg-surface);
+
+    border-radius: 20px;
+}
+
+.pf-goal-row .g-fill {
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: 20px;
+
+    transition: width .4s ease;
+}
+
+.pf-goal-row .g-num {
+    width: 42px;
+
+    text-align: right;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+
+/* =========================================================
+   EMPLOYEE SECTION
+========================================================= */
+
+.pf-employees-section {
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+.pf-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 18px;
+}
+
+.pf-section-heading h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-section-heading p {
+    margin: 5px 0 0;
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.pf-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 15px;
+}
+
+.pf-search-box {
+    width: 280px;
+
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 11px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--bg-card);
+}
+
+.pf-search-box span {
+    margin-right: 7px;
+
+    font-size: 17px;
+
+    color: var(--text-muted);
+}
+
+.pf-search-box .pf-input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+}
+
+.pf-search-box .pf-input:focus {
+    box-shadow: none;
+}
+
+.pf-input {
+    height: 39px;
+
+    padding: 0 11px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--bg-card);
+
+    font-family: var(--font-main);
+    font-size: 11px;
+
+    color: var(--text-body);
+}
+
+.pf-input:focus {
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.pf-toolbar select {
+    min-width: 145px;
+}
+
+.pf-reset-btn {
+    height: 39px;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: transparent;
+
+    font-family: var(--font-main);
+    font-size: 11px;
+    font-weight: 700;
+
+    color: var(--text-muted);
+
+    cursor: pointer;
+}
+
+.pf-reset-btn:hover {
+    color: var(--primary);
+
+    border-color: var(--primary);
+
+    background: var(--primary-subtle);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.pf-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+}
+
+.pf-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 11px;
+}
+
+.pf-table th {
+    padding: 11px 13px;
+
+    background: var(--bg-surface);
+
+    border-bottom: 1px solid var(--border);
+
+    text-align: left;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.pf-table td {
+    padding: 12px 13px;
+
+    border-bottom: 1px solid var(--border-light);
+
+    color: var(--text-body);
+
+    white-space: nowrap;
+}
+
+.pf-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pf-table tbody tr:hover {
+    background: var(--primary-subtle);
+}
+
+.pf-actions-column {
+    text-align: right;
+}
+
+.pf-loading {
+    padding: 35px !important;
+
+    text-align: center;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   EMPLOYEE CELL
+========================================================= */
+
+.pf-emp-cell {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.pf-avatar {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary-subtle);
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.pf-emp-main {
+    display: block;
+
+    font-size: 11px;
+    font-weight: 750;
+
+    color: var(--text-dark);
+}
+
+.pf-emp-sub {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.pf-badge {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 23px;
+
+    padding: 3px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 750;
+}
+
+.pf-badge-success {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.pf-badge-warning {
+    background: var(--orange-light);
+    color: var(--orange);
+}
+
+.pf-badge-info {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.pf-badge-muted {
+    background: var(--bg-surface);
+    color: var(--text-muted);
+}
+
+.pf-badge-danger {
+    background: var(--red-light);
+    color: var(--red);
+}
+
+.pf-badge-primary {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.pf-stars {
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    color: #f59e0b;
+}
+
+.pf-stars .empty {
+    color: var(--border);
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pf-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+}
+
+.pf-page-btn {
+    height: 34px;
+
+    padding: 0 12px;
+
+    margin-left: 5px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    background: var(--bg-card);
+
+    font-family: var(--font-main);
+    font-size: 10px;
+    font-weight: 700;
+
+    color: var(--text-body);
+
+    cursor: pointer;
+}
+
+.pf-page-btn:hover {
+    background: var(--primary-subtle);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.pf-page-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   GOALS SECTION
+========================================================= */
+
+.pf-goals-section {
+    padding: 20px;
+}
+
+.pf-goals-section[style*="display:none"] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.pf-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, .58);
+}
+
+.pf-modal.open {
+    display: flex;
+}
+
+.pf-modal-card {
+    width: 100%;
+    max-width: 580px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--bg-card);
+
+    border-radius: 13px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.pf-modal-large {
+    max-width: 780px;
+}
+
+.pf-modal-small {
+    max-width: 430px;
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.pf-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 19px 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.pf-modal-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .08em;
+
+    color: var(--primary);
+}
+
+.pf-modal-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-modal-header p {
+    margin: 4px 0 0;
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+}
+
+.pf-close-btn {
+    width: 31px;
+    height: 31px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 22px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.pf-close-btn:hover {
+    background: var(--bg-surface);
+
+    color: var(--text-dark);
+}
+
+
+/* =========================================================
+   MODAL BODY
+========================================================= */
+
+.pf-modal-body {
+    padding: 20px 22px;
+}
+
+.pf-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+
+    padding: 14px 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.pf-form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 13px;
+}
+
+.pf-field {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-size: 11px;
+    font-weight: 750;
+
+    color: var(--text-body);
+}
+
+.pf-field > span {
+    color: var(--red);
+}
+
+.pf-field .pf-input,
+.pf-field textarea {
+    width: 100%;
+
+    margin-top: 6px;
+}
+
+.pf-field textarea {
+    min-height: 85px;
+
+    padding: 10px 11px;
+
+    resize: vertical;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--bg-card);
+
+    font-family: var(--font-main);
+    font-size: 12px;
+
+    color: var(--text-body);
+}
+
+.pf-field textarea:focus {
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+
+/* =========================================================
+   RATINGS
+========================================================= */
+
+.pf-ratings-block {
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: var(--bg-surface);
+}
+
+.pf-ratings-block h3 {
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    color: var(--text-dark);
+}
+
+.pf-ratings-block > p {
+    margin: 4px 0 12px;
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+}
+
+.pf-rating-row {
+    display: grid;
+
+    grid-template-columns: 25px 1fr 80px 65px 25px;
+
+    gap: 7px;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.pf-rating-row input,
+.pf-rating-row select {
+    height: 34px;
+
+    width: 100%;
+
+    padding: 0 8px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: var(--bg-card);
+
+    font-family: var(--font-main);
+    font-size: 11px;
+}
+
+.pf-rating-row .idx {
+    font-size: 10px;
+    font-weight: 800;
+
+    color: var(--text-muted);
+}
+
+.rm-rating {
+    border: none;
+
+    background: transparent;
+
+    color: var(--red);
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   GOAL PROGRESS
+========================================================= */
+
+.pf-progress-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1.4fr;
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+.pf-progress-preview {
+    padding-top: 5px;
+}
+
+.pf-progress-preview > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pf-progress-preview span {
+    font-size: 10px;
+
+    color: var(--text-muted);
+}
+
+.pf-progress-preview strong {
+    font-size: 18px;
+
+    color: var(--primary);
+}
+
+.pf-progress-track {
+    height: 8px;
+
+    margin-top: 10px;
+
+    overflow: hidden;
+
+    background: var(--border-light);
+
+    border-radius: 20px;
+}
+
+.pf-progress-fill {
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   REVIEW DETAILS
+========================================================= */
+
+.pf-detail-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.pf-detail-item {
+    padding: 11px;
+
+    border: 1px solid var(--border-light);
+
+    border-radius: 8px;
+
+    background: var(--bg-surface);
+}
+
+.pf-detail-item small {
+    display: block;
+
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+}
+
+.pf-detail-item strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    color: var(--text-dark);
+}
+
+.pf-comment-block {
+    margin-top: 15px;
+}
+
+.pf-comment-block h4 {
+    margin: 0 0 6px;
+
+    font-size: 12px;
+
+    color: var(--text-dark);
+}
+
+.pf-comment-block p {
+    margin: 0;
+
+    padding: 11px;
+
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+
+    background: var(--bg-surface);
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    color: var(--text-body);
+}
+
+.pf-ratings-table {
+    width: 100%;
+
+    margin-top: 12px;
+
+    border-collapse: collapse;
+
+    font-size: 11px;
+}
+
+.pf-ratings-table th {
+    padding: 9px;
+
+    background: var(--bg-surface);
+
+    color: var(--text-muted);
+
+    text-align: left;
+}
+
+.pf-ratings-table td {
+    padding: 9px;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+
+/* =========================================================
+   CONFIRM
+========================================================= */
+
+.pf-confirm-message {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: var(--text-body);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.pf-toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    z-index: 1200;
+
+    transform: translateX(-50%);
+
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    background: rgba(15, 23, 42, .95);
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .25s ease;
+}
+
+.pf-toast.show {
+    opacity: 1;
+
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.pf-toast.error {
+    background: rgba(220, 38, 38, .95);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .pf-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pf-score-card {
+        grid-column: span 3;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .pf-page {
+        padding: 22px;
+    }
+
+    .pf-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pf-analytics {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pf-score-card {
+        grid-column: span 2;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .pf-page {
+        padding: 16px;
+    }
+
+    .pf-header h1 {
+        font-size: 23px;
+    }
+
+    .pf-header-actions {
+        width: 100%;
+    }
+
+    .pf-header-actions .pf-btn {
+        flex: 1;
+    }
+
+    .pf-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-score-card {
+        grid-column: auto;
+    }
+
+    .pf-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pf-search-box {
+        width: 100%;
+    }
+
+    .pf-toolbar .pf-input,
+    .pf-toolbar select {
+        width: 100%;
+    }
+
+    .pf-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-progress-row {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-modal {
+        padding: 10px;
+    }
+
+    .pf-modal-body {
+        padding: 16px;
+    }
+
+    .pf-modal-header {
+        padding: 16px;
+    }
+
+    .pf-modal-actions {
+        padding: 12px 16px;
+    }
+
+}

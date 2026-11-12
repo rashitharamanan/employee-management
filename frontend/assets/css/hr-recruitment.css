@@ -1,0 +1,408 @@
+/* ==========================================================================
+   HR RECRUITMENT & ONBOARDING — 2-COLUMN CRM WORKSPACE
+   Adheres strictly to HR Employees & HR Dashboard design system
+   (Deep Plum, Royal Violet & Vibrant Pink Color Palette)
+   ========================================================================== */
+
+/* Tab Badges inside .employee-tabs */
+.employee-tabs .tab-badge {
+    background: #fdf2f8 !important;
+    color: #be185d !important;
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    padding: 2px 7px !important;
+    border-radius: 9999px !important;
+    margin-left: 5px !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+.employee-tabs button.active .tab-badge {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+/* Tab Action Primary Button */
+.employee-tab-actions > button.hr-primary-action,
+.employee-tab-actions > .hr-primary-action {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.28) !important;
+}
+
+.employee-tab-actions > button.hr-primary-action:hover,
+.employee-tab-actions > .hr-primary-action:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(190, 24, 93, 0.38) !important;
+    color: #ffffff !important;
+}
+
+/* Horizontal Chart Rows (Funnel & Acquisition Sources) */
+.chart-row {
+    display: grid !important;
+    grid-template-columns: 100px 1fr 38px !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 12px !important;
+    color: #5a4060 !important;
+    font-weight: 600 !important;
+}
+
+.chart-row i {
+    height: 8px !important;
+    border-radius: 6px !important;
+    background: #f4e9f2 !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.chart-row i b {
+    display: block !important;
+    height: 100% !important;
+    border-radius: 6px !important;
+    background: linear-gradient(90deg, #be185d 0%, #ed4c83 100%) !important;
+    transition: width 0.3s ease !important;
+}
+
+.chart-row strong {
+    text-align: right !important;
+    color: var(--hr-ink, #2b1748) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+/* Schedule List */
+.schedule-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    background: #fffafd !important;
+    border: 1px solid #f2e2ee !important;
+    transition: all 0.18s ease !important;
+}
+
+.schedule-item:hover {
+    background: #ffffff !important;
+    border-color: #fbcfe8 !important;
+    box-shadow: 0 4px 12px rgba(66, 19, 79, 0.08) !important;
+    transform: translateY(-1px) !important;
+}
+
+.schedule-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 6px rgba(43, 23, 72, 0.15) !important;
+}
+
+.schedule-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.schedule-info strong {
+    display: block !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: var(--hr-ink, #2b1748) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.schedule-info small {
+    display: block !important;
+    font-size: 11px !important;
+    color: #756b85 !important;
+    margin-top: 2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.schedule-time {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #be185d !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    background: #fdf2f8 !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    border: 1px solid #fbcfe8 !important;
+}
+
+/* Lifecycle Progress Bar in Table */
+.lifecycle-progress {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #581c87 !important;
+}
+
+.lifecycle-track {
+    width: 75px !important;
+    height: 6px !important;
+    border-radius: 9999px !important;
+    background: #f0e1eb !important;
+    overflow: hidden !important;
+}
+
+.lifecycle-fill {
+    display: block !important;
+    height: 100% !important;
+    border-radius: 9999px !important;
+    background: linear-gradient(90deg, #be185d 0%, #7e22ce 100%) !important;
+}
+
+/* Candidate Avatar Initials */
+.candidate-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 6px rgba(66, 19, 79, 0.18) !important;
+}
+
+.cell-with-avatar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* Table Action Buttons */
+.rec-action-btn {
+    padding: 5px 12px !important;
+    border-radius: 8px !important;
+    border: 1px solid #ebd7e7 !important;
+    background: #fffafd !important;
+    color: #581c87 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.rec-action-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+}
+
+/* Modal Overlay */
+.lm-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(40, 16, 60, 0.48) !important;
+    backdrop-filter: blur(4px) !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
+    padding: 20px !important;
+}
+
+/* ==========================================================================
+   FIX TABLE HEIGHT & FLUSH SCROLLBAR (ZERO GAP ABOVE FOOTER)
+   ========================================================================== */
+.hr-recruitment-page .employee-layout {
+    align-items: stretch !important;
+}
+
+.hr-recruitment-page .employee-directory-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    position: relative !important;
+}
+
+.hr-recruitment-page .employee-table-wrap {
+    flex: 1 1 auto !important;
+    max-height: none !important;
+    min-height: 380px !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    background: #ffffff !important;
+}
+
+.hr-recruitment-page .employee-table-wrap table {
+    width: 100% !important;
+    min-width: 820px !important;
+}
+
+.hr-recruitment-page .hr-employee-card th {
+    padding: 12px 14px !important;
+}
+
+.hr-recruitment-page .hr-employee-card td {
+    padding: 11px 14px !important;
+}
+
+.hr-recruitment-page .employee-footer {
+    margin-top: 0 !important;
+    border-top: 1px solid #f2e2ee !important;
+    flex-shrink: 0 !important;
+}
+
+/* ==========================================================================
+   INTERACTIVE STATUS SELECT BADGE & TOAST NOTIFICATIONS
+   ========================================================================== */
+
+.rec-status-wrap {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.rec-status-select {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 4px 24px 4px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    outline: none !important;
+    border: 1px solid transparent !important;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background-repeat: no-repeat !important;
+    background-position: right 7px center !important;
+    background-size: 9px 9px !important;
+    font-family: inherit !important;
+}
+
+.rec-status-select:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 3px 10px rgba(66, 19, 79, 0.12) !important;
+}
+
+/* OPEN Status (Active Pink/Magenta Theme) */
+.rec-status-select.active,
+.rec-status-select[data-status="OPEN"] {
+    background-color: #fdf2f8 !important;
+    color: #be185d !important;
+    border-color: #fbcfe8 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23be185d' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* CLOSED Status (Inactive Royal Plum Theme) */
+.rec-status-select.inactive,
+.rec-status-select[data-status="CLOSED"] {
+    background-color: #f8edf7 !important;
+    color: #581c87 !important;
+    border-color: #ebd7e7 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23581c87' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* DRAFT Status (Neutral Slate/Lilac Theme) */
+.rec-status-select.suspended,
+.rec-status-select[data-status="DRAFT"] {
+    background-color: #f3f4f6 !important;
+    color: #4b5563 !important;
+    border-color: #e5e7eb !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* Candidate Stage Select */
+.rec-stage-select {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 3px 22px 3px 9px !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    outline: none !important;
+    background-color: #fdf2f8 !important;
+    color: #be185d !important;
+    border: 1px solid #fbcfe8 !important;
+    background-repeat: no-repeat !important;
+    background-position: right 7px center !important;
+    background-size: 8px 8px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23be185d' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    transition: all 0.18s ease !important;
+}
+
+.rec-stage-select:hover {
+    box-shadow: 0 2px 8px rgba(190, 24, 93, 0.15) !important;
+    border-color: #be185d !important;
+}
+
+/* Toast Notifications Container */
+.rec-toast-container {
+    position: fixed !important;
+    top: 24px !important;
+    right: 24px !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    pointer-events: none !important;
+}
+
+.rec-toast {
+    background: #ffffff !important;
+    color: #2b1748 !important;
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    border: 1px solid #ebd7e7 !important;
+    box-shadow: 0 10px 30px rgba(43, 23, 72, 0.22) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    pointer-events: auto !important;
+    animation: recToastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+.rec-toast.success {
+    border-left: 5px solid #be185d !important;
+}
+
+.rec-toast.error {
+    border-left: 5px solid #dc2626 !important;
+}
+
+@keyframes recToastIn {
+    from {
+        opacity: 0;
+        transform: translateY(-12px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
