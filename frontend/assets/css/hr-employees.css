@@ -826,9 +826,14 @@
     min-width: 180px !important;
     padding: 6px !important;
     z-index: 100 !important;
-    display: flex !important;
+    display: none !important;
     flex-direction: column !important;
     gap: 3px !important;
+}
+
+.export-dropdown-menu.show,
+.export-dropdown-menu.active {
+    display: flex !important;
 }
 
 .export-dropdown-menu button {

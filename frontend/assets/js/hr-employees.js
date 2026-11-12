@@ -478,8 +478,22 @@ function exportEmployeesCsv() {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    // Hide dropdown if open
-    if (employee$('exportDropdownMenu')) employee$('exportDropdownMenu').style.display = 'none';
+    // Hide dropdown
+    toggleExportDropdown(false);
+}
+
+/* =========================================================
+   EXPORT DROPDOWN CONTROLLER
+========================================================= */
+function toggleExportDropdown(force) {
+    const menu = employee$('exportDropdownMenu');
+    if (!menu) return;
+    const shouldOpen = typeof force === 'boolean' ? force : !menu.classList.contains('show');
+    if (shouldOpen) {
+        menu.classList.add('show', 'active');
+    } else {
+        menu.classList.remove('show', 'active');
+    }
 }
 
 /* =========================================================
@@ -498,20 +512,18 @@ employee$('tabEmployeeDirectory')?.addEventListener('click', () => {
 // Export dropdown
 employee$('btnExportEmployees')?.addEventListener('click', (e) => {
     e.stopPropagation();
-    const menu = employee$('exportDropdownMenu');
-    if (menu) {
-        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
+    toggleExportDropdown();
 });
 
 employee$('btnExportCsv')?.addEventListener('click', (e) => {
     e.stopPropagation();
+    toggleExportDropdown(false);
     exportEmployeesCsv();
 });
 
 employee$('btnExportPrint')?.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (employee$('exportDropdownMenu')) employee$('exportDropdownMenu').style.display = 'none';
+    toggleExportDropdown(false);
     window.print();
 });
 
@@ -519,8 +531,7 @@ employee$('btnExportPrint')?.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     const wrapper = employee$('btnExportEmployees')?.closest('.export-dropdown-wrapper');
     if (wrapper && !wrapper.contains(e.target)) {
-        const menu = employee$('exportDropdownMenu');
-        if (menu) menu.style.display = 'none';
+        toggleExportDropdown(false);
     }
 });
 
@@ -546,11 +557,11 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ESC key to close modal
+// ESC key to close modal & dropdown
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeEmployeeDetailModal();
-        if (employee$('exportDropdownMenu')) employee$('exportDropdownMenu').style.display = 'none';
+        toggleExportDropdown(false);
     }
 });
 
