@@ -53,12 +53,15 @@
     100% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
 }
 
-.tr-heading-actions {
+.tr-heading-actions,
+.pf-header-actions {
     display: flex !important;
     gap: 10px !important;
     align-items: center !important;
 }
 
+.tr-btn,
+.pf-btn,
 .tr-primary-btn,
 .tr-secondary-btn,
 .tr-ghost-btn,
@@ -75,8 +78,11 @@
     cursor: pointer !important;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     box-sizing: border-box !important;
+    white-space: nowrap !important;
 }
 
+.tr-btn-primary,
+.pf-btn-primary,
 .tr-primary-btn {
     background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
     color: #ffffff !important;
@@ -84,12 +90,16 @@
     box-shadow: 0 4px 12px rgba(190, 24, 93, 0.28) !important;
 }
 
+.tr-btn-primary:hover,
+.pf-btn-primary:hover,
 .tr-primary-btn:hover {
     transform: translateY(-1px) !important;
     box-shadow: 0 6px 16px rgba(190, 24, 93, 0.38) !important;
     color: #ffffff !important;
 }
 
+.tr-btn-light,
+.pf-btn-light,
 .tr-secondary-btn {
     background: #ffffff !important;
     color: #42134f !important;
@@ -97,6 +107,8 @@
     box-shadow: 0 1px 4px rgba(43, 23, 72, 0.04) !important;
 }
 
+.tr-btn-light:hover,
+.pf-btn-light:hover,
 .tr-secondary-btn:hover {
     background: #fdf2f8 !important;
     border-color: #be185d !important;

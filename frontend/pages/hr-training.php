@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/hr-shell.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/hr-employees.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/training.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="../assets/css/hr-performance.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/hr-training.css?v=<?= time() ?>">
 </head>
 <body>
@@ -26,12 +27,12 @@
                     <span class="tr-pulse-dot"></span>
                     <span>Training &amp; Development</span>
                 </div>
-                <div class="tr-heading-actions">
-                    <button type="button" id="newProgramBtn" class="tr-secondary-btn">
+                <div class="tr-heading-actions pf-header-actions">
+                    <button type="button" id="newProgramBtn" class="tr-btn tr-btn-light pf-btn pf-btn-light tr-secondary-btn">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         <span>New Program</span>
                     </button>
-                    <button type="button" id="newEnrollmentBtn" class="tr-primary-btn">
+                    <button type="button" id="newEnrollmentBtn" class="tr-btn tr-btn-primary pf-btn pf-btn-primary tr-primary-btn">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         <span>New Enrollment</span>
                     </button>
@@ -376,6 +377,13 @@
             </label>
         </div>
         <p class="tr-error" id="sessionFormError"></p>
+        <div class="tr-modal-actions">
+            <button type="button" class="tr-secondary-btn" data-close="sessionModal">Cancel</button>
+            <button type="button" class="tr-primary-btn" id="saveSessionBtn">Save Session</button>
+        </div>
+    </div>
+</div>
+
 <!-- Enrollment Form Modal -->
 <div class="tr-modal" id="enrollmentModal" aria-hidden="true">
     <div class="tr-modal-card">
@@ -450,12 +458,6 @@
         <div class="tr-modal-actions">
             <button type="button" class="tr-secondary-btn" data-close="confirmModal">Cancel</button>
             <button type="button" class="tr-danger-btn" id="confirmDeleteBtn">Delete</button>
-        </div>
-    </div>
-</div>
-        <div class="tr-modal-actions">
-            <button type="button" class="tr-secondary-btn" data-close="sessionModal">Cancel</button>
-            <button type="button" class="tr-primary-btn" id="saveSessionBtn">Save Session</button>
         </div>
     </div>
 </div>
