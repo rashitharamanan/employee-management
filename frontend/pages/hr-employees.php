@@ -72,7 +72,6 @@
                             <tbody id="employeeRows"></tbody>
                         </table>
                     </div>
-                    <div class="employee-directory-grid" id="employeeDirectoryWrap" style="display: none;"></div>
                     <div class="employee-footer">
                         <span id="employeePageInfo"></span>
                         <div id="employeePagination"></div>

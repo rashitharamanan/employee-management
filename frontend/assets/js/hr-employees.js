@@ -15,7 +15,6 @@ let employees = [];
 let currentPage = 1;
 let totalPages = 1;
 let perPage = 10;
-let currentView = 'table'; // 'table' or 'directory'
 
 function formatEmpType(type) {
     if (!type) return '';
@@ -33,117 +32,6 @@ function showProfile() {
     if (employee$('adminAvatar')) employee$('adminAvatar').textContent = name.charAt(0).toUpperCase();
 }
 
-function switchView(view) {
-    currentView = view;
-    const tabTable = employee$('tabAllEmployees');
-    const tabDir = employee$('tabEmployeeDirectory');
-    const tableWrap = employee$('employeeTableWrap');
-    const dirWrap = employee$('employeeDirectoryWrap');
-
-    if (view === 'directory') {
-        if (tabTable) tabTable.classList.remove('active');
-        if (tabDir) tabDir.classList.add('active');
-        if (tableWrap) tableWrap.style.display = 'none';
-        if (dirWrap) dirWrap.style.display = 'grid';
-    } else {
-        if (tabTable) tabTable.classList.add('active');
-        if (tabDir) tabDir.classList.remove('active');
-        if (tableWrap) tableWrap.style.display = 'block';
-        if (dirWrap) dirWrap.style.display = 'none';
-    }
-}
-
-function renderDirectoryGrid(rows) {
-    const dirWrap = employee$('employeeDirectoryWrap');
-    if (!dirWrap) return;
-
-    if (!rows.length) {
-        dirWrap.innerHTML = `
-            <div class="dir-empty-state">
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <strong>No employees found</strong>
-                <p>Try adjusting your search query or filter criteria.</p>
-            </div>
-        `;
-        return;
-    }
-
-    dirWrap.innerHTML = rows.map(employee => {
-        const rawStatus = String(employee.status || 'ACTIVE').toUpperCase();
-        const statusClass = rawStatus.toLowerCase().replace(/\s+/g, '_');
-        const initial = employeeEscape((employee.full_name || '?').charAt(0).toUpperCase());
-        const empType = formatEmpType(employee.employment_type);
-        const photoUrl = employee.profile_photo ? (employee.profile_photo.startsWith('http') ? employee.profile_photo : `${HR_EMPLOYEE_API}/${employee.profile_photo.replace(/^\/+/, '')}`) : '';
-
-        return `
-            <div class="dir-card" data-id="${employee.id}">
-                <div class="dir-card-header">
-                    <span class="employee-code">${employeeEscape(employee.employee_code || 'EMP-' + employee.id)}</span>
-                    <span class="employee-status ${statusClass}">
-                        <i class="status-dot"></i>${employeeEscape(rawStatus)}
-                    </span>
-                </div>
-                <div class="dir-card-profile">
-                    <div class="dir-avatar-wrap">
-                        ${photoUrl ? `<img src="${photoUrl}" class="dir-avatar-img" alt="${employeeEscape(employee.full_name)}" onerror="this.outerHTML='<span class=\\'dir-avatar\\'>${initial}</span>'">` : `<span class="dir-avatar">${initial}</span>`}
-                        <span class="dir-status-indicator ${statusClass}"></span>
-                    </div>
-                    <h3 class="dir-name" title="${employeeEscape(employee.full_name)}">${employeeEscape(employee.full_name)}</h3>
-                    <p class="dir-role" title="${employeeEscape(employee.designation || 'Team Member')}">${employeeEscape(employee.designation || 'Team Member')}</p>
-                    <div class="dir-tags">
-                        <span class="dir-dept-tag">${employeeEscape(employee.department || 'General')}</span>
-                        ${empType ? `<span class="dir-type-tag">${employeeEscape(empType)}</span>` : ''}
-                    </div>
-                </div>
-                <div class="dir-card-divider"></div>
-                <div class="dir-card-contact">
-                    <div class="dir-contact-item" title="${employeeEscape(employee.email || '')}">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        ${employee.email ? `<a href="mailto:${employeeEscape(employee.email)}" class="dir-link">${employeeEscape(employee.email)}</a>` : `<span>—</span>`}
-                    </div>
-                    <div class="dir-contact-item" title="${employeeEscape(employee.phone || '')}">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <span>${employeeEscape(employee.phone || '—')}</span>
-                    </div>
-                    <div class="dir-contact-item" title="Joining Date: ${employeeEscape(employee.joining_date || '—')}">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        <span>Joined ${employeeEscape(employee.joining_date || '—')}</span>
-                    </div>
-                </div>
-                <div class="dir-card-actions">
-                    <button type="button" class="dir-action-btn view-emp-trigger" data-id="${employee.id}">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                        View Profile
-                    </button>
-                    ${employee.email ? `
-                    <a href="mailto:${employeeEscape(employee.email)}" class="dir-icon-btn" title="Send Email">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"/>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                        </svg>
-                    </a>` : ''}
-                </div>
-            </div>
-        `;
-    }).join('');
-}
-
 function renderEmployees() {
     const rows = employees;
     if (employee$('employeeCount')) {
@@ -153,7 +41,7 @@ function renderEmployees() {
         employee$('employeeState').textContent = rows.length ? '' : 'No employees found.';
     }
 
-    // Render Table Rows
+    // Always render table rows
     const tbody = employee$('employeeRows');
     if (tbody) {
         tbody.innerHTML = rows.map((employee, index) => {
@@ -194,12 +82,6 @@ function renderEmployees() {
             </tr>`;
         }).join('');
     }
-
-    // Render Directory Cards Grid
-    renderDirectoryGrid(rows);
-
-    // Apply current display mode
-    switchView(currentView);
 
     if (employee$('employeePageInfo')) {
         employee$('employeePageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
@@ -387,7 +269,11 @@ function openEmployeeDetailModal(empId) {
     const statusClass = rawStatus.toLowerCase().replace(/\s+/g, '_');
     const photoUrl = employee.profile_photo ? (employee.profile_photo.startsWith('http') ? employee.profile_photo : `${HR_EMPLOYEE_API}/${employee.profile_photo.replace(/^\/+/, '')}`) : '';
 
-    if (employee$('modalEmpCode')) employee$('modalEmpCode').textContent = employee.employee_code || `EMP-${employee.id}`;
+    if (employee$('modalEmpCode')) {
+        const code = employee.employee_code || `EMP-${employee.id}`;
+        employee$('modalEmpCode').textContent = code;
+        employee$('modalEmpCode').style.display = code ? 'inline-block' : 'none';
+    }
     if (employee$('modalHeroName')) employee$('modalHeroName').textContent = employee.full_name || '—';
     if (employee$('modalHeroDesignation')) employee$('modalHeroDesignation').textContent = employee.designation || 'Team Member';
     
@@ -428,17 +314,24 @@ function openEmployeeDetailModal(empId) {
         sendEmailBtn.style.display = employee.email ? 'inline-flex' : 'none';
     }
 
+    modal.classList.add('active');
     modal.style.display = 'flex';
     modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeEmployeeDetailModal() {
     const modal = employee$('hrEmployeeDetailModal');
     if (modal) {
+        modal.classList.remove('active');
         modal.style.display = 'none';
         modal.setAttribute('aria-hidden', 'true');
     }
+    document.body.style.overflow = '';
 }
+
+window.openEmployeeDetailModal = openEmployeeDetailModal;
+window.closeEmployeeDetailModal = closeEmployeeDetailModal;
 
 /* =========================================================
    EXPORT FUNCTIONALITY (CSV & PRINT)
@@ -500,13 +393,25 @@ function toggleExportDropdown(force) {
    EVENT LISTENERS & BINDINGS
 ========================================================= */
 
-// Tab switching
+// Tab switching — filters the table view cleanly without any cards
 employee$('tabAllEmployees')?.addEventListener('click', () => {
-    switchView('table');
+    employee$('tabAllEmployees')?.classList.add('active');
+    employee$('tabEmployeeDirectory')?.classList.remove('active');
+    if (employee$('employeeStatus')) {
+        employee$('employeeStatus').value = '';
+    }
+    currentPage = 1;
+    loadEmployees();
 });
 
 employee$('tabEmployeeDirectory')?.addEventListener('click', () => {
-    switchView('directory');
+    employee$('tabEmployeeDirectory')?.classList.add('active');
+    employee$('tabAllEmployees')?.classList.remove('active');
+    if (employee$('employeeStatus')) {
+        employee$('employeeStatus').value = 'ACTIVE';
+    }
+    currentPage = 1;
+    loadEmployees();
 });
 
 // Export dropdown
@@ -535,7 +440,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Delegate click on employee cards / table action buttons to open Detail Modal
+// Delegate click on employee table action buttons to open Detail Modal
 document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.view-emp-trigger');
     if (trigger) {
@@ -574,6 +479,17 @@ employee$('employeeSearch')?.addEventListener('input', () => {
 });
 
 employee$('employeeStatus')?.addEventListener('change', () => {
+    const statusVal = employee$('employeeStatus')?.value;
+    if (statusVal === 'ACTIVE') {
+        employee$('tabEmployeeDirectory')?.classList.add('active');
+        employee$('tabAllEmployees')?.classList.remove('active');
+    } else if (statusVal === '') {
+        employee$('tabAllEmployees')?.classList.add('active');
+        employee$('tabEmployeeDirectory')?.classList.remove('active');
+    } else {
+        employee$('tabAllEmployees')?.classList.remove('active');
+        employee$('tabEmployeeDirectory')?.classList.remove('active');
+    }
     currentPage = 1;
     loadEmployees();
 });
