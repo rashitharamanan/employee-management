@@ -20,27 +20,27 @@
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    gap: 16px !important;
-    margin-bottom: 20px !important;
+    gap: 14px !important;
+    margin-bottom: 16px !important;
 }
 
 .tr-top-badge {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 8px !important;
-    padding: 6px 14px !important;
+    gap: 7px !important;
+    padding: 4px 12px !important;
     border-radius: 9999px !important;
     background: #fdf2f8 !important;
     border: 1px solid #fbcfe8 !important;
-    font-size: 12px !important;
+    font-size: 11px !important;
     font-weight: 700 !important;
     color: #be185d !important;
     letter-spacing: 0.2px !important;
 }
 
 .tr-pulse-dot {
-    width: 8px !important;
-    height: 8px !important;
+    width: 7px !important;
+    height: 7px !important;
     border-radius: 50% !important;
     background: #be185d !important;
     box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.2) !important;
@@ -56,7 +56,7 @@
 .tr-heading-actions,
 .pf-header-actions {
     display: flex !important;
-    gap: 10px !important;
+    gap: 8px !important;
     align-items: center !important;
 }
 
@@ -66,19 +66,36 @@
 .tr-secondary-btn,
 .tr-ghost-btn,
 .tr-danger-btn {
-    height: 38px !important;
-    padding: 0 16px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 13px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 7px !important;
-    border-radius: 10px !important;
-    font-size: 12.5px !important;
+    gap: 6px !important;
+    border-radius: 8px !important;
+    font-size: 11.5px !important;
     font-weight: 700 !important;
     cursor: pointer !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
     box-sizing: border-box !important;
     white-space: nowrap !important;
+    line-height: 1 !important;
+}
+
+.tr-btn svg,
+.pf-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+.tr-btn span,
+.pf-btn span {
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
 }
 
 .tr-btn-primary,
@@ -87,14 +104,14 @@
     background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
     color: #ffffff !important;
     border: none !important;
-    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.28) !important;
+    box-shadow: 0 2px 8px rgba(190, 24, 93, 0.26) !important;
 }
 
 .tr-btn-primary:hover,
 .pf-btn-primary:hover,
 .tr-primary-btn:hover {
     transform: translateY(-1px) !important;
-    box-shadow: 0 6px 16px rgba(190, 24, 93, 0.38) !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.36) !important;
     color: #ffffff !important;
 }
 
@@ -104,7 +121,7 @@
     background: #ffffff !important;
     color: #42134f !important;
     border: 1px solid #ebd7e7 !important;
-    box-shadow: 0 1px 4px rgba(43, 23, 72, 0.04) !important;
+    box-shadow: 0 1px 3px rgba(43, 23, 72, 0.04) !important;
 }
 
 .tr-btn-light:hover,
@@ -120,6 +137,12 @@
     background: #ffffff !important;
     color: #be185d !important;
     border: 1px solid #ebd7e7 !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 12px !important;
+    font-size: 11.5px !important;
+    border-radius: 8px !important;
 }
 
 .tr-ghost-btn:hover {
@@ -131,6 +154,13 @@
     background: linear-gradient(135deg, #be123c 0%, #e11d48 100%) !important;
     color: #ffffff !important;
     border: none !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 13px !important;
+    border-radius: 8px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
 }
 
 /* Error Banner */
@@ -334,12 +364,12 @@
 .tr-tab {
     background: transparent !important;
     border: none !important;
-    padding: 10px 22px !important;
-    font-size: 13.5px !important;
+    padding: 7px 16px !important;
+    font-size: 12px !important;
     font-weight: 700 !important;
     color: #756b85 !important;
     cursor: pointer !important;
-    border-radius: 12px 12px 0 0 !important;
+    border-radius: 8px 8px 0 0 !important;
     transition: all 0.2s ease !important;
     position: relative !important;
 }
@@ -386,13 +416,14 @@
 }
 
 .tr-input {
-    font-size: 12.5px !important;
+    font-size: 11.5px !important;
     color: #2b1748 !important;
     background: #fffafd !important;
     border: 1px solid #ebd7e7 !important;
-    border-radius: 10px !important;
-    padding: 8px 14px !important;
-    min-height: 40px !important;
+    border-radius: 8px !important;
+    padding: 0 12px !important;
+    min-height: 32px !important;
+    height: 32px !important;
     transition: all 0.2s ease !important;
 }
 
@@ -893,3 +924,70 @@
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ==========================================================================
+   FORM & MODAL SUPPORTING STYLES (Self-Contained Training Module)
+   ========================================================================== */
+.tr-form-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 14px !important;
+}
+
+.tr-checkbox {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #42134f !important;
+    margin-top: 10px !important;
+    cursor: pointer !important;
+}
+
+.tr-checkbox input[type="checkbox"] {
+    accent-color: #be185d !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.tr-sessions-head {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+}
+
+.tr-session-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 14px !important;
+    margin-bottom: 8px !important;
+}
+
+.tr-session-row .s-title {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #2b1748 !important;
+}
+
+.tr-session-row .s-meta {
+    font-size: 11.5px !important;
+    color: #756b85 !important;
+}
+
+.tr-session-row .s-actions {
+    display: flex !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+}
+
+.tr-confirm-message {
+    font-size: 13px !important;
+    color: #2b1748 !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+}
+

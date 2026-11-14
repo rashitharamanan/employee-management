@@ -876,3 +876,113 @@ body:has(.hr-sidebar) #userProfileModal .up-btn-logout:hover {
 .hr-topbar .action-badge {
     background: #ed4c83 !important;
 }
+
+/* =========================================================
+   MASTER UNIFIED SLEEK COMPACT BUTTON DESIGN SYSTEM
+   Standardizes all actions across HR Portal (Training, Employees, Performance, Leave, Payroll)
+   ========================================================= */
+.pf-btn,
+.tr-btn,
+.hr-primary-action,
+.export-btn,
+.tr-primary-btn,
+.tr-secondary-btn,
+.employee-tab-actions .export-btn,
+.employee-tab-actions .hr-primary-action {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 13px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    border-radius: 8px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+}
+
+.pf-btn svg,
+.tr-btn svg,
+.hr-primary-action svg,
+.export-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+.pf-btn span,
+.tr-btn span,
+.hr-primary-action span,
+.export-btn span {
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+/* Primary Vibrant Magenta Gradient Button */
+.pf-btn-primary,
+.tr-btn-primary,
+.hr-primary-action,
+.tr-primary-btn,
+.employee-tab-actions .hr-primary-action {
+    background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(190, 24, 93, 0.26) !important;
+}
+
+.pf-btn-primary:hover,
+.tr-btn-primary:hover,
+.hr-primary-action:hover,
+.tr-primary-btn:hover,
+.employee-tab-actions .hr-primary-action:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.36) !important;
+    color: #ffffff !important;
+}
+
+/* Secondary White Pill with Plum Text & Subtle Border */
+.pf-btn-light,
+.tr-btn-light,
+.export-btn,
+.tr-secondary-btn,
+.employee-tab-actions .export-btn {
+    background: #ffffff !important;
+    color: #42134f !important;
+    border: 1px solid #ebd7e7 !important;
+    box-shadow: 0 1px 3px rgba(43, 23, 72, 0.04) !important;
+}
+
+.pf-btn-light:hover,
+.tr-btn-light:hover,
+.export-btn:hover,
+.tr-secondary-btn:hover,
+.employee-tab-actions .export-btn:hover {
+    background: #fdf2f8 !important;
+    border-color: #be185d !important;
+    color: #be185d !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Danger Button */
+.pf-btn-danger,
+.tr-danger-btn {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 13px !important;
+    border-radius: 8px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #be123c 0%, #e11d48 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+

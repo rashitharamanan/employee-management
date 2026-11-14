@@ -199,44 +199,68 @@
     margin-left: auto !important;
 }
 
-.employee-tab-actions > button {
-    padding: 9px 15px !important;
+.employee-tab-actions > button,
+.employee-tab-actions .export-btn,
+.export-btn {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 13px !important;
     border: 1px solid #ebd7e7 !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     color: #42134f !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
     cursor: pointer !important;
-    transition: all 0.15s ease !important;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    box-shadow: 0 1px 3px rgba(43, 23, 72, 0.04) !important;
+    box-sizing: border-box !important;
+    line-height: 1 !important;
 }
 
-.employee-tab-actions > button:hover {
+.employee-tab-actions > button:hover,
+.employee-tab-actions .export-btn:hover,
+.export-btn:hover {
     background: #fdf2f8 !important;
     border-color: #be185d !important;
     color: #be185d !important;
+    transform: translateY(-1px) !important;
 }
 
-.hr-primary-action {
+.hr-primary-action,
+.employee-tab-actions .hr-primary-action {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
     display: inline-flex !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 6px !important;
-    padding: 9px 18px !important;
-    border-radius: 10px !important;
+    padding: 0 13px !important;
+    border-radius: 8px !important;
     background: linear-gradient(135deg, #be185d 0%, #ed4c83 100%) !important;
     color: #ffffff !important;
     text-decoration: none !important;
-    font-size: 12px !important;
+    font-size: 11.5px !important;
     font-weight: 700 !important;
-    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.25) !important;
-    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    box-shadow: 0 2px 8px rgba(190, 24, 93, 0.26) !important;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
     border: none !important;
     cursor: pointer !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
 }
 
-.hr-primary-action:hover {
+.hr-primary-action:hover,
+.employee-tab-actions .hr-primary-action:hover {
     transform: translateY(-1px) !important;
-    box-shadow: 0 6px 16px rgba(190, 24, 93, 0.35) !important;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.36) !important;
     color: #ffffff !important;
 }
 
@@ -795,24 +819,31 @@
 }
 
 .export-btn {
-    padding: 9px 15px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 13px !important;
     border: 1px solid #ebd7e7 !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     background: #ffffff !important;
     color: #42134f !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
     cursor: pointer !important;
-    transition: all 0.15s ease !important;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 4px !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    line-height: 1 !important;
+    box-shadow: 0 1px 3px rgba(43, 23, 72, 0.04) !important;
 }
 
 .export-btn:hover {
     background: #fdf2f8 !important;
     border-color: #be185d !important;
     color: #be185d !important;
+    transform: translateY(-1px) !important;
 }
 
 .export-dropdown-menu {

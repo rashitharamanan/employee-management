@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../assets/css/app-theme.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/hr-shell.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/hr-employees.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="../assets/css/training.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/hr-performance.css?v=<?= time() ?>">
     <link rel="stylesheet" href="../assets/css/hr-training.css?v=<?= time() ?>">
 </head>
@@ -22,18 +21,18 @@
         <section class="tr-page">
 
             <!-- COMPACT TOP BAR & ACTIONS -->
-            <div class="tr-top-bar">
-                <div class="tr-top-badge">
-                    <span class="tr-pulse-dot"></span>
+            <div class="tr-top-bar pf-top-bar">
+                <div class="tr-top-badge pf-top-badge">
+                    <span class="tr-pulse-dot pf-pulse-dot"></span>
                     <span>Training &amp; Development</span>
                 </div>
-                <div class="tr-heading-actions pf-header-actions">
-                    <button type="button" id="newProgramBtn" class="tr-btn tr-btn-light pf-btn pf-btn-light tr-secondary-btn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <div class="pf-header-actions tr-heading-actions">
+                    <button type="button" id="newProgramBtn" class="pf-btn pf-btn-light">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         <span>New Program</span>
                     </button>
-                    <button type="button" id="newEnrollmentBtn" class="tr-btn tr-btn-primary pf-btn pf-btn-primary tr-primary-btn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <button type="button" id="newEnrollmentBtn" class="pf-btn pf-btn-primary">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         <span>New Enrollment</span>
                     </button>
                 </div>

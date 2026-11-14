@@ -23,7 +23,10 @@
                         <button type="button" id="tabEmployeeDirectory">Employee Directory</button>
                         <div class="employee-tab-actions">
                             <div class="export-dropdown-wrapper">
-                                <button type="button" id="btnExportEmployees" class="export-btn">Export ⌄</button>
+                                <button type="button" id="btnExportEmployees" class="export-btn pf-btn pf-btn-light">
+                                    <span>Export</span>
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                </button>
                                 <div id="exportDropdownMenu" class="export-dropdown-menu" style="display: none;">
                                     <button type="button" id="btnExportCsv">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -35,7 +38,10 @@
                                     </button>
                                 </div>
                             </div>
-                            <a class="hr-primary-action add-employee-trigger" id="openAddEmployeeBtn2" href="#add">＋ Add Employee</a>
+                            <a class="hr-primary-action add-employee-trigger pf-btn pf-btn-primary" id="openAddEmployeeBtn2" href="#add">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                <span>Add Employee</span>
+                            </a>
                         </div>
                     </div>
                     <div class="employee-toolbar">
