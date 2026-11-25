@@ -32,7 +32,17 @@ class Database
 
         // Enable SSL if explicitly requested or if connecting to cloud providers that require it (e.g. TiDB Cloud, Aiven)
         $ssl = $_ENV['DB_SSL'] ?? $_SERVER['DB_SSL'] ?? getenv('DB_SSL');
-        if ($ssl === 'true' || $ssl === '1' || (!empty($host) && (strpos($host, 'tidbcloud.com') !== false || strpos($host, 'aivencloud.com') !== false))) {
+        $isCloudDb = (!empty($host) && (strpos($host, 'tidbcloud.com') !== false || strpos($host, 'aivencloud.com') !== false));
+
+        if ($ssl === 'true' || $ssl === '1' || $isCloudDb) {
+            $bundledCa = __DIR__ . '/ca-bundle.crt';
+            if (file_exists($bundledCa)) {
+                $options[\PDO::MYSQL_ATTR_SSL_CA] = $bundledCa;
+            } elseif (file_exists('/etc/ssl/certs/ca-certificates.crt')) {
+                $options[\PDO::MYSQL_ATTR_SSL_CA] = '/etc/ssl/certs/ca-certificates.crt';
+            } else {
+                $options[\PDO::MYSQL_ATTR_SSL_CA] = true;
+            }
             $options[\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
         }
 
