@@ -12,10 +12,10 @@ class JwtService
 
     public function __construct()
     {
-        $this->secret = $_ENV['JWT_SECRET'] ?? '';
+        $this->secret = $_ENV['JWT_SECRET'] ?? $_SERVER['JWT_SECRET'] ?? getenv('JWT_SECRET') ?? '1457795713b2d2566eaf6fe6584c3be3764ff87002eb292c307d47f4e666f6cd';
 
         $this->expiration = (int) (
-            $_ENV['JWT_EXPIRATION'] ?? 3600
+            $_ENV['JWT_EXPIRATION'] ?? $_SERVER['JWT_EXPIRATION'] ?? getenv('JWT_EXPIRATION') ?? 3600
         );
 
         if ($this->secret === '') {
