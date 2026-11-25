@@ -36,7 +36,12 @@
                 <div class="up-detail-item">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Username</span>
-                        <span class="up-lock-badge" title="System identifier (Non-editable)">🔒 Fixed</span>
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </span>
                     </div>
                     <strong class="up-detail-val" id="upDetailUsername">—</strong>
                 </div>
@@ -45,7 +50,12 @@
                 <div class="up-detail-item">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">System Role</span>
-                        <span class="up-lock-badge" title="Access privileges locked">🔒 Fixed</span>
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </span>
                     </div>
                     <strong class="up-detail-val" id="upDetailSystemRole">—</strong>
                 </div>
@@ -54,7 +64,12 @@
                 <div class="up-detail-item">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Designation / Title</span>
-                        <span class="up-lock-badge" title="Designation assigned by system">🔒 Fixed</span>
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </span>
                     </div>
                     <strong class="up-detail-val" id="upDetailDesignation">—</strong>
                 </div>
@@ -63,7 +78,12 @@
                 <div class="up-detail-item">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Department</span>
-                        <span class="up-lock-badge" title="Assigned department">🔒 Fixed</span>
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </span>
                     </div>
                     <strong class="up-detail-val" id="upDetailDepartment">—</strong>
                 </div>
@@ -72,7 +92,12 @@
                 <div class="up-detail-item">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Employee Code</span>
-                        <span class="up-lock-badge" title="System employee code">🔒 Fixed</span>
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </span>
                     </div>
                     <strong class="up-detail-val" id="upDetailEmpCode">—</strong>
                 </div>
@@ -98,7 +123,12 @@
                 <div class="up-detail-item up-grid-full">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Official Email</span>
-                        <span class="up-lock-badge" title="Official login email">🔒 Fixed</span>
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </span>
                     </div>
                     <strong class="up-detail-val" id="upDetailEmail">—</strong>
                 </div>
@@ -644,16 +674,24 @@
     margin-bottom: 2px !important;
 }
 
-.up-lock-badge {
-    font-size: 10px !important;
-    font-weight: 600 !important;
+.up-lock-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     color: #94a3b8 !important;
-    background: #f1f5f9 !important;
-    padding: 2px 6px !important;
-    border-radius: 6px !important;
-    letter-spacing: 0.3px !important;
-    line-height: 1.2 !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 5px !important;
+    background: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
+    opacity: 0.85 !important;
+    transition: all 0.15s ease !important;
+}
+
+.up-lock-icon:hover {
+    color: #64748b !important;
+    background: #f1f5f9 !important;
+    opacity: 1 !important;
 }
 
 .up-editable-badge {
