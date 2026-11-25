@@ -103,10 +103,10 @@
                 </div>
 
                 <!-- Phone (Editable Contact Number) -->
-                <div class="up-detail-item up-detail-editable" id="upPhoneDetailItem">
+                <div class="up-detail-item up-detail-editable" id="upPhoneDetailItem" title="Click to edit contact phone">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Contact Phone</span>
-                        <span class="up-editable-badge" id="upPhoneBadge" title="Click to edit contact phone">
+                        <span class="up-editable-badge" id="upPhoneBadge" title="Click to edit">
                             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                             Editable
                         </span>
@@ -115,7 +115,21 @@
                         <strong class="up-detail-val" id="upDetailPhone">—</strong>
                     </div>
                     <div id="upPhoneEditWrap" style="display:none; margin-top:4px;">
-                        <input type="tel" id="upInputPhone" class="up-form-input" placeholder="Enter contact phone" maxlength="25">
+                        <div class="up-inline-input-group">
+                            <input type="tel" id="upInputPhone" class="up-form-input up-inline-input" placeholder="Enter contact phone" maxlength="25">
+                            <button type="button" class="up-inline-btn up-inline-save" id="upInlineSaveBtn" title="Save phone">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="up-inline-btn up-inline-cancel" id="upInlineCancelBtn" title="Cancel">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="up-inline-hint">Press Enter to save, Esc to cancel</span>
                     </div>
                 </div>
 
@@ -143,40 +157,17 @@
 
         <!-- MODAL FOOTER -->
         <div class="up-modal-footer">
-            <!-- Normal View Mode Buttons -->
-            <div id="upFooterViewMode" style="display:flex; width:100%; justify-content:flex-end; gap:8px;">
-                <button type="button" class="up-btn up-btn-secondary" id="upModalCloseFooterBtn">
-                    Close
-                </button>
-                <button type="button" class="up-btn up-btn-primary" id="upModalEditBtn" title="Edit Contact Number">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                    </svg>
-                    Edit Contact
-                </button>
-                <button type="button" class="up-btn up-btn-logout" id="upModalLogoutBtn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                        <polyline points="16 17 21 12 16 7"/>
-                        <line x1="21" y1="12" x2="9" y2="12"/>
-                    </svg>
-                    Sign Out
-                </button>
-            </div>
-
-            <!-- Edit Mode Buttons -->
-            <div id="upFooterEditMode" style="display:none; width:100%; justify-content:flex-end; gap:8px;">
-                <button type="button" class="up-btn up-btn-secondary" id="upModalCancelBtn">
-                    Cancel
-                </button>
-                <button type="button" class="up-btn up-btn-save" id="upModalSaveBtn">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    Save Changes
-                </button>
-            </div>
+            <button type="button" class="up-btn up-btn-secondary" id="upModalCloseFooterBtn">
+                Close
+            </button>
+            <button type="button" class="up-btn up-btn-logout" id="upModalLogoutBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                Sign Out
+            </button>
         </div>
 
     </div>
@@ -716,15 +707,90 @@
 }
 
 .up-detail-editable {
+    cursor: pointer !important;
     border-color: #bae6fd !important;
     background: #f8fafc !important;
-    transition: border-color 0.2s, box-shadow 0.2s !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+.up-detail-editable:hover {
+    border-color: #0284c7 !important;
+    background: #f0f9ff !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15) !important;
 }
 
 .up-detail-editable.is-editing {
+    cursor: default !important;
     border-color: #0284c7 !important;
     background: #ffffff !important;
     box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+}
+
+.up-inline-input-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    margin-top: 3px !important;
+}
+
+.up-inline-input {
+    flex: 1 !important;
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    height: 32px !important;
+    border: 1.5px solid #0284c7 !important;
+    border-radius: 7px !important;
+    background: #ffffff !important;
+    outline: none !important;
+    color: #0f172a !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+.up-inline-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 7px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+}
+
+.up-inline-save {
+    background: #10b981 !important;
+    color: #ffffff !important;
+}
+
+.up-inline-save:hover {
+    background: #059669 !important;
+    transform: scale(1.05) !important;
+}
+
+.up-inline-cancel {
+    background: #f1f5f9 !important;
+    color: #64748b !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.up-inline-cancel:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.up-inline-hint {
+    display: block !important;
+    font-size: 10px !important;
+    color: #94a3b8 !important;
+    margin-top: 3px !important;
+    font-weight: 500 !important;
 }
 
 .up-form-input {
@@ -763,6 +829,20 @@
     transform: translateY(-1px) !important;
 }
 
+.up-modal-backdrop.up-theme-hr .up-detail-editable:hover {
+    border-color: #be185d !important;
+    background: #fdf2f8 !important;
+}
+.up-modal-backdrop.up-theme-hr .up-detail-editable.is-editing {
+    border-color: #be185d !important;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.15) !important;
+}
+.up-modal-backdrop.up-theme-hr .up-inline-input {
+    border-color: #be185d !important;
+}
+.up-modal-backdrop.up-theme-hr .up-inline-save {
+    background: #db2777 !important;
+}
 .up-modal-backdrop.up-theme-hr .up-btn-primary {
     background: linear-gradient(135deg, #be185d 0%, #db2777 100%) !important;
     box-shadow: 0 4px 14px rgba(190, 24, 93, 0.35) !important;
@@ -775,6 +855,21 @@
     background: #fce7f3 !important;
     border-color: #fbcfe8 !important;
 }
+
+.up-modal-backdrop.up-theme-manager .up-detail-editable:hover {
+    border-color: #059669 !important;
+    background: #f0fdf4 !important;
+}
+.up-modal-backdrop.up-theme-manager .up-detail-editable.is-editing {
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15) !important;
+}
+.up-modal-backdrop.up-theme-manager .up-inline-input {
+    border-color: #059669 !important;
+}
+.up-modal-backdrop.up-theme-manager .up-inline-save {
+    background: #059669 !important;
+}
 .up-modal-backdrop.up-theme-manager .up-btn-primary {
     background: linear-gradient(135deg, #059669 0%, #0d9488 100%) !important;
     box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35) !important;
@@ -786,6 +881,21 @@
     color: #059669 !important;
     background: #d1fae5 !important;
     border-color: #a7f3d0 !important;
+}
+
+.up-modal-backdrop.up-theme-employee .up-detail-editable:hover {
+    border-color: #4f46e5 !important;
+    background: #eef2ff !important;
+}
+.up-modal-backdrop.up-theme-employee .up-detail-editable.is-editing {
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+}
+.up-modal-backdrop.up-theme-employee .up-inline-input {
+    border-color: #4f46e5 !important;
+}
+.up-modal-backdrop.up-theme-employee .up-inline-save {
+    background: #4f46e5 !important;
 }
 .up-modal-backdrop.up-theme-employee .up-btn-primary {
     background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%) !important;
@@ -1214,20 +1324,19 @@ body:has(.employee-sidebar) .up-modal-email {
         const phoneEdit = document.getElementById('upPhoneEditWrap');
         const phoneInput = document.getElementById('upInputPhone');
         const phoneDetailItem = document.getElementById('upPhoneDetailItem');
-        const footerView = document.getElementById('upFooterViewMode');
-        const footerEdit = document.getElementById('upFooterEditMode');
+        const phoneBadge = document.getElementById('upPhoneBadge');
 
         if (phoneView) phoneView.style.display = 'none';
         if (phoneEdit) phoneEdit.style.display = 'block';
         if (phoneDetailItem) phoneDetailItem.classList.add('is-editing');
-        if (footerView) footerView.style.display = 'none';
-        if (footerEdit) footerEdit.style.display = 'flex';
+        if (phoneBadge) phoneBadge.style.display = 'none';
 
         if (phoneInput) {
             const u = currentModalUser || getStoredUser() || {};
             const cur = u.phone || u.contact_number || '';
             phoneInput.value = (cur && cur !== '+1 (555) 019-2834') ? cur : (cur || '');
             phoneInput.focus();
+            phoneInput.select();
         }
     }
 
@@ -1236,20 +1345,18 @@ body:has(.employee-sidebar) .up-modal-email {
         const phoneView = document.getElementById('upPhoneViewWrap');
         const phoneEdit = document.getElementById('upPhoneEditWrap');
         const phoneDetailItem = document.getElementById('upPhoneDetailItem');
-        const footerView = document.getElementById('upFooterViewMode');
-        const footerEdit = document.getElementById('upFooterEditMode');
+        const phoneBadge = document.getElementById('upPhoneBadge');
 
         if (phoneView) phoneView.style.display = 'block';
         if (phoneEdit) phoneEdit.style.display = 'none';
         if (phoneDetailItem) phoneDetailItem.classList.remove('is-editing');
-        if (footerView) footerView.style.display = 'flex';
-        if (footerEdit) footerEdit.style.display = 'none';
+        if (phoneBadge) phoneBadge.style.display = 'inline-flex';
     }
 
     // Save Contact Phone to Backend
     async function saveProfileContact() {
         const phoneInput = document.getElementById('upInputPhone');
-        const saveBtn = document.getElementById('upModalSaveBtn');
+        const saveBtn = document.getElementById('upInlineSaveBtn');
         if (!phoneInput) return;
 
         const newPhone = phoneInput.value.trim();
@@ -1262,7 +1369,7 @@ body:has(.employee-sidebar) .up-modal-email {
         const origHtml = saveBtn ? saveBtn.innerHTML : '';
         if (saveBtn) {
             saveBtn.disabled = true;
-            saveBtn.innerHTML = 'Saving...';
+            saveBtn.innerHTML = '<span style="font-size:10px;">...</span>';
         }
 
         try {
@@ -1755,31 +1862,50 @@ body:has(.employee-sidebar) .up-modal-email {
             logoutBtn.addEventListener('click', handleLogout);
         }
 
-        // Profile Edit & Save handlers
-        const editBtn = document.getElementById('upModalEditBtn');
+        // Profile Inline Click-to-Edit handlers
+        const phoneDetailItem = document.getElementById('upPhoneDetailItem');
         const editBadge = document.getElementById('upPhoneBadge');
-        const cancelBtn = document.getElementById('upModalCancelBtn');
-        const saveBtn = document.getElementById('upModalSaveBtn');
+        const inlineCancelBtn = document.getElementById('upInlineCancelBtn');
+        const inlineSaveBtn = document.getElementById('upInlineSaveBtn');
         const phoneInput = document.getElementById('upInputPhone');
 
-        if (editBtn && !editBtn._bound) {
-            editBtn._bound = true;
-            editBtn.addEventListener('click', enterProfileEditMode);
+        if (phoneDetailItem && !phoneDetailItem._boundClick) {
+            phoneDetailItem._boundClick = true;
+            phoneDetailItem.addEventListener('click', function(e) {
+                if (phoneDetailItem.classList.contains('is-editing')) return;
+                enterProfileEditMode();
+            });
         }
+
         if (editBadge && !editBadge._bound) {
             editBadge._bound = true;
-            editBadge.addEventListener('click', enterProfileEditMode);
+            editBadge.addEventListener('click', function(e) {
+                e.stopPropagation();
+                enterProfileEditMode();
+            });
         }
-        if (cancelBtn && !cancelBtn._bound) {
-            cancelBtn._bound = true;
-            cancelBtn.addEventListener('click', exitProfileEditMode);
+
+        if (inlineCancelBtn && !inlineCancelBtn._bound) {
+            inlineCancelBtn._bound = true;
+            inlineCancelBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                exitProfileEditMode();
+            });
         }
-        if (saveBtn && !saveBtn._bound) {
-            saveBtn._bound = true;
-            saveBtn.addEventListener('click', saveProfileContact);
+
+        if (inlineSaveBtn && !inlineSaveBtn._bound) {
+            inlineSaveBtn._bound = true;
+            inlineSaveBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                saveProfileContact();
+            });
         }
+
         if (phoneInput && !phoneInput._bound) {
             phoneInput._bound = true;
+            phoneInput.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
             phoneInput.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
@@ -1790,6 +1916,16 @@ body:has(.employee-sidebar) .up-modal-email {
                 }
             });
         }
+
+        // Click outside phoneDetailItem to exit edit mode
+        document.addEventListener('click', function(e) {
+            const pItem = document.getElementById('upPhoneDetailItem');
+            if (pItem && pItem.classList.contains('is-editing')) {
+                if (!pItem.contains(e.target)) {
+                    exitProfileEditMode();
+                }
+            }
+        });
 
         // Global sidebar logout buttons
         const sidebarLogoutBtns = document.querySelectorAll('#logoutButton, #empLogoutButton, .logout-button');
@@ -1812,6 +1948,11 @@ body:has(.employee-sidebar) .up-modal-email {
         // Keyboard Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
+                const pItem = document.getElementById('upPhoneDetailItem');
+                if (pItem && pItem.classList.contains('is-editing')) {
+                    exitProfileEditMode();
+                    return;
+                }
                 closeProfileModal();
                 notifPanels.forEach(p => p.style.display = 'none');
                 msgPanels.forEach(p => p.style.display = 'none');
