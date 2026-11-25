@@ -550,9 +550,6 @@
                         <option value="6" data-name="Seetha" data-email="seetha@gmail.com">Seetha (seetha@gmail.com)</option>
                         <option value="5" data-name="Arun Kumar" data-email="arun.kumar@mindazzle.com">Arun Kumar (Manager)</option>
                     </select>
-                    <small style="font-size: 11px; color: #0284c7; margin-top: 4px; display: block; font-weight: 500;">
-                        🔔 An individual assignment notification will be sent directly to this manager only.
-                    </small>
                 </div>
                 <div class="dash-form-group">
                     <label for="projAssigneesInput">Assigned Team Members</label>
@@ -579,7 +576,7 @@
             </div>
             <div class="dash-modal-footer">
                 <button type="button" class="dash-btn-cancel" onclick="closeDashModal('newProjectModal')">Cancel</button>
-                <button type="submit" class="dash-btn-submit">Add Project &amp; Notify Manager</button>
+                <button type="submit" class="dash-btn-submit">Add Project</button>
             </div>
         </form>
     </div>
