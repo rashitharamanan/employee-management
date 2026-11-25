@@ -604,17 +604,16 @@ $uri =
     );
 
 
-$basePath =
-    '/employee-qr-system/backend/public';
+$basePaths = [
+    '/employee-qr-system/backend/public',
+    '/backend/public'
+];
 
-
-if (str_starts_with($uri, $basePath)) {
-
-    $uri =
-        substr(
-            $uri,
-            strlen($basePath)
-        );
+foreach ($basePaths as $base) {
+    if (str_starts_with($uri, $base)) {
+        $uri = substr($uri, strlen($base));
+        break;
+    }
 }
 
 
