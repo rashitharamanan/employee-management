@@ -34,99 +34,43 @@
             <div class="up-details-grid">
                 <!-- Username -->
                 <div class="up-detail-item">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">Username</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">Username</span>
                     <strong class="up-detail-val" id="upDetailUsername">—</strong>
                 </div>
 
                 <!-- Role / Access -->
                 <div class="up-detail-item">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">System Role</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">System Role</span>
                     <strong class="up-detail-val" id="upDetailSystemRole">—</strong>
                 </div>
 
                 <!-- Designation -->
                 <div class="up-detail-item">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">Designation / Title</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">Designation / Title</span>
                     <strong class="up-detail-val" id="upDetailDesignation">—</strong>
                 </div>
 
                 <!-- Department -->
                 <div class="up-detail-item">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">Department</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">Department</span>
                     <strong class="up-detail-val" id="upDetailDepartment">—</strong>
                 </div>
 
                 <!-- Employee Code -->
                 <div class="up-detail-item">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">Employee Code</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">Employee Code</span>
                     <strong class="up-detail-val" id="upDetailEmpCode">—</strong>
                 </div>
 
                 <!-- Contact Phone -->
                 <div class="up-detail-item">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">Contact Phone</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">Contact Phone</span>
                     <strong class="up-detail-val" id="upDetailPhone">—</strong>
                 </div>
 
                 <!-- Official Email -->
                 <div class="up-detail-item up-grid-full">
-                    <div class="up-detail-header-flex">
-                        <span class="up-detail-label">Official Email</span>
-                        <span class="up-lock-icon" title="Fixed (Non-editable)">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </span>
-                    </div>
+                    <span class="up-detail-label">Official Email</span>
                     <strong class="up-detail-val" id="upDetailEmail">—</strong>
                 </div>
 
