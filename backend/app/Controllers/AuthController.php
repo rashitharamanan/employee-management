@@ -144,6 +144,74 @@ class AuthController
     }
 
     /**
+     * Update Current Authenticated User Profile (e.g. Phone Number)
+     */
+    public function updateProfile(): void
+    {
+        try {
+            $authUser = $GLOBALS['authenticated_user'] ?? null;
+            if (!$authUser || empty($authUser['sub'])) {
+                $this->sendResponse(401, false, 'Unauthenticated.');
+                return;
+            }
+
+            $userId = (int) $authUser['sub'];
+            $input = json_decode(file_get_contents('php://input'), true);
+            if (!is_array($input)) {
+                $input = $_POST;
+            }
+
+            $phone = trim($input['phone'] ?? $input['contact_number'] ?? '');
+
+            $this->userRepository->updateProfile($userId, [
+                'phone' => $phone
+            ]);
+
+            $user = $this->userRepository->findById($userId);
+            if (!$user) {
+                $this->sendResponse(404, false, 'User not found.');
+                return;
+            }
+
+            $roleName = strtoupper($user['role_name'] ?? '');
+            $fullName = !empty($user['full_name'])
+                ? $user['full_name']
+                : ucwords(str_replace(['.', '_', '-'], ' ', $user['username']));
+
+            $defaultDesignation = match ($roleName) {
+                'ADMIN', 'SUPER_ADMIN' => 'Super Admin',
+                'HR'                   => 'HR Manager',
+                'MANAGER'              => 'Team Manager',
+                'EMPLOYEE', 'STAFF'    => 'Employee',
+                default                => 'Team Member'
+            };
+
+            $profile = [
+                'id'            => (int) $user['id'],
+                'employee_id'   => !empty($user['employee_id']) ? (int) $user['employee_id'] : (!empty($user['emp_id']) ? (int) $user['emp_id'] : null),
+                'role_id'       => (int) $user['role_id'],
+                'role'          => $roleName,
+                'role_name'     => $user['role_name'] ?? $roleName,
+                'username'      => $user['username'],
+                'full_name'     => $fullName,
+                'name'          => $fullName,
+                'email'         => $user['email'],
+                'phone'         => $user['phone'] ?? $phone,
+                'department'    => $user['department'] ?? ($roleName === 'ADMIN' ? 'Administration' : ($roleName === 'HR' ? 'Human Resources' : ($roleName === 'MANAGER' ? 'Management' : null))),
+                'designation'   => !empty($user['designation']) ? $user['designation'] : $defaultDesignation,
+                'employee_code' => $user['employee_code'] ?? null,
+                'profile_photo' => $user['profile_photo'] ?? null,
+                'status'        => $user['status'],
+                'last_login_at' => $user['last_login_at'] ?? null,
+            ];
+
+            $this->sendResponse(200, true, 'Contact details updated successfully.', ['user' => $profile]);
+        } catch (\Throwable $e) {
+            $this->sendResponse(500, false, $e->getMessage());
+        }
+    }
+
+    /**
      * User Logout
      *
      * JWT is stateless, so there is no PHP session

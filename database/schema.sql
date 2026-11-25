@@ -1684,6 +1684,7 @@ CREATE TABLE `users` (
   `role_id` bigint(20) unsigned NOT NULL,
   `username` varchar(100) DEFAULT NULL,
   `email` varchar(150) NOT NULL,
+  `phone` varchar(30) DEFAULT NULL,
   `password_hash` varchar(255) NOT NULL,
   `status` enum('PENDING','ACTIVE','SUSPENDED','LOCKED','DEACTIVATED') DEFAULT 'PENDING',
   `scope_type` enum('SELF','TEAM','DEPARTMENT','BRANCH','COMPANY','ALL') DEFAULT 'SELF',

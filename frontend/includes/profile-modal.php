@@ -34,43 +34,72 @@
             <div class="up-details-grid">
                 <!-- Username -->
                 <div class="up-detail-item">
-                    <span class="up-detail-label">Username</span>
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">Username</span>
+                        <span class="up-lock-badge" title="System identifier (Non-editable)">🔒 Fixed</span>
+                    </div>
                     <strong class="up-detail-val" id="upDetailUsername">—</strong>
                 </div>
 
                 <!-- Role / Access -->
                 <div class="up-detail-item">
-                    <span class="up-detail-label">System Role</span>
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">System Role</span>
+                        <span class="up-lock-badge" title="Access privileges locked">🔒 Fixed</span>
+                    </div>
                     <strong class="up-detail-val" id="upDetailSystemRole">—</strong>
                 </div>
 
                 <!-- Designation -->
                 <div class="up-detail-item">
-                    <span class="up-detail-label">Designation / Title</span>
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">Designation / Title</span>
+                        <span class="up-lock-badge" title="Designation assigned by system">🔒 Fixed</span>
+                    </div>
                     <strong class="up-detail-val" id="upDetailDesignation">—</strong>
                 </div>
 
                 <!-- Department -->
                 <div class="up-detail-item">
-                    <span class="up-detail-label">Department</span>
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">Department</span>
+                        <span class="up-lock-badge" title="Assigned department">🔒 Fixed</span>
+                    </div>
                     <strong class="up-detail-val" id="upDetailDepartment">—</strong>
                 </div>
 
                 <!-- Employee Code -->
                 <div class="up-detail-item">
-                    <span class="up-detail-label">Employee Code</span>
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">Employee Code</span>
+                        <span class="up-lock-badge" title="System employee code">🔒 Fixed</span>
+                    </div>
                     <strong class="up-detail-val" id="upDetailEmpCode">—</strong>
                 </div>
 
-                <!-- Phone -->
-                <div class="up-detail-item">
-                    <span class="up-detail-label">Contact Phone</span>
-                    <strong class="up-detail-val" id="upDetailPhone">—</strong>
+                <!-- Phone (Editable Contact Number) -->
+                <div class="up-detail-item up-detail-editable" id="upPhoneDetailItem">
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">Contact Phone</span>
+                        <span class="up-editable-badge" id="upPhoneBadge" title="Click to edit contact phone">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            Editable
+                        </span>
+                    </div>
+                    <div id="upPhoneViewWrap">
+                        <strong class="up-detail-val" id="upDetailPhone">—</strong>
+                    </div>
+                    <div id="upPhoneEditWrap" style="display:none; margin-top:4px;">
+                        <input type="tel" id="upInputPhone" class="up-form-input" placeholder="Enter contact phone" maxlength="25">
+                    </div>
                 </div>
 
                 <!-- Official Email -->
                 <div class="up-detail-item up-grid-full">
-                    <span class="up-detail-label">Official Email</span>
+                    <div class="up-detail-header-flex">
+                        <span class="up-detail-label">Official Email</span>
+                        <span class="up-lock-badge" title="Official login email">🔒 Fixed</span>
+                    </div>
                     <strong class="up-detail-val" id="upDetailEmail">—</strong>
                 </div>
 
@@ -84,17 +113,40 @@
 
         <!-- MODAL FOOTER -->
         <div class="up-modal-footer">
-            <button type="button" class="up-btn up-btn-secondary" id="upModalCloseFooterBtn">
-                Close
-            </button>
-            <button type="button" class="up-btn up-btn-logout" id="upModalLogoutBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                    <polyline points="16 17 21 12 16 7"/>
-                    <line x1="21" y1="12" x2="9" y2="12"/>
-                </svg>
-                Sign Out
-            </button>
+            <!-- Normal View Mode Buttons -->
+            <div id="upFooterViewMode" style="display:flex; width:100%; justify-content:flex-end; gap:8px;">
+                <button type="button" class="up-btn up-btn-secondary" id="upModalCloseFooterBtn">
+                    Close
+                </button>
+                <button type="button" class="up-btn up-btn-primary" id="upModalEditBtn" title="Edit Contact Number">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Edit Contact
+                </button>
+                <button type="button" class="up-btn up-btn-logout" id="upModalLogoutBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+
+            <!-- Edit Mode Buttons -->
+            <div id="upFooterEditMode" style="display:none; width:100%; justify-content:flex-end; gap:8px;">
+                <button type="button" class="up-btn up-btn-secondary" id="upModalCancelBtn">
+                    Cancel
+                </button>
+                <button type="button" class="up-btn up-btn-save" id="upModalSaveBtn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Save Changes
+                </button>
+            </div>
         </div>
 
     </div>
@@ -583,6 +635,133 @@
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35) !important;
 }
 
+/* Edit & Save Contact Buttons & Inputs */
+.up-detail-header-flex {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    margin-bottom: 2px !important;
+}
+
+.up-lock-badge {
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: #94a3b8 !important;
+    background: #f1f5f9 !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.2 !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.up-editable-badge {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    color: #0284c7 !important;
+    background: #e0f2fe !important;
+    padding: 2px 8px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    cursor: pointer !important;
+    line-height: 1.2 !important;
+    border: 1px solid #bae6fd !important;
+    transition: all 0.15s ease !important;
+}
+
+.up-editable-badge:hover {
+    background: #bae6fd !important;
+    color: #0369a1 !important;
+}
+
+.up-detail-editable {
+    border-color: #bae6fd !important;
+    background: #f8fafc !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.up-detail-editable.is-editing {
+    border-color: #0284c7 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+}
+
+.up-form-input {
+    width: 100% !important;
+    padding: 8px 12px !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: #0f172a !important;
+    border: 1.5px solid #0284c7 !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+.up-btn-primary {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25) !important;
+}
+
+.up-btn-primary:hover {
+    background: #0369a1 !important;
+    transform: translateY(-1px) !important;
+}
+
+.up-btn-save {
+    background: #10b981 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25) !important;
+}
+
+.up-btn-save:hover {
+    background: #059669 !important;
+    transform: translateY(-1px) !important;
+}
+
+.up-modal-backdrop.up-theme-hr .up-btn-primary {
+    background: linear-gradient(135deg, #be185d 0%, #db2777 100%) !important;
+    box-shadow: 0 4px 14px rgba(190, 24, 93, 0.35) !important;
+}
+.up-modal-backdrop.up-theme-hr .up-btn-primary:hover {
+    background: #9d174d !important;
+}
+.up-modal-backdrop.up-theme-hr .up-editable-badge {
+    color: #be185d !important;
+    background: #fce7f3 !important;
+    border-color: #fbcfe8 !important;
+}
+.up-modal-backdrop.up-theme-manager .up-btn-primary {
+    background: linear-gradient(135deg, #059669 0%, #0d9488 100%) !important;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35) !important;
+}
+.up-modal-backdrop.up-theme-manager .up-btn-primary:hover {
+    background: #047857 !important;
+}
+.up-modal-backdrop.up-theme-manager .up-editable-badge {
+    color: #059669 !important;
+    background: #d1fae5 !important;
+    border-color: #a7f3d0 !important;
+}
+.up-modal-backdrop.up-theme-employee .up-btn-primary {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%) !important;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35) !important;
+}
+.up-modal-backdrop.up-theme-employee .up-btn-primary:hover {
+    background: #4338ca !important;
+}
+.up-modal-backdrop.up-theme-employee .up-editable-badge {
+    color: #4f46e5 !important;
+    background: #e0e7ff !important;
+    border-color: #c7d2fe !important;
+}
+
 @media (max-width: 480px) {
     .up-details-grid {
         grid-template-columns: 1fr !important;
@@ -989,9 +1168,119 @@ body:has(.employee-sidebar) .up-modal-email {
         return 'admin';
     }
 
+    let currentModalUser = null;
+
+    // Enter Contact Phone Edit Mode
+    function enterProfileEditMode() {
+        const phoneView = document.getElementById('upPhoneViewWrap');
+        const phoneEdit = document.getElementById('upPhoneEditWrap');
+        const phoneInput = document.getElementById('upInputPhone');
+        const phoneDetailItem = document.getElementById('upPhoneDetailItem');
+        const footerView = document.getElementById('upFooterViewMode');
+        const footerEdit = document.getElementById('upFooterEditMode');
+
+        if (phoneView) phoneView.style.display = 'none';
+        if (phoneEdit) phoneEdit.style.display = 'block';
+        if (phoneDetailItem) phoneDetailItem.classList.add('is-editing');
+        if (footerView) footerView.style.display = 'none';
+        if (footerEdit) footerEdit.style.display = 'flex';
+
+        if (phoneInput) {
+            const u = currentModalUser || getStoredUser() || {};
+            const cur = u.phone || u.contact_number || '';
+            phoneInput.value = (cur && cur !== '+1 (555) 019-2834') ? cur : (cur || '');
+            phoneInput.focus();
+        }
+    }
+
+    // Exit Contact Phone Edit Mode
+    function exitProfileEditMode() {
+        const phoneView = document.getElementById('upPhoneViewWrap');
+        const phoneEdit = document.getElementById('upPhoneEditWrap');
+        const phoneDetailItem = document.getElementById('upPhoneDetailItem');
+        const footerView = document.getElementById('upFooterViewMode');
+        const footerEdit = document.getElementById('upFooterEditMode');
+
+        if (phoneView) phoneView.style.display = 'block';
+        if (phoneEdit) phoneEdit.style.display = 'none';
+        if (phoneDetailItem) phoneDetailItem.classList.remove('is-editing');
+        if (footerView) footerView.style.display = 'flex';
+        if (footerEdit) footerEdit.style.display = 'none';
+    }
+
+    // Save Contact Phone to Backend
+    async function saveProfileContact() {
+        const phoneInput = document.getElementById('upInputPhone');
+        const saveBtn = document.getElementById('upModalSaveBtn');
+        if (!phoneInput) return;
+
+        const newPhone = phoneInput.value.trim();
+        const token = localStorage.getItem('auth_token') || localStorage.getItem('token');
+        if (!token) {
+            showUniversalToast('You are not signed in.', 'error');
+            return;
+        }
+
+        const origHtml = saveBtn ? saveBtn.innerHTML : '';
+        if (saveBtn) {
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = 'Saving...';
+        }
+
+        try {
+            const apiBase = getApiBase();
+            const res = await fetch(`${apiBase}/api/me/update`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ phone: newPhone })
+            });
+
+            const data = await res.json().catch(() => null);
+
+            if (res.ok && data && data.success) {
+                // Update local storage user
+                const u = getStoredUser() || {};
+                u.phone = newPhone;
+                u.contact_number = newPhone;
+                if (data.data && data.data.user) {
+                    Object.assign(u, data.data.user);
+                }
+                saveStoredUser(u);
+                currentModalUser = u;
+
+                // Update UI text
+                const elPhone = document.getElementById('upDetailPhone');
+                if (elPhone) {
+                    elPhone.textContent = newPhone || 'Not provided';
+                }
+
+                showUniversalToast('Contact phone updated successfully!', 'success');
+                exitProfileEditMode();
+            } else {
+                const errMsg = (data && data.message) ? data.message : 'Failed to update contact phone.';
+                showUniversalToast(errMsg, 'error');
+            }
+        } catch (err) {
+            console.error('Update profile error:', err);
+            showUniversalToast('Network error while updating contact number.', 'error');
+        } finally {
+            if (saveBtn) {
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = origHtml;
+            }
+        }
+    }
+
     // Populate and open the Profile Modal
     function openProfileModal(user) {
         const u = user || getStoredUser() || {};
+        currentModalUser = u;
+        exitProfileEditMode();
+
         const portal = detectCurrentPortal();
         const r = String(u.role || '').toUpperCase();
         const isHr = (portal === 'hr' || r === 'HR' || r.includes('HUMAN'));
@@ -1017,7 +1306,8 @@ body:has(.employee-sidebar) .up-modal-email {
         else if (isEmp) defaultCode = 'EMP-001';
         const empCode = u.employee_code || (u.employee_id ? ('EMP-' + u.employee_id) : defaultCode);
 
-        const phone = u.phone || u.contact_number || '+1 (555) 019-2834';
+        const rawPhone = u.phone || u.contact_number || '';
+        const phone = rawPhone || (u.role === 'ADMIN' && !rawPhone ? 'Not provided' : '+1 (555) 019-2834');
         const status = (u.status || 'ACTIVE').toUpperCase();
 
         let lastLogin = 'Recent session active';
@@ -1073,6 +1363,7 @@ body:has(.employee-sidebar) .up-modal-email {
 
     // Close the Profile Modal
     function closeProfileModal() {
+        exitProfileEditMode();
         const modal = document.getElementById('userProfileModal');
         if (!modal) return;
         modal.classList.remove('up-show');
@@ -1424,6 +1715,42 @@ body:has(.employee-sidebar) .up-modal-email {
         if (logoutBtn && !logoutBtn._bound) {
             logoutBtn._bound = true;
             logoutBtn.addEventListener('click', handleLogout);
+        }
+
+        // Profile Edit & Save handlers
+        const editBtn = document.getElementById('upModalEditBtn');
+        const editBadge = document.getElementById('upPhoneBadge');
+        const cancelBtn = document.getElementById('upModalCancelBtn');
+        const saveBtn = document.getElementById('upModalSaveBtn');
+        const phoneInput = document.getElementById('upInputPhone');
+
+        if (editBtn && !editBtn._bound) {
+            editBtn._bound = true;
+            editBtn.addEventListener('click', enterProfileEditMode);
+        }
+        if (editBadge && !editBadge._bound) {
+            editBadge._bound = true;
+            editBadge.addEventListener('click', enterProfileEditMode);
+        }
+        if (cancelBtn && !cancelBtn._bound) {
+            cancelBtn._bound = true;
+            cancelBtn.addEventListener('click', exitProfileEditMode);
+        }
+        if (saveBtn && !saveBtn._bound) {
+            saveBtn._bound = true;
+            saveBtn.addEventListener('click', saveProfileContact);
+        }
+        if (phoneInput && !phoneInput._bound) {
+            phoneInput._bound = true;
+            phoneInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    saveProfileContact();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    exitProfileEditMode();
+                }
+            });
         }
 
         // Global sidebar logout buttons

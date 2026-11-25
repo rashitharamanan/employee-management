@@ -43,7 +43,7 @@ class UserRepository
                 COALESCE(e1.employee_code, e2.employee_code) AS employee_code,
                 COALESCE(e1.department, e2.department) AS department,
                 COALESCE(e1.designation, e2.designation) AS designation,
-                COALESCE(e1.phone, e2.phone) AS phone,
+                COALESCE(u.phone, e1.phone, e2.phone) AS phone,
                 COALESCE(e1.profile_photo, e2.profile_photo) AS profile_photo,
                 COALESCE(e1.id, e2.id) AS emp_id
 
@@ -110,7 +110,7 @@ class UserRepository
                 COALESCE(e1.employee_code, e2.employee_code) AS employee_code,
                 COALESCE(e1.department, e2.department) AS department,
                 COALESCE(e1.designation, e2.designation) AS designation,
-                COALESCE(e1.phone, e2.phone) AS phone,
+                COALESCE(u.phone, e1.phone, e2.phone) AS phone,
                 COALESCE(e1.profile_photo, e2.profile_photo) AS profile_photo,
                 COALESCE(e1.id, e2.id) AS emp_id
 
@@ -303,5 +303,42 @@ class UserRepository
     {
         $stmt = $this->db->prepare("DELETE FROM users WHERE id = :id");
         return $stmt->execute([':id' => $id]);
+    }
+
+    /**
+     * Ensure phone column exists on users table
+     */
+    public function ensureSchema(): void
+    {
+        try {
+            $cols = $this->db->query("SHOW COLUMNS FROM users LIKE 'phone'")->fetchAll();
+            if (empty($cols)) {
+                $this->db->exec("ALTER TABLE users ADD COLUMN phone VARCHAR(30) NULL AFTER email");
+            }
+        } catch (\Throwable $_) {}
+    }
+
+    /**
+     * Update user contact profile (phone)
+     */
+    public function updateProfile(int $userId, array $data): bool
+    {
+        $this->ensureSchema();
+        if (isset($data['phone'])) {
+            $phone = trim($data['phone']);
+            $stmt = $this->db->prepare("UPDATE users SET phone = ?, updated_at = NOW() WHERE id = ?");
+            $stmt->execute([$phone, $userId]);
+
+            try {
+                $empStmt = $this->db->prepare("
+                    UPDATE employees e 
+                    JOIN users u ON (e.id = u.employee_id OR e.email = u.email) 
+                    SET e.phone = ?, e.updated_at = NOW() 
+                    WHERE u.id = ?
+                ");
+                $empStmt->execute([$phone, $userId]);
+            } catch (\Throwable $_) {}
+        }
+        return true;
     }
 }

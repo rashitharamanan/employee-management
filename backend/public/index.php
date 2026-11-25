@@ -228,6 +228,7 @@ try {
         }
     };
 
+    $safeBoot(fn() => $userRepository->ensureSchema());
     $safeBoot(fn() => $employeeAttendanceRepository->ensureSchema());
     $safeBoot(fn() => $employeePerformanceRepository->ensureSchema());
     $safeBoot(fn() => $employeeDocumentsRepository->ensureSchema());

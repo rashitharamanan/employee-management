@@ -1629,7 +1629,24 @@ return function (
             '/api/me' => function () use ($authController) {
                 AuthMiddleware::handle();
 
-                $authController->me();
+                $input = file_get_contents('php://input');
+                if (!empty($input) || !empty($_POST)) {
+                    $authController->updateProfile();
+                } else {
+                    $authController->me();
+                }
+            },
+
+            '/api/me/update' => function () use ($authController) {
+                AuthMiddleware::handle();
+
+                $authController->updateProfile();
+            },
+
+            '/api/profile/update' => function () use ($authController) {
+                AuthMiddleware::handle();
+
+                $authController->updateProfile();
             },
 
             '/api/auth/me' => function () use ($authController) {
@@ -2087,6 +2104,18 @@ return function (
         */
 
         'PUT' => [
+
+            '/api/me' => function () use ($authController) {
+                AuthMiddleware::handle();
+
+                $authController->updateProfile();
+            },
+
+            '/api/me/update' => function () use ($authController) {
+                AuthMiddleware::handle();
+
+                $authController->updateProfile();
+            },
 
             /*
             |--------------------------------------------------------------------------
