@@ -232,6 +232,65 @@ return function (
                 $employeeDashboardController->markNotificationsRead($employeeId, $userId);
             },
 
+            '/api/project-managers' => function () {
+                AuthMiddleware::handle();
+                try {
+                    $db = (new \Database())->connect();
+                    $stmt = $db->query("
+                        SELECT 
+                            u.id, 
+                            u.username, 
+                            u.email, 
+                            u.employee_id, 
+                            COALESCE(e.full_name, u.username) AS full_name
+                        FROM users u
+                        LEFT JOIN roles r ON r.id = u.role_id
+                        LEFT JOIN employees e ON e.id = u.employee_id
+                        WHERE r.name = 'MANAGER' 
+                           OR u.role_id = 3 
+                           OR LOWER(u.username) LIKE '%manager%' 
+                           OR LOWER(u.username) = 'seetha'
+                        ORDER BY u.id ASC
+                    ");
+                    $managers = $stmt ? $stmt->fetchAll(\PDO::FETCH_ASSOC) : [];
+
+                    $hasSeetha = false;
+                    foreach ($managers as $m) {
+                        if (strtolower($m['username']) === 'seetha') {
+                            $hasSeetha = true;
+                            break;
+                        }
+                    }
+                    if (!$hasSeetha) {
+                        $sStmt = $db->query("SELECT id, username, email, employee_id FROM users WHERE LOWER(username) = 'seetha' LIMIT 1");
+                        $sRow = $sStmt ? $sStmt->fetch(\PDO::FETCH_ASSOC) : null;
+                        if ($sRow) {
+                            $managers[] = [
+                                'id' => (int) $sRow['id'],
+                                'username' => $sRow['username'],
+                                'email' => $sRow['email'],
+                                'employee_id' => $sRow['employee_id'],
+                                'full_name' => 'Seetha (Manager)'
+                            ];
+                        }
+                    }
+
+                    foreach ($managers as &$mgr) {
+                        if (strtolower($mgr['username']) === 'seetha' && !str_contains($mgr['full_name'], 'Manager')) {
+                            $mgr['full_name'] = 'Seetha (Project Manager)';
+                        }
+                    }
+
+                    header('Content-Type: application/json; charset=utf-8');
+                    echo json_encode(['success' => true, 'data' => $managers]);
+                    exit;
+                } catch (\Throwable $e) {
+                    header('Content-Type: application/json; charset=utf-8');
+                    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+                    exit;
+                }
+            },
+
 
             /*
             |--------------------------------------------------------------------------
@@ -1339,6 +1398,137 @@ return function (
         */
 
         'POST' => [
+
+            /*
+            |--------------------------------------------------------------------------
+            | Project Management & Manager Assignment Notifications
+            |--------------------------------------------------------------------------
+            */
+            '/api/projects' => function () {
+                AuthMiddleware::handle();
+                try {
+                    $raw = file_get_contents('php://input');
+                    $data = json_decode($raw, true) ?: [];
+
+                    $name = trim($data['name'] ?? '');
+                    if ($name === '') {
+                        http_response_code(400);
+                        echo json_encode(['success' => false, 'message' => 'Project name is required.']);
+                        exit;
+                    }
+
+                    $sub = trim($data['sub'] ?? $data['category'] ?? 'Web Application');
+                    $managerId = (int) ($data['manager_id'] ?? 0);
+                    $managerName = trim($data['manager_name'] ?? '');
+                    $assignees = trim($data['assignees'] ?? '');
+                    $progress = (int) ($data['progress'] ?? 0);
+                    $dueDate = trim($data['due_date'] ?? $data['due'] ?? '');
+                    $priority = strtoupper(trim($data['priority'] ?? 'HIGH'));
+                    if (!in_array($priority, ['LOW', 'MEDIUM', 'HIGH'])) {
+                        $priority = 'HIGH';
+                    }
+
+                    $jwtUser = $GLOBALS['authenticated_user'] ?? null;
+                    $currentUserId = (int) ($jwtUser->sub ?? $jwtUser->id ?? 0);
+
+                    $db = (new \Database())->connect();
+
+                    // 1. Ensure projects table exists
+                    try {
+                        $db->exec("
+                            CREATE TABLE IF NOT EXISTS projects (
+                                id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                                name VARCHAR(255) NOT NULL,
+                                category VARCHAR(255) DEFAULT 'Web Application',
+                                manager_id BIGINT UNSIGNED DEFAULT NULL,
+                                manager_name VARCHAR(150) DEFAULT NULL,
+                                assignees TEXT DEFAULT NULL,
+                                progress INT DEFAULT 0,
+                                due_date VARCHAR(100) DEFAULT NULL,
+                                priority VARCHAR(20) DEFAULT 'HIGH',
+                                status ENUM('PLANNING','ACTIVE','IN_PROGRESS','COMPLETED','ON_HOLD') DEFAULT 'ACTIVE',
+                                created_by INT UNSIGNED DEFAULT NULL,
+                                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                KEY idx_proj_manager (manager_id)
+                            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                        ");
+                    } catch (\Throwable $_) {}
+
+                    // 2. Insert into projects table
+                    $projectId = 0;
+                    try {
+                        $stmt = $db->prepare("
+                            INSERT INTO projects (name, category, manager_id, manager_name, assignees, progress, due_date, priority, created_by, created_at)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+                        ");
+                        $stmt->execute([
+                            $name,
+                            $sub,
+                            $managerId > 0 ? $managerId : null,
+                            $managerName ?: null,
+                            $assignees ?: null,
+                            $progress,
+                            $dueDate ?: null,
+                            $priority,
+                            $currentUserId > 0 ? $currentUserId : null
+                        ]);
+                        $projectId = (int) $db->lastInsertId();
+                    } catch (\Throwable $pe) {
+                        error_log('Insert project error: ' . $pe->getMessage());
+                    }
+
+                    // 3. Send Individual Notification specifically to the assigned manager only!
+                    if ($managerId > 0) {
+                        $empStmt = $db->prepare("SELECT employee_id FROM users WHERE id = ? LIMIT 1");
+                        $empStmt->execute([$managerId]);
+                        $managerEmpId = $empStmt->fetchColumn() ?: null;
+
+                        $notifTitle = "New Project Assigned: " . $name;
+                        $notifMsg = "You have been assigned as Project Manager / Lead for \"" . $name . "\" (" . $sub . ")."
+                            . ($dueDate ? " Due: " . $dueDate . "." : "")
+                            . ($assignees ? " Assigned Team: " . $assignees . "." : "");
+
+                        $notifStmt = $db->prepare("
+                            INSERT INTO user_notifications 
+                            (user_id, employee_id, target_scope, type, title, message, reference_id, priority, is_read, created_at)
+                            VALUES (?, ?, 'INDIVIDUAL', 'PROJECT_ASSIGNED', ?, ?, ?, ?, 0, NOW())
+                        ");
+                        $notifStmt->execute([
+                            $managerId,
+                            $managerEmpId,
+                            $notifTitle,
+                            $notifMsg,
+                            $projectId ?: null,
+                            $priority
+                        ]);
+                    }
+
+                    header('Content-Type: application/json; charset=utf-8');
+                    echo json_encode([
+                        'success' => true,
+                        'message' => 'Project created successfully and notification sent to assigned manager.',
+                        'data' => [
+                            'id' => $projectId ?: ('proj_' . time()),
+                            'name' => $name,
+                            'sub' => $sub,
+                            'manager_id' => $managerId,
+                            'manager_name' => $managerName,
+                            'assignees' => $assignees,
+                            'progress' => $progress,
+                            'due_date' => $dueDate,
+                            'priority' => $priority
+                        ]
+                    ]);
+                    exit;
+
+                } catch (\Throwable $e) {
+                    http_response_code(500);
+                    header('Content-Type: application/json; charset=utf-8');
+                    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+                    exit;
+                }
+            },
 
             /*
             |--------------------------------------------------------------------------

@@ -543,19 +543,33 @@
                     <label for="projSubInput">Category / Description</label>
                     <input type="text" id="projSubInput" class="dash-form-input" placeholder="e.g. Fintech Solution" value="Web Application">
                 </div>
+                <div class="dash-form-group">
+                    <label for="projManagerSelect">Assigned Manager / Project Lead *</label>
+                    <select id="projManagerSelect" class="dash-form-select" required>
+                        <option value="" disabled selected>-- Select Manager to Assign --</option>
+                        <option value="6" data-name="Seetha" data-email="seetha@gmail.com">Seetha (seetha@gmail.com)</option>
+                        <option value="5" data-name="Arun Kumar" data-email="arun.kumar@mindazzle.com">Arun Kumar (Manager)</option>
+                    </select>
+                    <small style="font-size: 11px; color: #0284c7; margin-top: 4px; display: block; font-weight: 500;">
+                        🔔 An individual assignment notification will be sent directly to this manager only.
+                    </small>
+                </div>
+                <div class="dash-form-group">
+                    <label for="projAssigneesInput">Assigned Team Members</label>
+                    <input type="text" id="projAssigneesInput" class="dash-form-input" placeholder="e.g. Ssavitha, Frontend Team, QA" value="Development Team">
+                </div>
                 <div class="dash-form-row">
                     <div class="dash-form-group">
-                        <label for="projThemeInput">Theme Color</label>
-                        <select id="projThemeInput" class="dash-form-select">
-                            <option value="blue" selected>Luna Blue</option>
-                            <option value="green">Emerald Green</option>
-                            <option value="teal">Cyan Teal</option>
-                            <option value="purple">Royal Purple</option>
-                        </select>
+                        <label for="projProgressInput">Initial Progress (%)</label>
+                        <input type="number" id="projProgressInput" class="dash-form-input" min="0" max="100" value="20">
                     </div>
                     <div class="dash-form-group">
-                        <label for="projProgressInput">Initial Progress (%)</label>
-                        <input type="number" id="projProgressInput" class="dash-form-input" min="0" max="100" value="25">
+                        <label for="projPrioritySelect">Priority</label>
+                        <select id="projPrioritySelect" class="dash-form-select">
+                            <option value="HIGH" selected>High Priority</option>
+                            <option value="MEDIUM">Medium Priority</option>
+                            <option value="LOW">Low Priority</option>
+                        </select>
                     </div>
                 </div>
                 <div class="dash-form-group">
@@ -565,7 +579,7 @@
             </div>
             <div class="dash-modal-footer">
                 <button type="button" class="dash-btn-cancel" onclick="closeDashModal('newProjectModal')">Cancel</button>
-                <button type="submit" class="dash-btn-submit">Add Project</button>
+                <button type="submit" class="dash-btn-submit">Add Project &amp; Notify Manager</button>
             </div>
         </form>
     </div>

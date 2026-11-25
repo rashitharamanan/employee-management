@@ -520,6 +520,9 @@ window.openNewProjectModal = function() {
     const modal = document.getElementById('newProjectModal');
     if (modal) {
         modal.classList.add('active');
+        if (typeof loadProjectManagers === 'function') {
+            loadProjectManagers();
+        }
         setTimeout(() => document.getElementById('projNameInput')?.focus(), 50);
     }
 };
@@ -693,28 +696,84 @@ function updateStoredTaskStatus(taskId, isCompleted) {
 }
 
 /**
+ * Dynamically load Project Managers into New Project Modal
+ */
+window.loadProjectManagers = async function() {
+    const select = document.getElementById('projManagerSelect');
+    if (!select) return;
+
+    const token = localStorage.getItem('auth_token') || localStorage.getItem('token');
+    const origin = window.location.origin;
+    const apiBase = origin.includes('localhost') 
+        ? `${origin}/employee-qr-system/backend/public` 
+        : `${origin}/backend/public`;
+
+    try {
+        const res = await fetch(`${apiBase}/api/project-managers`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json'
+            }
+        });
+        if (res.ok) {
+            const json = await res.json();
+            if (json && json.success && Array.isArray(json.data) && json.data.length > 0) {
+                const curVal = select.value;
+                select.innerHTML = '<option value="" disabled selected>-- Select Manager to Assign --</option>';
+                json.data.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m.id;
+                    opt.setAttribute('data-name', m.full_name || m.username || 'Manager');
+                    opt.setAttribute('data-email', m.email || '');
+                    opt.textContent = `${m.full_name || m.username} (${m.email || m.username})`;
+                    select.appendChild(opt);
+                });
+                if (curVal) select.value = curVal;
+            }
+        }
+    } catch (err) {
+        console.debug('Load managers error:', err);
+    }
+};
+
+/**
  * Handle New Project Creation
  */
-window.handleCreateProject = function(e) {
+window.handleCreateProject = async function(e) {
     e.preventDefault();
     const nameInput = document.getElementById('projNameInput');
     const subInput = document.getElementById('projSubInput');
-    const themeInput = document.getElementById('projThemeInput');
+    const managerSelect = document.getElementById('projManagerSelect');
+    const assigneesInput = document.getElementById('projAssigneesInput');
     const progressInput = document.getElementById('projProgressInput');
+    const prioritySelect = document.getElementById('projPrioritySelect');
     const dueInput = document.getElementById('projDueInput');
 
     const name = nameInput?.value.trim() || 'New Project';
     const sub = subInput?.value.trim() || 'Web Application';
-    const theme = themeInput?.value || 'blue';
-    const progress = Math.min(100, Math.max(0, parseInt(progressInput?.value, 10) || 20));
+    const managerId = managerSelect ? parseInt(managerSelect.value, 10) : 0;
+    const selectedOpt = managerSelect ? managerSelect.options[managerSelect.selectedIndex] : null;
+    const managerName = selectedOpt?.getAttribute('data-name') || selectedOpt?.textContent || 'Assigned Manager';
+    const assignees = assigneesInput?.value.trim() || 'Development Team';
+    const progress = Math.min(100, Math.max(0, parseInt(progressInput?.value, 10) || 0));
+    const priority = prioritySelect?.value || 'HIGH';
     const due = dueInput?.value.trim() || 'Due: 30 Oct';
+
+    if (!managerId) {
+        showDashToast('Please select a manager to assign the project to!', 'error');
+        managerSelect?.focus();
+        return;
+    }
 
     const projObj = {
         id: 'proj_' + Date.now(),
         name,
         sub,
-        theme,
+        manager_id: managerId,
+        manager_name: managerName,
+        assignees,
         progress,
+        priority,
         due
     };
 
@@ -725,24 +784,57 @@ window.handleCreateProject = function(e) {
         return;
     }
 
-    // 1. Render in Recent Projects
+    // 1. Send API request to create project and dispatch individual notification specifically to the manager
+    const token = localStorage.getItem('auth_token') || localStorage.getItem('token');
+    const origin = window.location.origin;
+    const apiBase = origin.includes('localhost') 
+        ? `${origin}/employee-qr-system/backend/public` 
+        : `${origin}/backend/public`;
+
+    try {
+        fetch(`${apiBase}/api/projects`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                sub,
+                manager_id: managerId,
+                manager_name: managerName,
+                assignees,
+                progress,
+                priority,
+                due_date: due
+            })
+        }).then(r => r.json()).then(data => {
+            if (data && data.success) {
+                console.log('Project created & notification sent to manager:', data);
+            }
+        }).catch(err => console.debug('Project API call error:', err));
+    } catch (_) {}
+
+    // 2. Render in Recent Projects
     renderProjectInCarousel(projObj, true);
 
-    // 2. Persist in localStorage
+    // 3. Persist in localStorage
     const stored = JSON.parse(localStorage.getItem('admin_recent_projects') || '[]');
     stored.unshift(projObj);
     localStorage.setItem('admin_recent_projects', JSON.stringify(stored));
 
-    // 3. Update KPI Pill Counter
+    // 4. Update KPI Pill Counter
     const kpiProjects = document.getElementById('dashKpiProjects');
     if (kpiProjects) {
         const currentCount = parseInt(kpiProjects.textContent, 10) || 0;
         kpiProjects.textContent = currentCount + 1;
     }
 
-    // 4. Feedback & Reset
-    showDashToast('New Project created and added to Recent Projects!');
+    // 5. Feedback & Reset
+    showDashToast(`Project created & assigned to ${managerName}! Notification sent to their account.`);
     nameInput.value = '';
+    if (assigneesInput) assigneesInput.value = 'Development Team';
     closeDashModal('newProjectModal');
 };
 
@@ -754,33 +846,29 @@ function renderProjectInCarousel(proj, prepend = false) {
         return; // Completed 100% projects are gone from the active table
     }
 
-    const themeClass = `proj-theme-${proj.theme}`;
-    const iconClass = `icon-${proj.theme}`;
-    const fillClass = `fill-${proj.theme}`;
-
+    const mgrName = proj.manager_name || (proj.manager_id == 6 ? 'Seetha' : 'Manager');
     const card = document.createElement('div');
-    card.className = `mini-project-card ${themeClass}`;
+    card.className = `mini-project-card proj-theme-blue`;
     card.setAttribute('data-proj-id', proj.id);
     card.setAttribute('data-proj-progress', proj.progress);
     card.innerHTML = `
         <div class="proj-top">
-            <div class="proj-icon ${iconClass}">
+            <div class="proj-icon icon-blue">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             </div>
             <div>
                 <strong class="proj-name">${escapeHtml(proj.name)}</strong>
-                <small class="proj-sub">${escapeHtml(proj.sub)}</small>
+                <small class="proj-sub">${escapeHtml(proj.sub)} • <span style="color:#0284c7;font-weight:700;">👤 Lead: ${escapeHtml(mgrName)}</span></small>
             </div>
         </div>
         <div class="proj-prog-row">
-            <div class="mini-progress-bar"><div class="mini-progress-fill ${fillClass}" style="width: ${proj.progress}%;"></div></div>
+            <div class="mini-progress-bar"><div class="mini-progress-fill fill-blue" style="width: ${proj.progress}%;"></div></div>
             <span class="proj-prog-val">${proj.progress}%</span>
         </div>
         <div class="proj-footer">
-            <div class="avatar-stack-tiny">
-                <span class="tiny-av av-1">A</span>
-                <span class="tiny-av av-2">H</span>
-            </div>
+            <span style="font-size:11px; color:#475569; font-weight:600; display:inline-flex; align-items:center; gap:3px;">
+                👤 ${escapeHtml(mgrName)}
+            </span>
             <span class="proj-due">${escapeHtml(proj.due)}</span>
         </div>
     `;
