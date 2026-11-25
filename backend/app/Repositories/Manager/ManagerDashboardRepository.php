@@ -38,8 +38,12 @@ class ManagerDashboardRepository
             manager_id INT UNSIGNED NULL,
             name VARCHAR(150) NOT NULL,
             role_title VARCHAR(100) NOT NULL,
+            department VARCHAR(100) NOT NULL DEFAULT 'Development',
             avatar_initials VARCHAR(10) NOT NULL,
             status ENUM('PRESENT','ON_LEAVE','ABSENT') NOT NULL DEFAULT 'PRESENT',
+            workload_current INT NOT NULL DEFAULT 5,
+            workload_max INT NOT NULL DEFAULT 8,
+            performance_rating DECIMAL(2,1) NOT NULL DEFAULT 4.2,
             email VARCHAR(150) NULL,
             phone VARCHAR(30) NULL,
             created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -175,17 +179,21 @@ class ManagerDashboardRepository
             KEY idx_mrr_dept (department)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-        // Ensure columns in manager_team_members
-        try {
-            $cols = $this->db->query("SHOW COLUMNS FROM manager_team_members LIKE 'department'")->fetchAll();
-            if (empty($cols)) {
-                $this->db->exec("ALTER TABLE manager_team_members 
-                    ADD COLUMN department VARCHAR(100) NOT NULL DEFAULT 'Development' AFTER role_title,
-                    ADD COLUMN workload_current INT NOT NULL DEFAULT 5 AFTER status,
-                    ADD COLUMN workload_max INT NOT NULL DEFAULT 8 AFTER workload_current,
-                    ADD COLUMN performance_rating DECIMAL(2,1) NOT NULL DEFAULT 4.2 AFTER workload_max");
-            }
-        } catch (\Throwable $_) {}
+        // Ensure columns in manager_team_members individually
+        $columnsToEnsure = [
+            'department' => "ALTER TABLE manager_team_members ADD COLUMN department VARCHAR(100) NOT NULL DEFAULT 'Development'",
+            'workload_current' => "ALTER TABLE manager_team_members ADD COLUMN workload_current INT NOT NULL DEFAULT 5",
+            'workload_max' => "ALTER TABLE manager_team_members ADD COLUMN workload_max INT NOT NULL DEFAULT 8",
+            'performance_rating' => "ALTER TABLE manager_team_members ADD COLUMN performance_rating DECIMAL(2,1) NOT NULL DEFAULT 4.2"
+        ];
+        foreach ($columnsToEnsure as $col => $alterSql) {
+            try {
+                $cols = $this->db->query("SHOW COLUMNS FROM manager_team_members LIKE '{$col}'")->fetchAll();
+                if (empty($cols)) {
+                    $this->db->exec($alterSql);
+                }
+            } catch (\Throwable $_) {}
+        }
     }
 
 
@@ -194,7 +202,8 @@ class ManagerDashboardRepository
      */
     public function seedIfEmpty(): void
     {
-        $this->ensureSchema();
+        try {
+            $this->ensureSchema();
 
         // 1. Seed default Manager User in users table if absent
         try {
@@ -419,6 +428,9 @@ class ManagerDashboardRepository
             foreach ($repRecords as $r) {
                 $stmt->execute($r);
             }
+        }
+        } catch (\Throwable $e) {
+            error_log("ManagerDashboardRepository::seedIfEmpty notice: " . $e->getMessage());
         }
     }
 

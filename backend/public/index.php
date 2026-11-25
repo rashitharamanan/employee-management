@@ -158,19 +158,15 @@ try {
 
     $employeeAttendanceRepository =
         new EmployeeAttendanceRepository($pdo);
-    $employeeAttendanceRepository->ensureSchema();
 
     $employeePerformanceRepository =
         new EmployeePerformanceRepository($pdo);
-    $employeePerformanceRepository->ensureSchema();
 
     $employeeDocumentsRepository =
         new EmployeeDocumentsRepository($pdo);
-    $employeeDocumentsRepository->ensureSchema();
 
     $managerDashboardRepository =
         new ManagerDashboardRepository($pdo);
-    $managerDashboardRepository->seedIfEmpty();
 
     $departmentRepository =
         new DepartmentRepository($pdo);
@@ -190,17 +186,11 @@ try {
     $policyRepository =
         new PolicyRepository($pdo);
 
-    $policyRepository->ensureSchema();
-
     $analyticsRepository =
         new AnalyticsRepository($pdo);
 
-    $analyticsRepository->ensureSchema();
-
     $settingsRepository =
         new SettingsRepository($pdo);
-
-    $settingsRepository->ensureSchema();
 
     $dashboardRepository =
         new DashboardRepository($pdo);
@@ -208,16 +198,8 @@ try {
     $leaveRepository =
         new LeaveRepository($pdo);
 
-    $leaveRepository->ensureSchema();
-
     $hrDashboardRepository =
         new HrDashboardRepository($pdo);
-
-    $hrDashboardRepository->ensureRecruitmentSchema();
-
-    $hrDashboardRepository->ensureOnboardingExitSchema();
-
-    $hrDashboardRepository->ensurePayrollSchema();
 
     $hrEmployeeRepository =
         new HrEmployeeRepository($pdo);
@@ -231,17 +213,35 @@ try {
     $performanceRepository =
         new PerformanceRepository($pdo);
 
-    $performanceRepository->ensureSchema();
-
     $trainingRepository =
         new TrainingRepository($pdo);
-
-    $trainingRepository->ensureSchema();
 
     $hrReportsRepository =
         new HrReportsRepository($pdo);
 
-    $hrReportsRepository->ensureSchema();
+    // Safely execute schema checks / demo seeders without blocking application boot
+    $safeBoot = function(callable $callback) {
+        try {
+            $callback();
+        } catch (\Throwable $e) {
+            error_log("Schema initialization notice: " . $e->getMessage());
+        }
+    };
+
+    $safeBoot(fn() => $employeeAttendanceRepository->ensureSchema());
+    $safeBoot(fn() => $employeePerformanceRepository->ensureSchema());
+    $safeBoot(fn() => $employeeDocumentsRepository->ensureSchema());
+    $safeBoot(fn() => $managerDashboardRepository->seedIfEmpty());
+    $safeBoot(fn() => $policyRepository->ensureSchema());
+    $safeBoot(fn() => $analyticsRepository->ensureSchema());
+    $safeBoot(fn() => $settingsRepository->ensureSchema());
+    $safeBoot(fn() => $leaveRepository->ensureSchema());
+    $safeBoot(fn() => $hrDashboardRepository->ensureRecruitmentSchema());
+    $safeBoot(fn() => $hrDashboardRepository->ensureOnboardingExitSchema());
+    $safeBoot(fn() => $hrDashboardRepository->ensurePayrollSchema());
+    $safeBoot(fn() => $performanceRepository->ensureSchema());
+    $safeBoot(fn() => $trainingRepository->ensureSchema());
+    $safeBoot(fn() => $hrReportsRepository->ensureSchema());
 
 
     /*
