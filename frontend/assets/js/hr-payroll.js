@@ -5,7 +5,7 @@
    Handles monthly register, run payroll, payslips, filters, export & insights
    ========================================================================== */
 
-const PAYROLL_API = 'http://localhost/employee-qr-system/backend/public';
+const PAYROLL_API = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
 const state = {
     activeTab: 'all', // 'all' | 'pending' | 'paid'

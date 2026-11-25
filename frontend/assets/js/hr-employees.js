@@ -1,6 +1,6 @@
 'use strict';
 
-const HR_EMPLOYEE_API = 'http://localhost/employee-qr-system/backend/public';
+const HR_EMPLOYEE_API = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 const employee$ = id => document.getElementById(id);
 const employeeToken = () => localStorage.getItem('auth_token') || localStorage.getItem('token') || '';
 const employeeEscape = value => String(value ?? '').replace(/[&<>"']/g, char => ({

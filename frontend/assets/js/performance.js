@@ -5,7 +5,7 @@
    Connects to GET/POST/PUT/DELETE /api/performance/*
 ========================================================= */
 
-const API_BASE = 'http://localhost/employee-qr-system/backend/public';
+const API_BASE = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
 const state = {
     activeTab: 'reviews',

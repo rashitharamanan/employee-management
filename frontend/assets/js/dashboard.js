@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const DASHBOARD_API = 'http://localhost/employee-qr-system/backend/public';
+const DASHBOARD_API = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
 function dashToken() {
     return localStorage.getItem('auth_token') || localStorage.getItem('token') || '';

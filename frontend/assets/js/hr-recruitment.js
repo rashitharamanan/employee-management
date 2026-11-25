@@ -5,7 +5,7 @@
    Unified lifecycle directory, filters, dynamic tabs, insights and actions
    ========================================================================== */
 
-const API_BASE = 'http://localhost/employee-qr-system/backend/public';
+const API_BASE = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
 const state = {
     activeTab: 'jobs', // 'jobs' | 'candidates' | 'joiners' | 'exit'

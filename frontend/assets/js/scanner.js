@@ -8,7 +8,7 @@
 */
 
 const API_BASE_URL =
-    "http://localhost/employee-qr-system/backend/public";
+    (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
 
 /*

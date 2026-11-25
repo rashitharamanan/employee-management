@@ -10,7 +10,7 @@ const API_BASE = (function () {
     if (origin && origin !== 'null') {
         return origin + '/employee-qr-system/backend/public';
     }
-    return 'http://localhost/employee-qr-system/backend/public';
+    return (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 })();
 
 const state = {

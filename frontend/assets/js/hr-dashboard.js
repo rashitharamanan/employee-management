@@ -5,7 +5,7 @@
  * Strict Violet & Pink Color Palette
  */
 
-const HR_API = 'http://localhost/employee-qr-system/backend/public';
+const HR_API = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 const hr$ = id => document.getElementById(id);
 const hrToken = () => localStorage.getItem('auth_token') || localStorage.getItem('token') || '';
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));

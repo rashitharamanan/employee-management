@@ -6,7 +6,7 @@
  * Seamlessly paired with HR Dashboard & HR Employees Directory
  */
 
-const ATT_API = 'http://localhost/employee-qr-system/backend/public';
+const ATT_API = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
 const attState = {
     page: 1,

@@ -1,5 +1,5 @@
 'use strict';
-const OE_API = 'http://localhost/employee-qr-system/backend/public';
+const OE_API = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 const token = () => localStorage.getItem('auth_token') || localStorage.getItem('token') || '';
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
 

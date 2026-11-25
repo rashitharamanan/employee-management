@@ -7,8 +7,9 @@ backend/.env
 
 # Database backups & logs
 *.log
-*.sql
 *.sqlite
+database/backups/*
+!database/schema.sql
 
 # OS and Editor files
 .DS_Store

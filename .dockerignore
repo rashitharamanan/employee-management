@@ -1,0 +1,6 @@
+.git
+.github
+*.log
+scratch
+backend/storage/logs/*
+!backend/storage/logs/.gitkeep

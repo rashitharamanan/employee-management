@@ -1,6 +1,6 @@
 'use strict';
 
-const API_BASE = 'http://localhost/employee-qr-system/backend/public';
+const API_BASE = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 const state = { roles: [], permissions: [], editingRoleId: null, selectedRoleId: null };
 const token = () => localStorage.getItem('auth_token') || localStorage.getItem('token') || '';
 

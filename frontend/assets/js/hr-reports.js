@@ -1,5 +1,5 @@
 'use strict';
-const API_BASE = 'http://localhost/employee-qr-system/backend/public';
+const API_BASE = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 const $ = id => document.getElementById(id);
 const token = () => localStorage.getItem('auth_token') || localStorage.getItem('token') || '';
 const esc = v => String(v ?? '').replace(/[&<>'"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));

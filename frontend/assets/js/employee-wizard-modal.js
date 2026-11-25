@@ -7,7 +7,7 @@
 (function () {
     'use strict';
 
-    const API_HOST = 'http://localhost/employee-qr-system/backend/public';
+    const API_HOST = (window.location.origin + (window.location.pathname.includes('/employee-qr-system') ? '/employee-qr-system/backend/public' : '/backend/public'));
 
     let currentStep = 1;
     const TOTAL_STEPS = 4;
