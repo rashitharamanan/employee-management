@@ -43,3 +43,4 @@ EXPOSE 80
 
 # Run entrypoint script (handles Railway dynamic PORT)
 CMD ["/usr/local/bin/start.sh"]
+
