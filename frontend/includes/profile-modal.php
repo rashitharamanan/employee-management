@@ -102,35 +102,18 @@
                     <strong class="up-detail-val" id="upDetailEmpCode">—</strong>
                 </div>
 
-                <!-- Phone (Editable Contact Number) -->
-                <div class="up-detail-item up-detail-editable" id="upPhoneDetailItem" title="Click to edit contact phone">
+                <!-- Contact Phone -->
+                <div class="up-detail-item">
                     <div class="up-detail-header-flex">
                         <span class="up-detail-label">Contact Phone</span>
-                        <span class="up-editable-badge" id="upPhoneBadge" title="Click to edit">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                            Editable
+                        <span class="up-lock-icon" title="Fixed (Non-editable)">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
                         </span>
                     </div>
-                    <div id="upPhoneViewWrap">
-                        <strong class="up-detail-val" id="upDetailPhone">—</strong>
-                    </div>
-                    <div id="upPhoneEditWrap" style="display:none; margin-top:4px;">
-                        <div class="up-inline-input-group">
-                            <input type="tel" id="upInputPhone" class="up-form-input up-inline-input" placeholder="Enter contact phone" maxlength="25">
-                            <button type="button" class="up-inline-btn up-inline-save" id="upInlineSaveBtn" title="Save phone">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </button>
-                            <button type="button" class="up-inline-btn up-inline-cancel" id="upInlineCancelBtn" title="Cancel">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="18" y1="6" x2="6" y2="18"/>
-                                    <line x1="6" y1="6" x2="18" y2="18"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <span class="up-inline-hint">Press Enter to save, Esc to cancel</span>
-                    </div>
+                    <strong class="up-detail-val" id="upDetailPhone">—</strong>
                 </div>
 
                 <!-- Official Email -->
@@ -1318,106 +1301,8 @@ body:has(.employee-sidebar) .up-modal-email {
 
     let currentModalUser = null;
 
-    // Enter Contact Phone Edit Mode
-    function enterProfileEditMode() {
-        const phoneView = document.getElementById('upPhoneViewWrap');
-        const phoneEdit = document.getElementById('upPhoneEditWrap');
-        const phoneInput = document.getElementById('upInputPhone');
-        const phoneDetailItem = document.getElementById('upPhoneDetailItem');
-        const phoneBadge = document.getElementById('upPhoneBadge');
-
-        if (phoneView) phoneView.style.display = 'none';
-        if (phoneEdit) phoneEdit.style.display = 'block';
-        if (phoneDetailItem) phoneDetailItem.classList.add('is-editing');
-        if (phoneBadge) phoneBadge.style.display = 'none';
-
-        if (phoneInput) {
-            const u = currentModalUser || getStoredUser() || {};
-            const cur = u.phone || u.contact_number || '';
-            phoneInput.value = (cur && cur !== '+1 (555) 019-2834') ? cur : (cur || '');
-            phoneInput.focus();
-            phoneInput.select();
-        }
-    }
-
-    // Exit Contact Phone Edit Mode
     function exitProfileEditMode() {
-        const phoneView = document.getElementById('upPhoneViewWrap');
-        const phoneEdit = document.getElementById('upPhoneEditWrap');
-        const phoneDetailItem = document.getElementById('upPhoneDetailItem');
-        const phoneBadge = document.getElementById('upPhoneBadge');
-
-        if (phoneView) phoneView.style.display = 'block';
-        if (phoneEdit) phoneEdit.style.display = 'none';
-        if (phoneDetailItem) phoneDetailItem.classList.remove('is-editing');
-        if (phoneBadge) phoneBadge.style.display = 'inline-flex';
-    }
-
-    // Save Contact Phone to Backend
-    async function saveProfileContact() {
-        const phoneInput = document.getElementById('upInputPhone');
-        const saveBtn = document.getElementById('upInlineSaveBtn');
-        if (!phoneInput) return;
-
-        const newPhone = phoneInput.value.trim();
-        const token = localStorage.getItem('auth_token') || localStorage.getItem('token');
-        if (!token) {
-            showUniversalToast('You are not signed in.', 'error');
-            return;
-        }
-
-        const origHtml = saveBtn ? saveBtn.innerHTML : '';
-        if (saveBtn) {
-            saveBtn.disabled = true;
-            saveBtn.innerHTML = '<span style="font-size:10px;">...</span>';
-        }
-
-        try {
-            const apiBase = getApiBase();
-            const res = await fetch(`${apiBase}/api/me/update`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({ phone: newPhone })
-            });
-
-            const data = await res.json().catch(() => null);
-
-            if (res.ok && data && data.success) {
-                // Update local storage user
-                const u = getStoredUser() || {};
-                u.phone = newPhone;
-                u.contact_number = newPhone;
-                if (data.data && data.data.user) {
-                    Object.assign(u, data.data.user);
-                }
-                saveStoredUser(u);
-                currentModalUser = u;
-
-                // Update UI text
-                const elPhone = document.getElementById('upDetailPhone');
-                if (elPhone) {
-                    elPhone.textContent = newPhone || 'Not provided';
-                }
-
-                showUniversalToast('Contact phone updated successfully!', 'success');
-                exitProfileEditMode();
-            } else {
-                const errMsg = (data && data.message) ? data.message : 'Failed to update contact phone.';
-                showUniversalToast(errMsg, 'error');
-            }
-        } catch (err) {
-            console.error('Update profile error:', err);
-            showUniversalToast('Network error while updating contact number.', 'error');
-        } finally {
-            if (saveBtn) {
-                saveBtn.disabled = false;
-                saveBtn.innerHTML = origHtml;
-            }
-        }
+        // No-op (all fields are fixed)
     }
 
     // Populate and open the Profile Modal
@@ -1862,71 +1747,6 @@ body:has(.employee-sidebar) .up-modal-email {
             logoutBtn.addEventListener('click', handleLogout);
         }
 
-        // Profile Inline Click-to-Edit handlers
-        const phoneDetailItem = document.getElementById('upPhoneDetailItem');
-        const editBadge = document.getElementById('upPhoneBadge');
-        const inlineCancelBtn = document.getElementById('upInlineCancelBtn');
-        const inlineSaveBtn = document.getElementById('upInlineSaveBtn');
-        const phoneInput = document.getElementById('upInputPhone');
-
-        if (phoneDetailItem && !phoneDetailItem._boundClick) {
-            phoneDetailItem._boundClick = true;
-            phoneDetailItem.addEventListener('click', function(e) {
-                if (phoneDetailItem.classList.contains('is-editing')) return;
-                enterProfileEditMode();
-            });
-        }
-
-        if (editBadge && !editBadge._bound) {
-            editBadge._bound = true;
-            editBadge.addEventListener('click', function(e) {
-                e.stopPropagation();
-                enterProfileEditMode();
-            });
-        }
-
-        if (inlineCancelBtn && !inlineCancelBtn._bound) {
-            inlineCancelBtn._bound = true;
-            inlineCancelBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                exitProfileEditMode();
-            });
-        }
-
-        if (inlineSaveBtn && !inlineSaveBtn._bound) {
-            inlineSaveBtn._bound = true;
-            inlineSaveBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                saveProfileContact();
-            });
-        }
-
-        if (phoneInput && !phoneInput._bound) {
-            phoneInput._bound = true;
-            phoneInput.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-            phoneInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    saveProfileContact();
-                } else if (e.key === 'Escape') {
-                    e.preventDefault();
-                    exitProfileEditMode();
-                }
-            });
-        }
-
-        // Click outside phoneDetailItem to exit edit mode
-        document.addEventListener('click', function(e) {
-            const pItem = document.getElementById('upPhoneDetailItem');
-            if (pItem && pItem.classList.contains('is-editing')) {
-                if (!pItem.contains(e.target)) {
-                    exitProfileEditMode();
-                }
-            }
-        });
-
         // Global sidebar logout buttons
         const sidebarLogoutBtns = document.querySelectorAll('#logoutButton, #empLogoutButton, .logout-button');
         sidebarLogoutBtns.forEach(btn => {
@@ -1948,11 +1768,6 @@ body:has(.employee-sidebar) .up-modal-email {
         // Keyboard Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                const pItem = document.getElementById('upPhoneDetailItem');
-                if (pItem && pItem.classList.contains('is-editing')) {
-                    exitProfileEditMode();
-                    return;
-                }
                 closeProfileModal();
                 notifPanels.forEach(p => p.style.display = 'none');
                 msgPanels.forEach(p => p.style.display = 'none');
